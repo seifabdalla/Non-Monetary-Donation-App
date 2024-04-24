@@ -22,7 +22,7 @@ export function WelcomePage() {
                     <img src={orphanImage} alt="Refugee Orphan" className="w-[36rem] h-auto shadow-lg rounded-md" />
                 </div>
             </div>
-            <div id="about-us" className="w-full h-full py-6 bg-Midnight-Pine text-slate-100 mt-20 px-5 flex flex-row items-center justify-evenly">
+            <div id="about-us" className="w-full h-full py-6 bg-Midnight-Pine text-slate-100 mt-20 px-5 flex flex-row items-start justify-evenly">
                 {
                     info.map((item) => {
                         return (
