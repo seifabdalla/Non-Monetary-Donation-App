@@ -11,7 +11,7 @@ export function WelcomePage() {
                 <div className="w-96 flex flex-col gap-8">
                     <p className="text-7xl font-slogan font-bold">
                         HOPE IN EVERY 
-                        <span className="text-Mystic-Teal hover:cursor-pointer hover:text-red-800 transition-colors duration-300 ease-linear"> CLICK</span>
+                        <a className="text-Mystic-Teal hover:cursor-pointer hover:text-red-800 transition-colors duration-300 ease-linear" href="#about-us"> CLICK</a>
                     </p>
                     <q className="text-xl text-wrap font-mono italic text-slate-800">
                         Uniting Hearts, Uplifting Spirits: Your Compassionate Click
@@ -22,14 +22,20 @@ export function WelcomePage() {
                     <img src={orphanImage} alt="Refugee Orphan" className="w-[36rem] h-auto shadow-lg rounded-md" />
                 </div>
             </div>
-            <div id="about-us" className="w-full h-full py-6 bg-Midnight-Pine text-slate-100 mt-20 px-5 flex flex-row items-start justify-evenly">
-                {
-                    info.map((item) => {
-                        return (
-                            <StatisticsCircle title={item.title} description={item.description} value={item.value} key={item.title} />
-                        );
-                    })
-                }
+            <div id="about-us" className="w-full h-full py-6 bg-Midnight-Pine text-slate-100 mt-20 px-5 flex flex-col gap-4">
+                <div className="flex flex-row items-start justify-evenly">
+                    {
+                        info.map((item) => {
+                            return (
+                                <StatisticsCircle title={item.title} description={item.description} value={item.value} key={item.title} />
+                            );
+                        })
+                    }
+                </div>
+                <div className="text-center text-wrap">
+                    Join us and <a href="/register" className="text-Tropical-Lagoon hover:cursor-pointer hover:underline hover:underline-offset-2">make a difference</a> in the lives of orphans and refugees!
+                    Already have an account? <a href="/login" className="text-Tropical-Lagoon hover:cursor-pointer hover:underline hover:underline-offset-2">Login</a>
+                </div>
             </div>
         </div>
     );
