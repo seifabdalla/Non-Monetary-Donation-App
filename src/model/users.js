@@ -4,7 +4,7 @@ export const admin = {
 }
 
 
-export const users = [
+export const IndividualUsers = [
     {
         firstName: "John",
         lastName: "Doe",
@@ -27,4 +27,8 @@ export const users = [
         area: "Uptown",
         governorate: "Alexandria"
     },
+]
+
+export const OrganizationUsers = [
+
 ]
