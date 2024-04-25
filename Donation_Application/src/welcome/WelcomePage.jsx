@@ -1,6 +1,6 @@
 import { WelcomeHeader } from "./WelcomeHeader";
 import orphanImage from "../assets/images/child-stuck-migration-crisis-while-trying-immigrate.jpg";
-import { StatisticsCircle } from "./StatisticsCircle";
+import { StatisticsCircle } from "../components/StatisticsCircle";
 import {info} from "../model/about-us";
 
 export function WelcomePage() {
