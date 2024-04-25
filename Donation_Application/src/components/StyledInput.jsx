@@ -17,8 +17,8 @@ export function StyledInput(props){
         setWasTouched(true);
     };
 
-    const inputClassName = form__field text-slate-100 ${wasTouched ? 'required' : ''}
-    const labelClassName = form__label ${wasTouched ? 'required' : ''}
+    const inputClassName = `form__field text-slate-100 ${wasTouched ? 'required' : ''}`
+    const labelClassName = `form__label ${wasTouched ? 'required' : ''}`
 
     return (
         <div className="form__group field">
