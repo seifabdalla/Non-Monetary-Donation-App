@@ -2,6 +2,7 @@ import { WelcomeHeader } from "./WelcomeHeader";
 import orphanImage from "../assets/images/child-stuck-migration-crisis-while-trying-immigrate.jpg";
 import { StatisticsCircle } from "../components/StatisticsCircle";
 import {info} from "../model/about-us";
+import { Link } from "react-router-dom";
 
 export function WelcomePage() {
     return (
@@ -33,8 +34,8 @@ export function WelcomePage() {
                     }
                 </div>
                 <div className="text-center text-wrap">
-                    Join us and <a href="/register" className="text-Tropical-Lagoon hover:cursor-pointer hover:underline hover:underline-offset-2">make a difference</a> in the lives of orphans and refugees!
-                    Already have an account? <a href="/login" className="text-Tropical-Lagoon hover:cursor-pointer hover:underline hover:underline-offset-2">Login</a>
+                    Join us and <Link to="/register" className="text-Tropical-Lagoon hover:cursor-pointer hover:underline hover:underline-offset-2">make a difference</Link> in the lives of orphans and refugees!
+                    Already have an account? <Link to="/login" className="text-Tropical-Lagoon hover:cursor-pointer hover:underline hover:underline-offset-2">Login</Link>
                 </div>
             </div>
         </div>
