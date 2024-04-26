@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {StyledInput} from "../components/StyledInput.jsx";
 import {Link} from "react-router-dom";
+import StyledSelectInput from "../components/StyledSelectInput.jsx";
 
 export default function IndividualRegistration (){
 
@@ -15,7 +16,8 @@ export default function IndividualRegistration (){
     const [governorate, setGovernorate] = useState("");
 
     function handleGender(e){
-        setGender(e.target.value);
+        setGender(e.target.textContent);
+        console.log(e.target.textContent);
     }
 
     return (
@@ -39,19 +41,8 @@ export default function IndividualRegistration (){
                         <StyledInput type="text" text="Governorate" id="Governorate" value={governorate}
                                      onChange={setGovernorate}/>
                     </div>
-                    <div className="flex flex-row gap-4">
-                        <label>
-                            <input type="radio" value="Male"
-                                   checked={gender === "Male"}
-                                   onChange={handleGender}/>
-                            Male
-                        </label>
-                        <label>
-                            <input type="radio" value="Female"
-                                   checked={gender === "Female"}
-                                   onChange={handleGender}/>
-                            Female
-                        </label>
+                    <div className={"mt-4"}>
+                        <StyledSelectInput title={"Gender"} options={["Male","Female"]} onChange={handleGender} />
                     </div>
                 </div>
                 <button type="submit"

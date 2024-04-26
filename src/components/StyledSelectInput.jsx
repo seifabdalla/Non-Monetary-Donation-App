@@ -11,7 +11,7 @@ import { PopupContext } from '@mui/base/Unstable_Popup';
 export default function StyledSelectInput(props) {
     return (
         <Select defaultValue={""} onChange={props.onChange}>
-            <Option value={""}>{props.title}</Option>
+            <Option value={""} disabled>{props.title}</Option>
             {props.options.map((option) => {
                 return <Option key={option} value={option}>{option}</Option>
             })}
