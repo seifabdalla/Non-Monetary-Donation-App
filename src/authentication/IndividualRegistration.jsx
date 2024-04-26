@@ -14,14 +14,44 @@ export default function IndividualRegistration (){
     const [area, setArea] = useState("");
     const [governorate, setGovernorate] = useState("");
 
+    function handleGender(e){
+        setGender(e.target.value);
+    }
+
     return (
         <div className="w-1/2 h-full flex flex-col justify-center items-center">
-            <form className="w-1/3 flex flex-col items-center gap-6 py-6 px-4">
-                <h1 className="w-full text-5xl text-slate-200 font-logo">EغATHA</h1>
+            <form className="w-full flex flex-col items-center justify-center gap-6 py-6 px-4">
+                <h1 className="w-full text-5xl text-slate-200 font-logo text-center">EغATHA</h1>
                 <div className={"flex flex-col items-center justify-center overflow-y-auto"}>
-                    <div className={"flex flex-row"}>
-                        <StyledInput type="text" text="First Name" id="FirstName" value={FirstName} onChange={setFirstName}/>
-                        <StyledInput type="text" text="Last Name" id="LastName" value={LastName} onChange={setLastName}/>
+                    <div className={"flex flex-row gap-6"}>
+                        <StyledInput type="text" text="First Name" id="FirstName" value={FirstName}
+                                     onChange={setFirstName}/>
+                        <StyledInput type="text" text="Last Name" id="LastName" value={LastName}
+                                     onChange={setLastName}/>
+                    </div>
+                    <StyledInput type="email" text="Email" id="Email" value={Email} onChange={setEmail}/>
+                    <StyledInput type="password" text="Password" id="Password" value={Password} onChange={setPassword}/>
+                    <StyledInput type="text" text="Contact Number" id="ContactNumber" value={ContactNumber}
+                                 onChange={setContactNumber}/>
+                    <StyledInput type="text" text="Address" id="Address" value={Address} onChange={setAddress}/>
+                    <div className={"flex flex-row gap-6"}>
+                        <StyledInput type="text" text="Area" id="Area" value={area} onChange={setArea}/>
+                        <StyledInput type="text" text="Governorate" id="Governorate" value={governorate}
+                                     onChange={setGovernorate}/>
+                    </div>
+                    <div className="flex flex-row gap-4">
+                        <label>
+                            <input type="radio" value="Male"
+                                   checked={gender === "Male"}
+                                   onChange={handleGender}/>
+                            Male
+                        </label>
+                        <label>
+                            <input type="radio" value="Female"
+                                   checked={gender === "Female"}
+                                   onChange={handleGender}/>
+                            Female
+                        </label>
                     </div>
                 </div>
                 <button type="submit"
