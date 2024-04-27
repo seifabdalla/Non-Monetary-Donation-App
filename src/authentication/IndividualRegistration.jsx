@@ -46,10 +46,10 @@ export default function IndividualRegistration (){
 
 
     return (
-        <div className="w-3/4 h-full flex flex-col justify-center items-center">
-            <form className="w-full flex flex-col items-center justify-center gap-6 py-6 px-4" onSubmit={handleSubmit}>
-                <h1 className="w-full text-5xl text-slate-200 font-logo text-center">EغATHA</h1>
-                <div className={"flex flex-col items-center justify-center overflow-y-auto"}>
+        <div className="w-full h-full flex flex-col justify-center items-center overflow-x-hidden pt-6 pb-2">
+            <form className="w-full flex flex-col items-center justify-center gap-4 py-6 px-4" onSubmit={handleSubmit}>
+                <h1 className="w-full text-5xl text-slate-200 font-logo text-center ">EغATHA</h1>
+                <div className={"flex flex-col items-center justify-center px-4"}>
                     <div className={"flex flex-row gap-6"}>
                         <StyledInput type="text" text="First Name" id="FirstName" value={FirstName}
                                      onChange={setFirstName}/>
@@ -71,13 +71,17 @@ export default function IndividualRegistration (){
                     </div>
                     <div className={"mt-4 flex items-center justify-center"}>
                         <StyledSelectInput title={"Individual Type"} options={["Doctor","Teacher","Regular"]} onChange={handleIndividualType} />
-                </div>
-                <div className="flex items-center justify-center">
-                { (individualType === "Doctor" || individualType === "Teacher") ? <StyledFileInput /> : null }
-                            </div>
-                            </div>
+                    </div>
+
+                {(individualType === "Doctor" || individualType === "Teacher") ?
+                    <div className="w-full mt-1 flex flex-col items-center justify-center">
+                        <h4>Enter Legal Documents</h4>
+                        <StyledFileInput/>
+                    </div>
+                    : null}
+            </div>
                 <button type="submit"
-                        className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear">
+                        className="w-3/4 bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear">
                     Register
                 </button>
             </form>

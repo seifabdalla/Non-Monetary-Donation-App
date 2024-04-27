@@ -1,6 +1,7 @@
 import { StyledInput } from "../components/StyledInput";
 import {useState} from "react";
 import StyledSelectInput from "../components/StyledSelectInput.jsx";
+import {StyledFileInput} from "../components/StyledFileInput.jsx";
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {addOrgUser} from "../redux/OrganizationSlice.js";
@@ -73,6 +74,10 @@ export function RegisterAsOrganization(){
                     </div>
                     <div className={"mt-4 flex items-center justify-center"}>
                         <StyledSelectInput title={"Gender"} options={["Male", "Female"]} onChange={handleGender}/>
+                    </div>
+                    <div className={"w-full mt-3 flex flex-col items-center justify-center"}>
+                        <h4>Enter Legal Documents</h4>
+                        <StyledFileInput />
                     </div>
                 </div>
                 <button type="submit"
