@@ -23,5 +23,5 @@ export function StatisticsCircle({title,description,value}){
 StatisticsCircle.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    value: PropTypes.number.isRequired
+    value: PropTypes.string.isRequired
 }

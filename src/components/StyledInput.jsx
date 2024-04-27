@@ -11,7 +11,7 @@ export function StyledInput(props){
 
     const handleChange = (event) => {
         props.onChange(event.target.value);
-      };
+    };
 
     const handleBlur = () => {
         setWasTouched(true);

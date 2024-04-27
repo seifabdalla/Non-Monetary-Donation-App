@@ -1,10 +1,6 @@
-export const admin = {
-    username: "admin",
-    password: "password",
-}
+import {createSlice} from "@reduxjs/toolkit";
 
-
-export const IndividualUsers = [
+const IndividualUsers = [
     {
         firstName: "John",
         lastName: "Doe",
@@ -29,6 +25,19 @@ export const IndividualUsers = [
     },
 ]
 
-export const OrganizationUsers = [
+const initialState = {
+    IndividualUsers: IndividualUsers,
+};
 
-]
+const IndividualUserSlice = createSlice({
+    name: "IndividualUser",
+    initialState,
+    reducers: {
+        addIndUser: (state, action) => {
+            state.IndividualUsers.push(action.payload.user);
+        }
+    },
+});
+
+export const { addIndUser } = IndividualUserSlice.actions;
+export default IndividualUserSlice.reducer;

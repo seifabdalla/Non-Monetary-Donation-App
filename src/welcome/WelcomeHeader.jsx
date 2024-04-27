@@ -10,7 +10,9 @@ export function WelcomeHeader(){
                 </a>
             </div>
             <div>
-                <h1 className="font-logo text-5xl text-opacity-100">EغATHA</h1>
+                <h1 className="font-logo text-5xl text-opacity-100">
+                    <span>E</span>
+                    غ<span className={"-ml-1"}>ATHA</span></h1>
             </div>
             <div className="flex flex-row gap-3 items-center justify-center font-normal text-lg">
                 <Link to="/login" className="group hover:text-red-800 transition-colors duration-300 ease-linear">
