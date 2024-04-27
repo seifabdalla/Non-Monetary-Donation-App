@@ -2,8 +2,13 @@ import { StyledInput } from "../components/StyledInput";
 import {useState} from "react";
 import StyledSelectInput from "../components/StyledSelectInput.jsx";
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {addOrgUser} from "../redux/OrganizationSlice.js";
 
 export function RegisterAsOrganization(){
+
+    const dispatch = useDispatch();
+
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [gender, setGender] = useState("");
@@ -15,13 +20,31 @@ export function RegisterAsOrganization(){
     const [organizationAddress, setOrganizationAddress] = useState("");
     const [area, setArea] = useState("");
     const [governorate, setGovernorate] = useState("");
+
     function handleGender(e){
         setGender(e.target.value);
     }
 
+    function handleSubmit(){
+        const OrganizationUser = {
+            firstName: firstName,
+            lastName: lastName,
+            gender : gender,
+            email : email,
+            password : password,
+            contactNumber : contactNumber,
+            organizationName : organizationName,
+            organizationType : organizationType,
+            organizationAddress : organizationAddress,
+            area : area,
+            governorate : governorate
+        }
+        dispatch(addOrgUser({user: OrganizationUser}));
+    }
+
     return (
         <div className="w-3/4 h-full flex flex-col justify-center items-center">
-            <form className="w-full flex flex-col items-center justify-center gap-6 py-6 px-4">
+            <form className="w-full flex flex-col items-center justify-center gap-6 py-6 px-4" onSubmit={handleSubmit}>
                 <h1 className="w-full text-5xl text-center text-slate-200 font-logo">EغATHA</h1>
                 <div className="overflow-y-auto h-[32rem] w-full px-6">
 

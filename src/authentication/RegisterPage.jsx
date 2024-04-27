@@ -6,7 +6,6 @@ import StyledSelectInput from "../components/StyledSelectInput.jsx";
 
 
 
-
 export function RegisterPage(){
 
     const [registerType, setRegisterType] = useState("");
@@ -16,6 +15,7 @@ export function RegisterPage(){
     };
 
 
+
     return (
         <div className="w-screen h-screen bg-Midnight-Pine flex flex-row justify-between items-center">
             <div className="w-1/2 h-full">
@@ -23,15 +23,18 @@ export function RegisterPage(){
             </div>
             <div className="w-1/2 text-slate-200 h-full flex flex-col justify-center items-center text-white">
                 {
-                    registerType == "" && <StyledSelectInput title={"Register as"} options={["Individual", "Organization"]} onChange={handleRegisterTypeChange} value={registerType}/>
+                    registerType === "" && <StyledSelectInput title={"Register as"} options={["Individual", "Organization"]} onChange={handleRegisterTypeChange} value={registerType}/>
                 }
                 {
-                    registerType == "Individual" && <IndividualRegistration/>
+                    registerType === "Individual" && <IndividualRegistration/>
                 }
                 {
-                    registerType == "Organization" && <RegisterAsOrganization/>
+                    registerType === "Organization" && <RegisterAsOrganization/>
                 }
             </div>
         </div>
     );
 }
+
+
+
