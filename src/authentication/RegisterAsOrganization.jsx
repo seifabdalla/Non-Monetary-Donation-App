@@ -20,7 +20,7 @@ export function RegisterAsOrganization(){
     }
 
     return (
-        <div className="w-1/2 h-full flex flex-col justify-center items-center">
+        <div className="w-3/4 h-full flex flex-col justify-center items-center">
             <form className="w-full flex flex-col items-center justify-center gap-6 py-6 px-4">
                 <h1 className="w-full text-5xl text-center text-slate-200 font-logo">EغATHA</h1>
                 <div className="overflow-y-auto h-[32rem] w-full px-6">
@@ -35,10 +35,12 @@ export function RegisterAsOrganization(){
                     <StyledInput type="password" text="Password" id="password" value={password} onChange={setPassword}/>
                     <StyledInput type="text" text="Contact Number" id="contactNumber" value={contactNumber}
                                  onChange={setContactNumber}/>
-                    <StyledInput type="text" text="Organization Name" id="organizationName" value={organizationName}
-                                 onChange={setOrganizationName}/>
-                    <StyledInput type="text" text="Organization Type" id="organizationType" value={organizationType}
-                                 onChange={setOrganizationType}/>
+                    <div className={"flex flex-row gap-6"}>
+                        <StyledInput type="text" text="Organization Name" id="organizationName" value={organizationName}
+                                     onChange={setOrganizationName}/>
+                        <StyledInput type="text" text="Organization Type" id="organizationType" value={organizationType}
+                                     onChange={setOrganizationType}/>
+                    </div>
                     <StyledInput type="text" text="Organization Address" id="organizationAddress"
                                  value={organizationAddress} onChange={setOrganizationAddress}/>
                     <div className={"flex flex-row gap-6"}>

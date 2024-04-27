@@ -21,7 +21,7 @@ export default function IndividualRegistration (){
     }
 
     return (
-        <div className="w-1/2 h-full flex flex-col justify-center items-center">
+        <div className="w-3/4 h-full flex flex-col justify-center items-center">
             <form className="w-full flex flex-col items-center justify-center gap-6 py-6 px-4">
                 <h1 className="w-full text-5xl text-slate-200 font-logo text-center">EغATHA</h1>
                 <div className={"flex flex-col items-center justify-center overflow-y-auto"}>
