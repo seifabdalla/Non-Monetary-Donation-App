@@ -2,8 +2,12 @@ import {useState} from "react";
 import {StyledInput} from "../components/StyledInput.jsx";
 import {Link} from "react-router-dom";
 import StyledSelectInput from "../components/StyledSelectInput.jsx";
+import {useDispatch} from "react-redux";
+import {addIndUser} from "../redux/IndividualUserSlice.js";
 
 export default function IndividualRegistration (){
+
+    const dispatch = useDispatch();
 
     const [FirstName, setFirstName] = useState("");
     const [LastName, setLastName] = useState("");
@@ -20,9 +24,26 @@ export default function IndividualRegistration (){
         console.log(e.target.textContent);
     }
 
+
+    const handleSubmit = () => {
+        const newUser = {
+            firstName: FirstName,
+            lastName: LastName,
+            Email: Email,
+            Password: Password,
+            gender : gender,
+            ContactNumber: ContactNumber,
+            Address: Address,
+            area: area,
+            governorate: governorate
+        }
+        dispatch(addIndUser({user: newUser}));
+    }
+
+
     return (
         <div className="w-3/4 h-full flex flex-col justify-center items-center">
-            <form className="w-full flex flex-col items-center justify-center gap-6 py-6 px-4">
+            <form className="w-full flex flex-col items-center justify-center gap-6 py-6 px-4" onSubmit={handleSubmit}>
                 <h1 className="w-full text-5xl text-slate-200 font-logo text-center">EغATHA</h1>
                 <div className={"flex flex-col items-center justify-center overflow-y-auto"}>
                     <div className={"flex flex-row gap-6"}>
@@ -56,3 +77,4 @@ export default function IndividualRegistration (){
         </div>
     );
 }
+
