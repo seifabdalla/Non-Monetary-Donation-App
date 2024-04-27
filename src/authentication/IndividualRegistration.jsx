@@ -2,6 +2,7 @@ import {useState} from "react";
 import {StyledInput} from "../components/StyledInput.jsx";
 import {Link} from "react-router-dom";
 import StyledSelectInput from "../components/StyledSelectInput.jsx";
+import { StyledFileInput } from "../components/StyledFileInput.jsx";
 
 export default function IndividualRegistration (){
 
@@ -14,17 +15,19 @@ export default function IndividualRegistration (){
     const [Address, setAddress] = useState("");
     const [area, setArea] = useState("");
     const [governorate, setGovernorate] = useState("");
-
+    const [individualType, setIndividualType] = useState("");
     function handleGender(e){
         setGender(e.target.textContent);
-        console.log(e.target.textContent);
+    }
+    function handleIndividualType(e){
+        setIndividualType(e.target.textContent);
     }
 
     return (
         <div className="w-3/4 h-full flex flex-col justify-center items-center">
             <form className="w-full flex flex-col items-center justify-center gap-6 py-6 px-4">
-                <h1 className="w-full text-5xl text-slate-200 font-logo text-center">EغATHA</h1>
-                <div className={"flex flex-col items-center justify-center overflow-y-auto"}>
+                <h1 className="w-full text-5xl text-center text-slate-200 font-logo">EغATHA</h1>
+                <div className="overflow-y-auto h-[32rem] w-full px-6">
                     <div className={"flex flex-row gap-6"}>
                         <StyledInput type="text" text="First Name" id="FirstName" value={FirstName}
                                      onChange={setFirstName}/>
@@ -41,10 +44,16 @@ export default function IndividualRegistration (){
                         <StyledInput type="text" text="Governorate" id="Governorate" value={governorate}
                                      onChange={setGovernorate}/>
                     </div>
-                    <div className={"mt-4"}>
+                    <div className={"mt-4 flex items-center justify-center"}>
                         <StyledSelectInput title={"Gender"} options={["Male","Female"]} onChange={handleGender} />
                     </div>
+                    <div className={"mt-4 flex items-center justify-center"}>
+                        <StyledSelectInput title={"Individual Type"} options={["Doctor","Teacher","Regular"]} onChange={handleIndividualType} />
                 </div>
+                <div className="flex items-center justify-center">
+                { (individualType === "Doctor" || individualType === "Teacher") ? <StyledFileInput /> : null }
+                            </div>
+                            </div>
                 <button type="submit"
                         className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear">
                     Register
