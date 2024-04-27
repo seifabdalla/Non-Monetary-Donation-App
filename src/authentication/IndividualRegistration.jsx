@@ -1,16 +1,20 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {StyledInput} from "../components/StyledInput.jsx";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import StyledSelectInput from "../components/StyledSelectInput.jsx";
 import { StyledFileInput } from "../components/StyledFileInput.jsx";
 import {useDispatch} from "react-redux";
 import {addIndUser} from "../redux/IndividualUserSlice.js";
+import CustomSnackBar from "../components/CustomSnackBar.jsx";
 
 
 export default function IndividualRegistration (){
-
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    const [RegistrationDone,setRegistrationDone] = useState(false);
+    const [SnackbarFinished,setSnackBarFinished] = useState(false);
+    
     const [FirstName, setFirstName] = useState("");
     const [LastName, setLastName] = useState("");
     const [Email, setEmail] = useState("");
@@ -29,7 +33,8 @@ export default function IndividualRegistration (){
     }
 
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         const newUser = {
             firstName: FirstName,
             lastName: LastName,
@@ -42,7 +47,14 @@ export default function IndividualRegistration (){
             governorate: governorate
         }
         dispatch(addIndUser({user: newUser}));
+        setRegistrationDone(true);
     }
+
+    useEffect(() => {
+        if (SnackbarFinished === true){
+            navigate('/login');
+        }
+    }, [SnackbarFinished, navigate]);
 
 
     return (
@@ -88,6 +100,9 @@ export default function IndividualRegistration (){
             <p className="text-slate-200">Already have an Account? <Link to="/login"
                                                                             className="text-Tropical-Lagoon hover:underline">Login</Link>
             </p>
+            {
+                RegistrationDone && <CustomSnackBar message={"Registration Successful"} setIsFinished={setSnackBarFinished}  />
+            }
         </div>
     );
 }

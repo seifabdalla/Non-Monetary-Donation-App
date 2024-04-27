@@ -1,14 +1,18 @@
 import { StyledInput } from "../components/StyledInput";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import StyledSelectInput from "../components/StyledSelectInput.jsx";
 import {StyledFileInput} from "../components/StyledFileInput.jsx";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {addOrgUser} from "../redux/OrganizationSlice.js";
+import CustomSnackBar from "../components/CustomSnackBar.jsx";
 
 export function RegisterAsOrganization(){
-
+    const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const [RegistrationDone,setRegistrationDone] = useState(false);
+    const [SnackbarFinished,setSnackBarFinished] = useState(false);
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -26,7 +30,8 @@ export function RegisterAsOrganization(){
         setGender(e.target.value);
     }
 
-    function handleSubmit(){
+    function handleSubmit(e){
+        e.preventDefault();
         const OrganizationUser = {
             firstName: firstName,
             lastName: lastName,
@@ -41,7 +46,14 @@ export function RegisterAsOrganization(){
             governorate : governorate
         }
         dispatch(addOrgUser({user: OrganizationUser}));
+        setRegistrationDone(true);
     }
+
+    useEffect(() => {
+        if (SnackbarFinished === true){
+            navigate('/login');
+        }
+    }, [SnackbarFinished, navigate]);
 
     return (
         <div className="w-3/4 h-full flex flex-col justify-center items-center">
@@ -87,6 +99,7 @@ export function RegisterAsOrganization(){
             <p className="text-slate-200">Already have an Account? <Link to="/login"
                                                                          className="text-Tropical-Lagoon hover:underline">Login</Link>
             </p>
+            {RegistrationDone && <CustomSnackBar message={"Registration Successful"} setIsFinished={setSnackBarFinished}  />}
         </div>
     );
 }
