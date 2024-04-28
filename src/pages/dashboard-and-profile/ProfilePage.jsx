@@ -22,16 +22,24 @@ export default function ProfilePage(){
 
     return (
         <>
-        {User === null && <div>Loading ...</div>}
-    {
-        User != null && <div className=" flex flex-col justify-center self-center m-auto">
-            <div className={`w-1/2 h-1/2 bg-slate-50    text-Tropical-Lagoon border-Tropical-Lagoon hover:shadow-Tropical-Lagoon border-2 rounded-3xl p-4 
-        items-center justify-evenly gap-3 hover:bg-slate-100 
-        transition-shadow`}>
-                <Avatar>{User.firstName.charAt(0) + "" + User.lastName.charAt(0)}</Avatar>
-            </div>
-        </div>
-    }
-            </>
-);
+            {User === null && <div>Loading ...</div>}
+            {
+                User != null && <div className="flex justify-center items-center min-h-screen">
+
+                    <div
+                        className=" w-1/2 bg-slate-50  border-Tropical-Lagoon hover:shadow-Tropical-Lagoon border-2 rounded-3xl p-7
+                           flex-col gap-8 justify-between hover:bg-slate-100
+                            transition-shadow ">
+                        <Avatar>{User.firstName.charAt(0) + "" + User.lastName.charAt(0)}</Avatar>
+
+                        <div className={'flex-row'}><h1>Number: {User.contactNumber}</h1>
+                            <h1>Password: {User.password}</h1></div>
+                        <h1>Address: {User.address}</h1>
+                        <h1>Area: {User.area}</h1>
+                        <h1>Governorate: {User.governorate}</h1>
+                    </div>
+                </div>
+            }
+        </>
+    );
 }
