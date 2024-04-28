@@ -1,14 +1,15 @@
-import { WelcomeHeader } from "./WelcomeHeader";
-import orphanImage from "../assets/images/child-stuck-migration-crisis-while-trying-immigrate.jpg";
-import { StatisticsCircle } from "../components/StatisticsCircle";
-import {info} from "../model/about-us";
+import { WelcomeHeader } from "./WelcomeHeader.jsx";
+import orphanImage from "../../assets/images/child-stuck-migration-crisis-while-trying-immigrate.jpg";
+import { StatisticsCircle } from "../../components/StatisticsCircle.jsx";
+import {info} from "../../model/about-us.js";
 import { Link } from "react-router-dom";
+import "../../assets/styles/animations.css"
 
 export function WelcomePage() {
     return (
         <div className="w-screen h-screen bg-slate-300 flex flex-col gap-20 items-center justify-start pt-0 overflow-x-hidden">
             <WelcomeHeader />
-            <div className="flex-grow w-full h-full flex md:flex-row flex-col gap-5 items-center justify-center px-6 text-center">
+            <div className="flex-grow w-full h-full flex md:flex-row flex-col gap-5 items-center justify-center px-6 text-center puff-in-tr">
                 <div className="w-96 flex flex-col gap-8">
                     <p className="text-7xl font-slogan font-bold">
                         HOPE IN EVERY 

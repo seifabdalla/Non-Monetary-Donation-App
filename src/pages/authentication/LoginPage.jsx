@@ -1,12 +1,42 @@
-import { StyledInput } from "../components/StyledInput";
-import RefugeeShip from "../assets/images/refugee-ship.jpg";
+import { StyledInput } from "../../components/StyledInput.jsx";
+import RefugeeShip from "../../assets/images/refugee-ship.jpg";
 import {useState} from "react";
 import { Link } from "react-router-dom";
+import {useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 export function LoginPage(){
 
+    const navigate = useNavigate();
+
+    const indUsers = useSelector((state) => state.IndividualUser.IndividualUsers);
+    const orgUsers = useSelector((state) => state.OrganizationUser.OrganizationUsers);
+
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    function handleLogin() {
+        if (email === "admin" && password === "2004"){
+            navigate("/dashboard/admin/0");
+            return;
+        }
+        const individual = indUsers.find(user => user.email === email && user.password === password);
+
+        if (individual) {
+            navigate(`/dashboard/individual/${individual.userId}`);
+            return;
+        }
+
+        const organization = orgUsers.find(user => user.email === email && user.password === password);
+        if (organization) {
+            navigate(`/dashboard/organization/${organization.userId}`);
+            return;
+        }
+
+        alert("Invalid email or password");
+
+    }
 
     return (
         <div className="w-screen h-screen bg-Midnight-Pine flex flex-row justify-between items-center">
@@ -14,7 +44,7 @@ export function LoginPage(){
                 <img src={RefugeeShip} alt="Refugee Ship" className="w-full h-full object-cover" />
             </div>
             <div className="w-1/2 h-full flex flex-col justify-center items-center">
-                <form className="w-1/3 flex flex-col items-center gap-6 py-6 px-4">
+                <form className="w-1/3 flex flex-col items-center gap-6 py-6 px-4" onSubmit={handleLogin}>
                     <h1 className="w-full text-5xl text-slate-200 font-logo">EغATHA</h1>
                     <div>
                         <StyledInput type="text" text="Email" id="email" value={email} onChange={setEmail}/>
