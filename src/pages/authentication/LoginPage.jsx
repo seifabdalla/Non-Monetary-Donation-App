@@ -1,4 +1,4 @@
-import { StyledInput } from "../../components/StyledInput.jsx";
+import { StyledInput } from "../../components/styled-inputs/StyledInput.jsx";
 import RefugeeShip from "../../assets/images/refugee-ship.jpg";
 import {useState} from "react";
 import { Link } from "react-router-dom";

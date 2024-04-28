@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
-import {StyledInput} from "../../components/StyledInput.jsx";
+import {StyledInput} from "../../components/styled-inputs/StyledInput.jsx";
 import {Link, useNavigate} from "react-router-dom";
-import StyledSelectInput from "../../components/StyledSelectInput.jsx";
-import { StyledFileInput } from "../../components/StyledFileInput.jsx";
+import StyledSelectInput from "../../components/styled-inputs/StyledSelectInput.jsx";
+import { StyledFileInput } from "../../components/styled-inputs/StyledFileInput.jsx";
 import {useDispatch} from "react-redux";
 import {addIndUser} from "../../redux/IndividualUserSlice.js";
 import CustomSnackBar from "../../components/CustomSnackBar.jsx";

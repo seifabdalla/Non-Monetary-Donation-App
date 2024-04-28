@@ -1,4 +1,4 @@
-import MainHeader from "./MainHeader.jsx";
+import MainHeader from "../../components/MainHeader.jsx";
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import DashbordCard from "../../components/DashbordCard.jsx";

@@ -1,7 +1,7 @@
-import { StyledInput } from "../../components/StyledInput.jsx";
+import { StyledInput } from "../../components/styled-inputs/StyledInput.jsx";
 import {useEffect, useState} from "react";
-import StyledSelectInput from "../../components/StyledSelectInput.jsx";
-import {StyledFileInput} from "../../components/StyledFileInput.jsx";
+import StyledSelectInput from "../../components/styled-inputs/StyledSelectInput.jsx";
+import {StyledFileInput} from "../../components/styled-inputs/StyledFileInput.jsx";
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {addOrgUser} from "../../redux/OrganizationSlice.js";
