@@ -40,7 +40,7 @@ export default function DashboardPage(){
                             (card, index) => {
                                 return (
                                     <div key={index}>
-                                        <DashbordCard title={card.title} icon={card.icon} accentColor={card.color}/>
+                                        <DashbordCard title={card.title} icon={card.icon} accentColor={card.color} goTo={card.linkTo}/>
                                     </div>
                                 );
                             }
@@ -58,13 +58,16 @@ const cardData = [
     {
         title: "View Requests",
         icon: mdiHandCoin,
+        linkTo: "/view-requests"
     },
     {
         title: "View Organizations",
         icon: mdiDomain,
+        linkTo: "/view-requests"
     },
     {
         title: "Donation History",
         icon: mdiHistory,
+        linkTo: "/view-requests"
     }
 ]
