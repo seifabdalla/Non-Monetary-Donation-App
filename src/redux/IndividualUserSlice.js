@@ -2,6 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const IndividualUsers = [
     {
+        userId: 1,
         firstName: "John",
         lastName: "Doe",
         gender: "Male",
@@ -10,9 +11,11 @@ const IndividualUsers = [
         password: "password1",
         address: "123 Main St",
         area: "Downtown",
-        governorate: "Cairo"
+        governorate: "Cairo",
+        type: "Teacher"
     },
     {
+        userId: 2,
         firstName: "Jane",
         lastName: "Doe",
         gender: "Female",
@@ -21,7 +24,8 @@ const IndividualUsers = [
         password: "password2",
         address: "456 Elm St",
         area: "Uptown",
-        governorate: "Alexandria"
+        governorate: "Alexandria",
+        type: "Regular Donor"
     },
 ]
 
@@ -34,7 +38,12 @@ const IndividualUserSlice = createSlice({
     initialState,
     reducers: {
         addIndUser: (state, action) => {
-            state.IndividualUsers.push(action.payload.user);
+            const userId = state.IndividualUsers.length + 1;
+            const user = {
+                userId: userId,
+                ...action.payload.user
+            };
+            state.IndividualUsers.push(user);
         }
     },
 });

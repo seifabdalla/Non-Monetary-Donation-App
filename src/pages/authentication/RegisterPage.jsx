@@ -1,8 +1,8 @@
-import AfricanSchool from "../assets/images/school-Africa.jpg";
+import AfricanSchool from "../../assets/images/school-Africa.jpg";
 import {useState} from "react";
 import IndividualRegistration from "./IndividualRegistration.jsx";
 import {RegisterAsOrganization} from "./RegisterAsOrganization.jsx";
-import StyledSelectInput from "../components/StyledSelectInput.jsx";
+import StyledSelectInput from "../../components/StyledSelectInput.jsx";
 
 
 
