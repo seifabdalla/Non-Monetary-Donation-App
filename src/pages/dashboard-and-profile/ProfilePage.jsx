@@ -25,10 +25,10 @@ export default function ProfilePage(){
         <>
             {User === null && <div>Loading ...</div>}
             {
-                User != null && <div className="flex justify-center items-center min-h-screen">
+                User != null && <div className="flex justify-center   text-slate-100">
 
                     <div
-                        className=" w-1/2   bg-Midnight-Pine border-Tropical-Lagoon hover:shadow-Tropical-Lagoon border-2 rounded-3xl p-7
+                        className=" w-full h-full   bg-Midnight-Pine border-Tropical-Lagoon hover:shadow-Tropical-Lagoon border-2 rounded-3xl p-7
                            flex-col gap-8 justify-between
                             transition-shadow ">
                         <Avatar sx={{width: 100, height: 100}}>
@@ -40,7 +40,7 @@ export default function ProfilePage(){
                         </div>
 
                         <div className={' flex flex-row justify-between m-2 '}>
-                            <StyledInput  type="text" text="Email" id="email" value={User.email} />
+                            <div className="text-2xl">Email: {User.email}</div>
                             <div className="text-2xl">Password: {User.password}</div>
                         </div>
                         <div className={' flex flex-row justify-between m-2'}>
