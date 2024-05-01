@@ -20,7 +20,6 @@ export default function ProfilePage(){
             setUser(organizationUsers[userID-1]);
         }
     }, [userID,profileType]);
-
     return (
         <>
             {User === null && <div>Loading ...</div>}
@@ -28,9 +27,7 @@ export default function ProfilePage(){
                 User != null && <div className="flex justify-center   text-slate-100">
 
                     <div
-                        className=" w-full h-full   bg-Midnight-Pine border-Tropical-Lagoon hover:shadow-Tropical-Lagoon border-2 rounded-3xl p-7
-                           flex-col gap-8 justify-between
-                            transition-shadow ">
+                        className=" w-full h-full p-7 flex-col gap-8 justify-between">
                         <Avatar sx={{width: 100, height: 100}}>
                             <div className="text-6xl ">{User.firstName.charAt(0) + "" + User.lastName.charAt(0)}</div>
                         </Avatar>

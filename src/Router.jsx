@@ -22,10 +22,6 @@ const Router = () => {
         {
             path : "/dashboard/:profileType/:userID",
             element : <DashboardPage />
-        },
-        {
-            path : "/profile/:profileType/:userID",
-            element : <ProfilePage />
         }
     ]);
 

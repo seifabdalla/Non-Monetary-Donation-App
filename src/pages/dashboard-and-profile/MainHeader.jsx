@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 import Icon from '@mdi/react';
 import { mdiAccount,mdiBell ,mdiBellBadge  } from '@mdi/js';
-import {useNavigate} from "react-router-dom";
 import PropTypes from "prop-types";
 import {useState} from "react";
 import ModalPage from "./ModalPage.jsx";
@@ -10,9 +8,8 @@ export default function MainHeader(props){
 
     const [isOpenProfile, setOpenProfile] = useState(false);
 
-    const navigate = useNavigate();
     const openProfile = () => {
-        navigate(`/profile/${props.userType}/${props.userID}`)
+        setOpenProfile(true);
     }
     return (
         <>
