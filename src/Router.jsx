@@ -3,7 +3,7 @@ import { WelcomePage } from "./pages/welcome/WelcomePage.jsx";
 import { RegisterPage } from "./pages/authentication/RegisterPage.jsx";
 import { LoginPage } from "./pages/authentication/LoginPage.jsx";
 import DashboardPage from "./pages/dashboard-and-profile/DashboardPage.jsx";
-import ViewPage from "./pages/ViewPage.jsx";
+import ViewPage from "./pages/viewPages/ViewPage.jsx";
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -24,7 +24,7 @@ const Router = () => {
             element : <DashboardPage />
         },
         {
-            path : "/dashboard/:profileType/:userID/view-requests",
+            path : "/dashboard/:profileType/:userID/:viewType",
             element : <ViewPage />
         }
     ]);

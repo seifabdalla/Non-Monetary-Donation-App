@@ -24,7 +24,7 @@ export function LoginPage(){
         const individual = indUsers.find(user => user.email === email && user.password === password);
 
         if (individual) {
-            navigate(`/dashboard/individual/${individual.userId}`);
+            navigate(`/dashboard/donor/${individual.userId}`);
             return;
         }
 

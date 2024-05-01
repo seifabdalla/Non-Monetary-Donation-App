@@ -17,14 +17,13 @@ export default function DashboardPage(){
 
 
     useEffect(() => {
-        if (profileType === "individual"){
+        if (profileType === "donor"){
             setUser(individualUsers[userID-1]);
         } else {
             setUser(organizationUsers[userID-1]);
         }
     }, []);
 
-    console.log(User);
 
 
     return (
@@ -63,7 +62,7 @@ const cardData = [
     {
         title: "View Organizations",
         icon: mdiDomain,
-        linkTo: "/view-requests"
+        linkTo: "/view-organizations"
     },
     {
         title: "Donation History",

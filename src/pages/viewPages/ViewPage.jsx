@@ -1,16 +1,34 @@
-import MainHeader from "../components/MainHeader.jsx";
-import StyledSearch from "../components/styled-inputs/StyledSearch.jsx";
+import MainHeader from "../../components/MainHeader.jsx";
+import StyledSearch from "../../components/styled-inputs/StyledSearch.jsx";
 import {useEffect, useState} from "react";
-import DonationCards from "../components/DonationCards.jsx";
+import {useParams} from "react-router-dom";
+import DonationCards from "../../components/DonationCards.jsx";
 
-import {DonorsRequests} from "../model/view-page.js";
-import StyledSelectInput from "../components/styled-inputs/StyledSelectInput.jsx";
+import {DonorsRequests} from "../../model/view-page.js";
+import StyledSelectInput from "../../components/styled-inputs/StyledSelectInput.jsx";
 
 export default function ViewPage() {
+    const {profileType,viewType} = useParams();
 
     const [searchValue, setSearchValue] = useState("");
-    const [requests, setRequests] = useState(DonorsRequests.requests);
+    const [requests, setRequests] = useState([]);
     const [filters, setFilters] = useState({});
+
+
+    useEffect(() => {
+        console.log(viewType)
+        if (profileType.toLowerCase() === "donor") {
+            if (viewType.toLowerCase() === "view-requests"){
+                console.log("This page is called by a Donor - to View Requests")
+                setRequests(DonorsRequests.requests);
+            } else {
+                console.log("This page is called by a Donor - to View Organizations");
+                setRequests([]);
+            }
+        } else {
+            console.log("This page is called by an Organization");
+        }
+    }, []);
 
     const handleSearch = (event) => {
         setSearchValue(event.target.value);
@@ -79,5 +97,6 @@ export default function ViewPage() {
         </div>
     );
 }
+
 
 
