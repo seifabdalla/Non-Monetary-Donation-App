@@ -21,15 +21,15 @@ export default function ViewPage() {
     }
 
     return (
-        <div className={"h-screen w-screen bg-teal-100 flex flex-col items-center justify-start overflow-x-hidden"}>
+        <div className={"h-screen w-screen bg-teal-100 flex flex-col items-center justify-start overflow-hidden"}>
             <MainHeader />
-            <main className={"w-full h-full flex flex-col flex-grow"}>
-                <div className={"flex flex-row h-full w-full"}>
-                    <div className={"h-full px-10 py-5 flex flex-col gap-5"}>
+            <div className={"w-full h-full flex flex-col flex-grow"}>
+                <div className={"flex flex-row h-full w-full overflow-y-hidden"}>
+                    <div className={"h-full w-1/5 px-10 py-5 flex flex-col gap-5 border-r-2 border-slate-950"}>
                         <StyledSearch placeholder={"Search for a Request"} value={searchValue} onChange={handleSearch} />
                         <p>Other Filters</p>
                     </div>
-                    <div className={"flex flex-row flex-wrap flex-grow items-start justify-center gap-5 py-5"}>
+                    <div className={"h-full w-4/5 flex flex-row flex-wrap flex-grow items-start justify-center gap-5 pt-5 pb-10 overflow-y-auto"}>
                         {
                             requests.map((request, index) => {
                                 return (
@@ -39,15 +39,88 @@ export default function ViewPage() {
                                 );
                             })
                         }
+                        <div className={"h-10 w-full"}></div>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     );
 }
 
 
 const requestsForDonors = [
+    {
+        title: "Request 1",
+        description: "This Request was Made by Organization 1",
+        category: "Category 1",
+        requestedBy: "Requester 1"
+    },
+    {
+        title: "Request 2",
+        description: "Description 2",
+        category: "Category 2",
+        requestedBy: "Requester 2"
+    },
+    {
+        title: "Request 3",
+        description: "Description 3",
+        category: "Category 3",
+        requestedBy: "Requester 3"
+    },
+    {
+        title: "Request 1",
+        description: "This Request was Made by Organization 1",
+        category: "Category 1",
+        requestedBy: "Requester 1"
+    },
+    {
+        title: "Request 2",
+        description: "Description 2",
+        category: "Category 2",
+        requestedBy: "Requester 2"
+    },
+    {
+        title: "Request 3",
+        description: "Description 3",
+        category: "Category 3",
+        requestedBy: "Requester 3"
+    },
+    {
+        title: "Request 1",
+        description: "This Request was Made by Organization 1",
+        category: "Category 1",
+        requestedBy: "Requester 1"
+    },
+    {
+        title: "Request 2",
+        description: "Description 2",
+        category: "Category 2",
+        requestedBy: "Requester 2"
+    },
+    {
+        title: "Request 3",
+        description: "Description 3",
+        category: "Category 3",
+        requestedBy: "Requester 3"
+    },
+    {
+        title: "Request 1",
+        description: "This Request was Made by Organization 1",
+        category: "Category 1",
+        requestedBy: "Requester 1"
+    },
+    {
+        title: "Request 2",
+        description: "Description 2",
+        category: "Category 2",
+        requestedBy: "Requester 2"
+    },
+    {
+        title: "Request 3",
+        description: "Description 3",
+        category: "Category 3",
+        requestedBy: "Requester 3"
+    },
     {
         title: "Request 1",
         description: "This Request was Made by Organization 1",
