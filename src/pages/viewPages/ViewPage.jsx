@@ -66,13 +66,14 @@ export default function ViewPage() {
             <MainHeader />
             <div className={"w-full h-full flex flex-col flex-grow"}>
                 <div className={"flex flex-row h-full w-full overflow-y-hidden"}>
-                    <div className={"h-full w-1/5 px-10 py-5 flex flex-col gap-5 border-r-2 border-slate-950"}>
+                    <div className={"h-full w-1/5 px-10 py-5 flex flex-col gap-5 border-r-2 border-slate-950 overflow-y-auto"}>
                         <StyledSearch placeholder={"Search for a Request"} value={searchValue} onChange={handleSearch} />
-                        {
+                        { viewType === "view-requests" &&
                             DonorsRequests.filters.map((category, index) => {
+                                if ((category.basedCategoryFilter == null) || category.basedCategoryFilter === filters.category)
                                 return (
                                     <div key={index} className={"w-full flex flex-col gap-2"}>
-                                        <h3>Filter By a {category.filterByText}</h3>
+                                        <h3>{category.filterByText}</h3>
                                         <StyledSelectInput title={category.filterByText} options={category.options} onChange={(e)=>{handleCategoryFilter(e,category.filterBy)}} isDisabled={false} />
                                     </div>
                                 );
@@ -80,13 +81,15 @@ export default function ViewPage() {
                         }
                     </div>
                     <div className={"h-full w-4/5 flex flex-row flex-wrap flex-grow items-start justify-center gap-5 pt-5 px-4 pb-10 overflow-y-auto"}>
-                        {
+                        { viewType === "view-requests" &&
                             requests.map((request, index) => {
                                 return (
                                     <DonationCards title={request.title} shortDescription={request.description}
                                                    category={request.category}
                                                     requestedBy={request.requestedBy}
-                                                   key={index} />
+                                                   key={index}
+                                                    imgUrl={request.imgUrl}
+                                    />
                                 );
                             })
                         }
