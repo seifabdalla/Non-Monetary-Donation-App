@@ -4,8 +4,9 @@ import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import DonationCards from "../../components/DonationCards.jsx";
 
-import {DonorsRequests} from "../../model/view-page.js";
+import {DonorsRequests,Organizations} from "../../model/view-page.js";
 import StyledSelectInput from "../../components/styled-inputs/StyledSelectInput.jsx";
+import OrganizationCard from "../../components/OrganizationCard.jsx";
 
 export default function ViewPage() {
     const {profileType,viewType} = useParams();
@@ -23,7 +24,7 @@ export default function ViewPage() {
                 setRequests(DonorsRequests.requests);
             } else {
                 console.log("This page is called by a Donor - to View Organizations");
-                setRequests([]);
+                setRequests(Organizations);
             }
         } else {
             console.log("This page is called by an Organization");
@@ -40,6 +41,7 @@ export default function ViewPage() {
     }
 
     useEffect(() => {
+        if (viewType === "view-requests"){
             let filteredRequests = DonorsRequests.requests;
             // Apply filters
             for (const filterCategory in filters) {
@@ -58,6 +60,15 @@ export default function ViewPage() {
             }
 
             setRequests(filteredRequests);
+        } else {
+            if (searchValue !== "") {
+                const filteredOrganizations = Organizations.filter((organization) => {
+                    return organization.name.toLowerCase().includes(searchValue.toLowerCase());
+                });
+                setRequests(filteredOrganizations);
+            }
+        }
+
     }, [filters, searchValue]);
     
 
@@ -67,7 +78,7 @@ export default function ViewPage() {
             <div className={"w-full h-full flex flex-col flex-grow"}>
                 <div className={"flex flex-row h-full w-full overflow-y-hidden"}>
                     <div className={"h-full w-1/5 px-10 py-5 flex flex-col gap-5 border-r-2 border-slate-950 overflow-y-auto"}>
-                        <StyledSearch placeholder={"Search for a Request"} value={searchValue} onChange={handleSearch} />
+                        <StyledSearch placeholder={'Search'} value={searchValue} onChange={handleSearch} />
                         { viewType === "view-requests" &&
                             DonorsRequests.filters.map((category, index) => {
                                 if ((category.basedCategoryFilter == null) || category.basedCategoryFilter === filters.category)
@@ -90,6 +101,14 @@ export default function ViewPage() {
                                                    key={index}
                                                     imgUrl={request.imgUrl}
                                     />
+                                );
+                            })
+                        }
+                        {
+                            viewType === "view-organizations" &&
+                            Organizations.map((organization, index) => {
+                                return (
+                                    <OrganizationCard title={organization.name} imgUrl={organization.imgUrl} key={index} />
                                 );
                             })
                         }
