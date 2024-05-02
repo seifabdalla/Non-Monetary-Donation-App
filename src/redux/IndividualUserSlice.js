@@ -44,7 +44,13 @@ const IndividualUserSlice = createSlice({
                 ...action.payload.user
             };
             state.IndividualUsers.push(user);
+        },
+        updateIndUser: (state, action) => {
+            const user = action.payload.user;
+            const index = state.IndividualUsers.findIndex(indUser => indUser.userId === user.userId);
+            state.IndividualUsers[index] = user;
         }
+
     },
 });
 
