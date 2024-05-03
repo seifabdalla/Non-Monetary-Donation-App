@@ -6,6 +6,8 @@ import Icon from '@mdi/react';
 import { mdiPencil } from '@mdi/js';
 import {StyledInput} from "../../components/StyledInput.jsx";
 import CautionCard from "../../components/CautionCard.jsx";
+import MapStatic from "../../components/Mapstatic.jsx";
+import MapDynamic from "../../components/MapDynamics.jsx";
 
 export default function ProfilePage(){
     const {profileType , userID} = useParams();
@@ -126,7 +128,12 @@ export default function ProfilePage(){
                             className="text-2xl " type="text" text="Number of Private Classes" id="NumOfProBonoClasses"
                             value=""/> <StyledInput className="text-2xl " type="text" text="Number Of Students"
                                                     id="NumOfStudents" value=""/></>}
-
+                        {
+                            profileType === "individual" && User.type === "Teacher" && !User.workingInfo && <div>
+                                <h1>Clinic Location</h1>
+                                <MapDynamic></MapDynamic>
+                            </div>
+                        }
                         <div className={'flex flex-row pt-7 pb-4 gap-5'}>
                             <button
                                 className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
@@ -203,7 +210,7 @@ export default function ProfilePage(){
                                 <div className="text-2xl ">Governorate: {User.OrganizationGovernorate}</div>
 
                             </div>}
-
+                            <MapStatic location={User.location}></MapStatic>
 
                         </div>
 

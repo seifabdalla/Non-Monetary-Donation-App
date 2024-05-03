@@ -12,7 +12,11 @@ const IndividualUsers = [
         address: "123 Main St",
         area: "Downtown",
         governorate: "Cairo",
-        type: "Teacher"
+        type: "Teacher",
+        location : {
+            lat: 40.7128,
+            lng: -74.0060,
+        }
     },
     {
         userId: 2,
