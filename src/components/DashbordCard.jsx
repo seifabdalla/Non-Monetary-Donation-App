@@ -1,15 +1,23 @@
 import PropTypes from "prop-types";
 import Icon from "@mdi/react";
-
+import {useLocation,useNavigate} from "react-router-dom";
 
 export default function DashbordCard(props){
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const goTo = () => {
+        const newPathName = location.pathname + props.goTo;
+        navigate(newPathName);
+    }
+
     return (
-        <div className={`w-96 h-80 bg-slate-50 text-Tropical-Lagoon border-Tropical-Lagoon hover:shadow-Tropical-Lagoon border-2 rounded-3xl p-4 flex flex-col 
+        <button className={`w-96 h-80 bg-slate-50 text-Tropical-Lagoon border-Tropical-Lagoon hover:shadow-Tropical-Lagoon border-2 rounded-3xl p-4 flex flex-col 
         items-center justify-evenly gap-3 hover:bg-slate-100 hover:shadow-md
-        transition-shadow`}>
+        transition-shadow`} onClick={goTo}>
             <Icon path={props.icon} size={3} color={"#00b9ae"} />
             <h1 className={`text-2xl text-Tropical-Lagoon`}>{props.title}</h1>
-        </div>
+        </button>
     );
 }
 
@@ -17,5 +25,6 @@ export default function DashbordCard(props){
 DashbordCard.propTypes = {
     title : PropTypes.string.isRequired,
     icon : PropTypes.string.isRequired,
+    goTo : PropTypes.string
 }
 

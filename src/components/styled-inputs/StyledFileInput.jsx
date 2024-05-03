@@ -1,5 +1,5 @@
 import  { useState } from 'react';
-import '../assets/styles/input-styles.scss';
+import '../../assets/styles/input-styles.scss';
 import PropTypes, { func } from 'prop-types';
 
 export function StyledFileInput(){

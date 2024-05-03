@@ -1,4 +1,4 @@
-import MainHeader from "./MainHeader.jsx";
+import MainHeader from "../../components/MainHeader.jsx";
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import DashbordCard from "../../components/DashbordCard.jsx";
@@ -17,14 +17,13 @@ export default function DashboardPage(){
 
 
     useEffect(() => {
-        if (profileType === "individual"){
+        if (profileType === "donor"){
             setUser(individualUsers[userID-1]);
         } else {
             setUser(organizationUsers[userID-1]);
         }
     }, []);
 
-    console.log(User);
 
 
     return (
@@ -40,7 +39,7 @@ export default function DashboardPage(){
                             (card, index) => {
                                 return (
                                     <div key={index}>
-                                        <DashbordCard title={card.title} icon={card.icon} accentColor={card.color}/>
+                                        <DashbordCard title={card.title} icon={card.icon} accentColor={card.color} goTo={card.linkTo}/>
                                     </div>
                                 );
                             }
@@ -58,13 +57,16 @@ const cardData = [
     {
         title: "View Requests",
         icon: mdiHandCoin,
+        linkTo: "/view-requests"
     },
     {
         title: "View Organizations",
         icon: mdiDomain,
+        linkTo: "/view-organizations"
     },
     {
         title: "Donation History",
         icon: mdiHistory,
+        linkTo: "/view-requests"
     }
 ]

@@ -9,9 +9,11 @@ import { PopupContext } from '@mui/base/Unstable_Popup';
 
 
 export default function StyledSelectInput(props) {
+    const isDisabled = props.isDisabled;
+    const titleText = (isDisabled)? props.title : "All"
     return (
         <Select defaultValue={""} onChange={props.onChange}>
-            <Option value={""} disabled>{props.title}</Option>
+            <Option value={""} disabled={isDisabled}>{titleText}</Option>
             {props.options.map((option) => {
                 return <Option key={option} value={option}>{option}</Option>
             })}
@@ -20,9 +22,17 @@ export default function StyledSelectInput(props) {
 }
 
 StyledSelectInput.propTypes = {
-    title: PropTypes.string,
-    options: PropTypes.array,
-    onChange: PropTypes.func,
+    title: PropTypes.string.isRequired,
+    options: PropTypes.array.isRequired,
+    onChange: PropTypes.func.isRequired,
+    isDisabled : PropTypes.bool
+}
+
+StyledSelectInput.defaultProps = {
+    title: "",
+    options: [],
+    onChange: () => {},
+    isDisabled : true
 }
 
 
@@ -94,7 +104,7 @@ const StyledButton = styled(Button, { shouldForwardProp: () => true })(
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.875rem;
   box-sizing: border-box;
-  min-width: 320px;
+  min-width: 90%;
   padding: 8px 12px;
   border-radius: 8px;
   text-align: left;
