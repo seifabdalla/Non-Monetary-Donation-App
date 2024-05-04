@@ -129,8 +129,14 @@ export default function ProfilePage(){
                             value=""/> <StyledInput className="text-2xl " type="text" text="Number Of Students"
                                                     id="NumOfStudents" value=""/></>}
                         {
-                            profileType === "individual" && User.type === "Teacher" && !User.workingInfo && <div>
-                                <h1>Clinic Location</h1>
+                            profileType === "individual" && User.type === "Doctor" && !User.workingInfo && <div className={'pt-4'}>
+                                Clinic Location
+                                <MapDynamic></MapDynamic>
+                            </div>
+                        }
+                        {
+                            profileType === "organization" && !User.workingInfo && <div className={'pt-4'}>
+                                Organization Location
                                 <MapDynamic></MapDynamic>
                             </div>
                         }
@@ -210,7 +216,19 @@ export default function ProfilePage(){
                                 <div className="text-2xl ">Governorate: {User.OrganizationGovernorate}</div>
 
                             </div>}
-                            <MapStatic location={User.location}></MapStatic>
+                            {
+                                profileType === "individual" && User.type === "Doctor" && User.workingInfo && <div className={'pt-4'}>
+                                    Clinic Location
+                                    <MapStatic location={User.location}></MapStatic>
+                                </div>
+                            }
+                            {
+                                profileType === "organization" && User.workingInfo && <div className={'pt-4'}>
+                                    <div className={'text-2xl'}>Organization Location</div>
+                                    <MapStatic location={User.location}></MapStatic>
+                                </div>
+                            }
+
 
                         </div>
 

@@ -1,5 +1,5 @@
 import React, { useRef, useState, useCallback } from 'react';
-import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
+import {GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
 
 const libraries = ['places'];
 const smallMapContainerStyle = { width: '400px', height: '300px' };
