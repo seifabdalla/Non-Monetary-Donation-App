@@ -2,7 +2,7 @@ import MainHeader from "../../components/MainHeader.jsx";
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import DashbordCard from "../../components/DashbordCard.jsx";
-import { mdiHandCoin ,mdiDomain,mdiHistory   } from '@mdi/js';
+import { mdiHandCoin ,mdiDomain,mdiHistory,mdiAccountGroup,mdiAccount,mdiApplicationCog  } from '@mdi/js';
 import CautionCard from "../../components/CautionCard.jsx";
 import {useState,useEffect} from "react";
 
@@ -26,19 +26,19 @@ export default function DashboardPage(){
 
 
     return (
-        <div className="w-screen h-screen bg-slate-200 flex flex-col gap-20 items-center justify-start pt-0 overflow-x-hidden">
+        <div className="w-screen h-screen bg-slate-200 flex flex-col gap-10 items-center justify-start pt-0 overflow-x-hidden">
             <MainHeader isDashboard={true}/>
-            <div className={"w-full flex flex-col items-center gap-12"}>
+            <div className={"w-full flex flex-col items-center gap-8"}>
                 {
-                    (User && profileType === "individual" && (User.type === "Teacher" || User.type === "Doctor") && !User.workingInfo) && <CautionCard message={"You need to Add more data"} />
+                    (User && profileType === "donor" && (User.type === "Teacher" || User.type === "Doctor") && !User.workingInfo) && <CautionCard message={"Missing some data"} />
                 }
-                <div className={"w-full flex flex-row flex-wrap items-center justify-around"}>
+                <div className={"w-full flex flex-row flex-wrap items-center justify-center gap-3 py-5"}>
                     {
-                        cardData.map(
+                        cardData[profileType].map(
                             (card, index) => {
                                 return (
                                     <div key={index}>
-                                        <DashbordCard title={card.title} icon={card.icon} accentColor={card.color} goTo={card.linkTo}/>
+                                        <DashbordCard title={card.title} icon={card.icon} accentColor={card.color} goTo={card.linkTo} isDonor={card.isDonor}/>
                                     </div>
                                 );
                             }
@@ -52,20 +52,53 @@ export default function DashboardPage(){
 }
 
 
-const cardData = [
-    {
-        title: "View Requests",
-        icon: mdiHandCoin,
-        linkTo: "/view-requests"
-    },
-    {
-        title: "View Organizations",
-        icon: mdiDomain,
-        linkTo: "/view-organizations"
-    },
-    {
-        title: "Donation History",
-        icon: mdiHistory,
-        linkTo: "/view-requests"
-    }
-]
+const cardData = {
+    donor : [
+        {
+            title: "View Requests",
+            icon: mdiHandCoin,
+            linkTo: "/view-requests",
+            isDonor: true
+        },
+        {
+            title: "View Organizations",
+            icon: mdiDomain,
+            linkTo: "/view-organizations",
+            isDonor: true
+        },
+        {
+            title: "Donation History",
+            icon: mdiHistory,
+            linkTo: "/view-requests",
+            isDonor: true
+        }
+    ],
+    admin : [
+        {
+            title: "Registration Requests",
+            icon: mdiApplicationCog,
+            linkTo: "/registration-requests"
+        },
+        {
+            title: "Donation requests",
+            icon: mdiHandCoin,
+            linkTo: "/view-organizations"
+        },
+        {
+            title: "volunteer requests",
+            icon: mdiAccountGroup,
+            linkTo: "/view-requests"
+        },
+        {
+            title: "view organizations",
+            icon: mdiDomain,
+            linkTo: "/view-requests"
+
+        },
+        {
+            title: "view Donors' Accounts",
+            icon: mdiAccount,
+            linkTo: "/view-requests"
+        }
+    ],
+}

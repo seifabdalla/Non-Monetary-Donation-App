@@ -4,6 +4,7 @@ import { RegisterPage } from "./pages/authentication/RegisterPage.jsx";
 import { LoginPage } from "./pages/authentication/LoginPage.jsx";
 import DashboardPage from "./pages/dashboard-and-profile/DashboardPage.jsx";
 import ViewPage from "./pages/viewPages/ViewPage.jsx";
+import Requests_listView from "./pages/admin_view/Requests_listView.jsx";
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const Router = () => {
         {
             path : "/dashboard/:profileType/:userID/:viewType",
             element : <ViewPage />
+        },
+        {
+            path : "/registration-requests",
+            element : <Requests_listView />
         }
     ]);
 
