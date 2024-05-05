@@ -54,7 +54,7 @@ export default function ProfilePage(){
     }, [User]);
     useEffect(() => {
 
-        if (profileType === "individual"){
+        if (profileType === "donor"){
             setUser(individualUsers[userID-1]);
 
         } else {
@@ -104,13 +104,13 @@ export default function ProfilePage(){
 
                         <StyledInput className="text-2xl " type="text" text="Area" id="Area" value={area}
                                      onChange={setArea}/>
-                        {profileType === "individual" &&
+                        {profileType === "donor" &&
                             <StyledInput className="text-2xl " type="text" text="Address" id="Address" value={address}
                                          onChange={setAddress}/>}
                         {profileType === "organization" &&
                             <StyledInput className="text-2xl " type="text" text="Organization Address" id="Address"
                                          value={address} onChange={setAddress}/>}
-                        {profileType === "individual" && User.type === "Doctor" && <> <StyledInput className="text-2xl "
+                        {profileType === "donor" && User.type === "Doctor" && <> <StyledInput className="text-2xl "
                                                                                                    type="text"
                                                                                                    text="Clinic Area"
                                                                                                    id="ClinicArea"
@@ -128,13 +128,13 @@ export default function ProfilePage(){
                                                                                                  text="Speciality"
                                                                                                  id="Speciality"
                                                                                                  value=""/></>}
-                        {profileType === "individual" && User.type === "Teacher" && <> <StyledInput
+                        {profileType === "donor" && User.type === "Teacher" && <> <StyledInput
                             className="text-2xl " type="text" text="Subjects" id="Subjects" value=""/> <StyledInput
                             className="text-2xl " type="text" text="Number of Private Classes" id="NumOfProBonoClasses"
                             value=""/> <StyledInput className="text-2xl " type="text" text="Number Of Students"
                                                     id="NumOfStudents" value=""/></>}
                         {
-                            profileType === "individual" && User.type === "Doctor" && !User.workingInfo && <div className={'pt-4'}>
+                            profileType === "donor" && User.type === "Doctor" && !User.workingInfo && <div className={'pt-4'}>
                                 Clinic Location
                                 <MapDynamic></MapDynamic>
                             </div>
@@ -165,11 +165,11 @@ export default function ProfilePage(){
 
                     <div
                         className="w-full p-7 flex-col h-[640px] overflow-y-auto overflow-hidden">
-                        {profileType === "individual" && User.type === "Doctor" && !User.workingInfo && <CautionCard
+                        {profileType === "donor" && User.type === "Doctor" && !User.workingInfo && <CautionCard
                             message={"You need to edit details to add your clinic,speciality and number of pro-bono Cases"}/>
                         }
                         {
-                            profileType === "individual" && User.type === "Teacher" && !User.workingInfo && <CautionCard
+                            profileType === "donor" && User.type === "Teacher" && !User.workingInfo && <CautionCard
                                 message={"You need to edit details to add your subjects ,number of pro-Bono classes and tutorials you give"}/>
                         }
                         <div className="flex flex-row justify-between m-8">
@@ -200,14 +200,14 @@ export default function ProfilePage(){
                                 <div className="text-2xl">Address: {User.address}</div>
                                 <div className="text-2xl ">Governorate: {User.governorate}</div>
                             </div>}
-                            {profileType==="individual" && User.type==="Doctor" && (User.clinicAddress!=null|| User.numOfCases!=null || User.clinicArea!=null || User.clinicGovernorate!=null) &&<div className="flex flex-col  gap-8 h-auto ">
+                            {profileType==="donor" && User.type==="Doctor" && (User.clinicAddress!=null|| User.numOfCases!=null || User.clinicArea!=null || User.clinicGovernorate!=null) &&<div className="flex flex-col  gap-8 h-auto ">
                                 <div className="text-2xl">Clinic Address: {User.clinicAddress}</div>
                                 <div className="text-2xl">Clinic Area: {User.clinicArea}</div>
                                 <div className="text-2xl ">Clinic Governorate: {User.clinicGovernorate}</div>
                                 <div className="text-2xl">Speciality: {User.speciality}</div>
                                 <div className="text-2xl ">Number of Pro-Bono Cases: {User.numOfCases}</div>
                             </div>}
-                            {profileType==="individual" &&
+                            {profileType==="donor" &&
                                 User.type==="Teacher" && (User.subjects!=null || User.privateClasses!=null || User.classes!=null) && <div className="flex flex-col  gap-8 h-auto ">
                                     <div className="text-2xl">Subjects: {User.subjects}</div>
                                     <div className="text-2xl">Private Classes: {User.privateClasses}</div>
@@ -222,7 +222,7 @@ export default function ProfilePage(){
 
                             </div>}
                             {
-                                profileType === "individual" && User.type === "Doctor" && User.workingInfo && <div className={'pt-4'}>
+                                profileType === "donor" && User.type === "Doctor" && User.workingInfo && <div className={'pt-4'}>
                                     Clinic Location
                                     <MapStatic location={User.location}></MapStatic>
                                 </div>
