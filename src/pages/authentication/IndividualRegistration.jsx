@@ -78,10 +78,10 @@ export default function IndividualRegistration (){
                         <StyledInput type="text" text="Governorate" id="Governorate" value={governorate}
                                      onChange={setGovernorate}/>
                     </div>
-                    <div className={"mt-4 flex items-center justify-center"}>
+                    <div className={"mt-4 flex items-center justify-center w-1/2"}>
                         <StyledSelectInput title={"Gender"} options={["Male","Female"]} onChange={handleGender} />
                     </div>
-                    <div className={"mt-4 flex items-center justify-center"}>
+                    <div className={"mt-4 flex items-center justify-center w-1/2"}>
                         <StyledSelectInput title={"Individual Type"} options={["Doctor","Teacher","Regular"]} onChange={handleIndividualType} />
                     </div>
 

@@ -28,7 +28,7 @@ export default function DashboardPage(){
 
     return (
         <div className="w-screen h-screen bg-slate-200 flex flex-col gap-20 items-center justify-start pt-0 overflow-x-hidden">
-            <MainHeader />
+            <MainHeader isDashboard={true}/>
             <div className={"w-full flex flex-col items-center gap-12"}>
                 {
                     (User && profileType === "individual" && (User.type === "Teacher" || User.type === "Doctor") && !User.workingInfo) && <CautionCard message={"You need to Add more data"} />
