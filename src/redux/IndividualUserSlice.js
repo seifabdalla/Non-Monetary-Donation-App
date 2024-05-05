@@ -12,7 +12,11 @@ const IndividualUsers = [
         address: "123 Main St",
         area: "Downtown",
         governorate: "Cairo",
-        type: "Teacher"
+        type: "Doctor",
+        location : {
+            lat: 40.7128,
+            lng: -74.0060,
+        }
     },
     {
         userId: 2,
@@ -44,7 +48,13 @@ const IndividualUserSlice = createSlice({
                 ...action.payload.user
             };
             state.IndividualUsers.push(user);
+        },
+        updateIndUser: (state, action) => {
+            const user = action.payload.user;
+            const index = state.IndividualUsers.findIndex(indUser => indUser.userId === user.userId);
+            state.IndividualUsers[index] = user;
         }
+
     },
 });
 

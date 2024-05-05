@@ -25,7 +25,6 @@ export default function DashboardPage(){
     }, []);
 
 
-
     return (
         <div className="w-screen h-screen bg-slate-200 flex flex-col gap-20 items-center justify-start pt-0 overflow-x-hidden">
             <MainHeader isDashboard={true}/>
