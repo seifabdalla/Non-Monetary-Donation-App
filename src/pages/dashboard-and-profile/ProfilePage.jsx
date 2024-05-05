@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Icon from '@mdi/react';
 import { mdiPencil } from '@mdi/js';
@@ -10,6 +10,11 @@ import MapStatic from "../../components/Mapstatic.jsx";
 import MapDynamic from "../../components/MapDynamics.jsx";
 
 export default function ProfilePage(){
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => navigate("/");
+
     const {profileType , userID} = useParams();
     const [User,setUser] = useState(null);
     const [Edit,setEdit] =useState(false);
@@ -237,12 +242,17 @@ export default function ProfilePage(){
 
                         </div>
 
+                        {
+                            (! Edit) &&
+                            <div className={"w-full flex items-center justify-center mt-2"}>
+                                <button className={"text-slate-100 bg-red-500 px-10 py-3 rounded-xl"} onClick={handleLogout}>
+                                    Log Out
+                                </button>
+                            </div>
 
+                        }
                     </div>
-
                 </div>
-
-
 
 
             }
