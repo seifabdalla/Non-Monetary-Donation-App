@@ -3,7 +3,7 @@ import { mdiAccount,mdiBell ,mdiBellBadge  } from '@mdi/js';
 import BackButton from "./BackButton.jsx";
 import PropTypes from "prop-types";
 import {useState} from "react";
-import ModalPage from "./ModalPage.jsx";
+import ModalPage from "../pages/dashboard-and-profile/ModalPage.jsx";
 
 
 export default function MainHeader(props){

@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Icon from '@mdi/react';
 import { mdiPencil } from '@mdi/js';
-import {StyledInput} from "../../components/StyledInput.jsx";
+import {StyledInput} from "../../components/styled-inputs/StyledInput.jsx";
 import CautionCard from "../../components/CautionCard.jsx";
 import MapStatic from "../../components/Mapstatic.jsx";
 import MapDynamic from "../../components/MapDynamics.jsx";
