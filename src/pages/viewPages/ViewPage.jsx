@@ -17,7 +17,6 @@ export default function ViewPage() {
 
 
     useEffect(() => {
-        console.log(viewType)
         if (profileType.toLowerCase() === "donor") {
             if (viewType.toLowerCase() === "view-requests"){
                 console.log("This page is called by a Donor - to View Requests")
@@ -100,6 +99,7 @@ export default function ViewPage() {
                                                     requestedBy={request.requestedBy}
                                                    key={index}
                                                     imgUrl={request.imgUrl}
+                                                   cardObject={request}
                                     />
                                 );
                             })
