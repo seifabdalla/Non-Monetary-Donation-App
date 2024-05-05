@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
-import {StyledInput} from "../../components/StyledInput.jsx";
+import {StyledInput} from "../../components/styled-inputs/StyledInput.jsx";
 import {Link, useNavigate} from "react-router-dom";
-import StyledSelectInput from "../../components/StyledSelectInput.jsx";
-import { StyledFileInput } from "../../components/StyledFileInput.jsx";
+import StyledSelectInput from "../../components/styled-inputs/StyledSelectInput.jsx";
+import { StyledFileInput } from "../../components/styled-inputs/StyledFileInput.jsx";
 import {useDispatch} from "react-redux";
 import {addIndUser} from "../../redux/IndividualUserSlice.js";
 import CustomSnackBar from "../../components/CustomSnackBar.jsx";
@@ -78,10 +78,10 @@ export default function IndividualRegistration (){
                         <StyledInput type="text" text="Governorate" id="Governorate" value={governorate}
                                      onChange={setGovernorate}/>
                     </div>
-                    <div className={"mt-4 flex items-center justify-center"}>
+                    <div className={"mt-4 flex items-center justify-center w-1/2"}>
                         <StyledSelectInput title={"Gender"} options={["Male","Female"]} onChange={handleGender} />
                     </div>
-                    <div className={"mt-4 flex items-center justify-center"}>
+                    <div className={"mt-4 flex items-center justify-center w-1/2"}>
                         <StyledSelectInput title={"Individual Type"} options={["Doctor","Teacher","Regular"]} onChange={handleIndividualType} />
                     </div>
 
