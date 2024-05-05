@@ -122,7 +122,12 @@ export default function ProfilePage(){
                                                                                          type="text"
                                                                                          text="Number of pro-bono cases"
                                                                                          id="NumOfProBono"
-                                                                                         value=""/> </>}
+                                                                                         value=""/>
+                                                                                        <StyledInput className="text-2xl "
+                                                                                                 type="text"
+                                                                                                 text="Speciality"
+                                                                                                 id="Speciality"
+                                                                                                 value=""/></>}
                         {profileType === "individual" && User.type === "Teacher" && <> <StyledInput
                             className="text-2xl " type="text" text="Subjects" id="Subjects" value=""/> <StyledInput
                             className="text-2xl " type="text" text="Number of Private Classes" id="NumOfProBonoClasses"
@@ -190,7 +195,7 @@ export default function ProfilePage(){
 
 
 
-                            {profileType!=="Organization"&& <div className="flex flex-col  gap-8 h-auto ">
+                            {profileType!=="organization"&& <div className="flex flex-col  gap-8 h-auto ">
                                 <div className="text-2xl">Area: {User.area}</div>
                                 <div className="text-2xl">Address: {User.address}</div>
                                 <div className="text-2xl ">Governorate: {User.governorate}</div>
@@ -211,9 +216,9 @@ export default function ProfilePage(){
                             {profileType==="organization" &&(User.organizationName!=null || User.organizationType!=null || User.organizationArea!=null ||User.organizationAddress!=null  || User.OrganizationGovernorate!=null) && <div className="flex flex-col  gap-8 h-auto ">
                                 <div className="text-2xl">Organization Name: {User.organizationName}</div>
                                 <div className="text-2xl">Organization Type: {User.organizationType}</div>
-                                <div className="text-2xl ">Organization Address: {User.organizationAddress}</div>
-                                <div className="text-2xl">Area: {User.organizationArea}</div>
-                                <div className="text-2xl ">Governorate: {User.OrganizationGovernorate}</div>
+                                <div className="text-2xl ">Organization Address: {User.address}</div>
+                                <div className="text-2xl">Organization Area: {User.area}</div>
+                                <div className="text-2xl ">Organization Governorate: {User.governorate}</div>
 
                             </div>}
                             {
