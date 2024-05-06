@@ -480,9 +480,7 @@ const DonorsRequests = {
             subject: "Math",
             noOfStudents:"30",
             address:"22 Km. Cairo – Ismailia Road Branch – Cairo – Egypt",
-            amountDonated:"33",
-            amountNeeded:"35",
-            imgUrl:"https://static.vecteezy.com/system/resources/thumbnails/000/187/349/small_2x/Woman_teacher_giving_lesson_in_front_of_the_class.jpg="
+            imgUrl:"https://www.shutterstock.com/image-photo/teacher-asking-her-students-question-260nw-309239105.jpg"
         },
         {
             title: "Donating Clothes",
@@ -529,6 +527,8 @@ const DonorsRequests = {
             category: "Teaching Posts",
             requestedBy: "57357",
             subject: "Science",
+            noOfStudents:"20",
+            address:"El Sayeda Zeinab, Cairo, Egypt",
             imgUrl:"https://www.shutterstock.com/image-photo/teacher-asking-her-students-question-260nw-309239105.jpg"
         }
 
@@ -612,6 +612,18 @@ const DonorsRequests = {
             filterByText: "Subject",
             filterBy: "subject",
             options: ["Math","Science","English","Arabic","History","Geography"]
+        },
+        {
+            basedCategoryFilter: "Teaching Posts",
+            filterByText: "Area",
+            filterBy: "area",
+            options: ["El Sayeda Zeinab","Sheikh Zayed City","New Cairo","Madinet Nasr"]
+        },
+        {
+          basedCategoryFilter: "Teaching Posts",
+            filterByText: "Governorate",
+            filterBy: "governorate",
+            options: ["Cairo","Alexandria","Aswan","Ismailia","Matruh","Minya","North Sinai","Port Said","Qena","Sharqia","Sohag","South Sinai","Suez"]
         },
         {
             basedCategoryFilter: "Medical Cases",

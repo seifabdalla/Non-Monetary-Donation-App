@@ -2,13 +2,17 @@ import { useLocation } from 'react-router-dom';
 import MainHeader from "../../components/MainHeader.jsx";
 import StyledQuantitySelect from "../../components/styled-inputs/StyledQuantitySelect.jsx";
 import {useState} from "react";
-import { ProgressBar } from 'primereact/progressbar';
 import TargetProgressBar from "../../components/TargetProgressBar.jsx";
+import MapStatic from "../../components/Mapstatic.jsx";
 
 export default function RequestPage() {
     const location = useLocation();
     const cardObject = location.state.cardObject;
     const [value, setValue] = useState(0);
+    const mapLocation = {
+        lat: 30.0525711,
+        lng: 31.4850933
+    }
     // const primeReactContext = useContext(PrimeReactContext);
 
     const renderAdditionalInfo = () => {
@@ -62,6 +66,10 @@ export default function RequestPage() {
                             </div>
                         </div>
                         {renderAdditionalInfo()}
+                        {
+                            (cardObject['hospitalAddress'] || cardObject['address']) &&
+                            <MapStatic location={mapLocation} />
+                        }
                         {
                             cardObject.amountNeeded && cardObject.amountDonated &&
                             <TargetProgressBar target={cardObject.amountNeeded} current={cardObject.amountDonated}/>
