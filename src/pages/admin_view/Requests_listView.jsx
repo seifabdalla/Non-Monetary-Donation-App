@@ -1,19 +1,30 @@
 import MainHeader from "../../components/MainHeader.jsx";
-
+import {RegRequests} from "../../model/Admin/Submissions.js";
+import DonorSubmissionsCard from "../../components/DonorSubmissionsCard.jsx";
+import OrganizationSubmissionsCard from "../../components/OrganizationSubmissionsCard.jsx";
 
 export default function Requests_listView() {
 
 
+    return (<div className={"bg-teal-50 w-screen min-h-screen"}>
+            <MainHeader/>
 
+            {
+                RegRequests.map((request, index) => {
+                    return (
+                        <div key={index} className="flex flex-col justify-center items-center py-3">
 
+                            {request.type === "organization" &&
+                                <OrganizationSubmissionsCard request={request}/>
+                            }
+                            {request.type === "donor" &&
+                                <DonorSubmissionsCard request={request}/>
+                            }
+                        </div>
+                    );
+                })
+            }
 
-
-    return (<>
-            <MainHeaders/>
-        <div
-            className="flex flex-col justify-around items-center w-3/4  space-x-4 px-2 py-2 rounded-md shadow-md bg-red-500 dark:bg-red-600">
-            <h1 className="text-2xl font-semibold text-white dark:text-gray-200">Requests</h1>
         </div>
-        </>
     );
 }
