@@ -6,7 +6,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import IndividualUserReducer from "./redux/IndividualUserSlice";
 import OrganizationUserReducer from "./redux/OrganizationSlice";
-import { PrimeReactProvider, PrimeReactContext } from 'primereact/api';
 
 const store = configureStore({
     reducer: {

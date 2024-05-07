@@ -1,14 +1,15 @@
-import { useLocation } from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import MainHeader from "../../components/MainHeader.jsx";
 import StyledQuantitySelect from "../../components/styled-inputs/StyledQuantitySelect.jsx";
 import {useState} from "react";
 import TargetProgressBar from "../../components/TargetProgressBar.jsx";
 import MapStatic from "../../components/Mapstatic.jsx";
-import {maxHeight} from "@mui/system";
 import SelectDeliveryOptions from "../../components/SelectDeliveryOptions.jsx";
+import Swal from 'sweetalert2'
 
 export default function RequestPage() {
     const location = useLocation();
+    const navigate = useNavigate();
     const cardObject = location.state.cardObject;
     console.log(cardObject.category)
     const [value, setValue] = useState(0);
@@ -17,6 +18,17 @@ export default function RequestPage() {
         lng: 31.4850933
     }
     // const primeReactContext = useContext(PrimeReactContext);
+
+    const handleDoneButton = () => {
+        console.log("Donation Successful")
+        Swal.fire({
+            title: "Request Fulfilled Successfully!",
+            text: "Check your notification section for more details about the request.",
+            icon: "success",
+            confirmButtonText: "Return to Dashboard",
+            confirmButtonColor: "#009f93",
+        }).then( () => navigate(-2));
+    }
 
     const renderAdditionalInfo = () => {
         const excludedKeys = ['title', 'imgUrl', 'description', 'category', 'requestedBy', 'amountNeeded', 'amountDonated'];
@@ -89,7 +101,8 @@ export default function RequestPage() {
                             <div>
                                 <SelectDeliveryOptions/>
                                 <button
-                                    className={"bg-Mystic-Teal text-slate-100 py-3 px-10 rounded-xl hover:bg-Deep-Sea-Emerald transition-colors duration-500"}>
+                                    className={"bg-Mystic-Teal text-slate-100 py-3 px-10 rounded-xl hover:bg-Deep-Sea-Emerald transition-colors duration-500"}
+                                    onClick={handleDoneButton}>
                                     Donate Selected Quantity
                                 </button>
                             </div>
@@ -98,7 +111,8 @@ export default function RequestPage() {
                         {
                             (cardObject.category === "Medical Cases" || cardObject.category === "Teaching Posts" || cardObject.category === "Blood Donations") &&
                             <button
-                                className={"bg-Mystic-Teal mt-3 text-slate-100 py-3 px-10 rounded-xl hover:bg-Deep-Sea-Emerald transition-colors duration-500"}>
+                                className={"bg-Mystic-Teal mt-3 text-slate-100 py-3 px-10 rounded-xl hover:bg-Deep-Sea-Emerald transition-colors duration-500"}
+                                onClick={handleDoneButton}>
                                 Fulfill Request
                             </button>
                         }
