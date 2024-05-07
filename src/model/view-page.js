@@ -207,14 +207,14 @@ const DonorsRequests = {
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi1QryL5ABMfUE-dI201Frz5fVsyVN0d7SQQAx_-VF5A&s"
         },
         {
-            title: "Donating Food",
-            description: "Donating canned food for the homeless shelter",
+            title: "Donating Tuna",
+            description: "Donating canned Tuna for the Orphanage high school kids",
             category: "Food",
             requestedBy: "57357",
             type: "Canned Food",
             amountDonated:"34",
             amountNeeded:"40",
-            imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ58cVuk8mAuwzD7b_Lj6TK_zMIW6_ukSUQJcJdonhP5g&s"
+            imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTabuJpcEPHiqpgGH2s855TrYIa7UAXsWiSTw&usqp=CAU"
         },
         {
             title: "Donating Medical Supplies",
@@ -242,14 +242,18 @@ const DonorsRequests = {
 
         },
         {
-            title: "Teaching Materials",
-            description: "Providing textbooks for a local school",
+            title: "Arabic Books for High School Students",
+            description: "Providing novel for a local school",
             category: "School Supplies",
             requestedBy: "Resala",
             type: "Books",
+            author: "Naguib Mahfouz",
+            'book title': "Al Tholathya",
+            language: "Arabic",
+            edition: "1st Edition",
             amountDonated:"25",
             amountNeeded:"26",
-            imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnzHTqWvCExoc56CwjqF2CED0QHomNTK6oL_O3cZ4clw&s"
+            imgUrl:"https://img.youm7.com/large/202208290326462646.jpg"
         },
         {
             title: "Donating Clothes",
@@ -277,14 +281,14 @@ const DonorsRequests = {
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRETB9yhUvpqTTpKwrWUslcAjMHY9aCWup1kTtBKzhflg&s"
         },
         {
-            title: "Donating Food",
+            title: "Donating Fresh Meals",
             description: "Donating fresh meals for the elderly care center",
             category: "Food",
             requestedBy: "Masr Al Kheir",
             type: "Fresh Meals",
             amountDonated:"12",
             amountNeeded:"22",
-            imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjnl43UZwyZ3msJ02tKkfPyrCZU12f4Q0YgjLTXGGCEA&s"
+            imgUrl:"https://domf5oio6qrcr.cloudfront.net/medialibrary/11396/cb91e012-a635-4b41-a59a-8b23c836423d.jpg"
         },
         {
             title: "Donating Medical Supplies",
@@ -323,14 +327,14 @@ const DonorsRequests = {
             imgUrl:"https://m.media-amazon.com/images/I/718de-t7RrL._AC_SL1500_.jpg"
         },
         {
-            title: "Donating Fruits",
-            description: "Donating fresh fruits for orphanage",
+            title: "Donating Mangoes",
+            description: "Donating fresh Mangoes for orphanage",
             category: "Food",
             requestedBy: "57357",
             type: "Fruits",
             amountDonated:"23",
             amountNeeded:"26",
-            imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ4Eap4CJc-SIRC7Fce8tyn0xpkxyDdJ6IQ_8ZJyXsDA&s"
+            imgUrl:"https://static.toiimg.com/thumb/msid-109503138,width-1280,height-720,resizemode-4/109503138.jpg"
         },
         {
             title: "Donating Medical Devices",
@@ -500,13 +504,12 @@ const DonorsRequests = {
             description: "Providing medical aid for critical cases",
             category: "Medical Cases",
             requestedBy: "Resala",
-            patientName:"Galal",
+            'patient Name':"Galal",
             weight:"70 KG",
             Gender:"Male",
             age:"34",
             case: "Heart Disease",
-            amountDonated:"4",
-            amountNeeded:"7",
+            address:"Shoubra, Cairo, Egypt",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBbht82Brz24duvSNhHiV8aOoW28emiC26tynfQF77vQ&s"
         },
         {
@@ -628,8 +631,20 @@ const DonorsRequests = {
         {
             basedCategoryFilter: "Medical Cases",
             filterByText: "Case",
-            filterBy: "case",
+            filterBy: "specialty",
             options: ["Cancer","Heart Disease","Kidney Failure","Liver Failure","Lung Disease","Diabetes"]
+        },
+        {
+            basedCategoryFilter: "Medical Cases",
+            filterByText: "Governorate",
+            filterBy: "governorate",
+            options: ["Cairo","Alexandria","Aswan","Ismailia","Matruh","Minya","North Sinai","Port Said","Qena","Sharqia","Sohag","South Sinai","Suez"]
+        },
+        {
+            basedCategoryFilter: "Medical Cases",
+            filterByText: "Area",
+            filterBy: "area",
+            options: ["El Sayeda Zeinab","Sheikh Zayed City","New Cairo","Madinet Nasr"]
         },
         {
             basedCategoryFilter: "School Supplies",

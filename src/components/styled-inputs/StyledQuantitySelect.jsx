@@ -19,9 +19,9 @@ export default function StyledQuantitySelect(props){
 
     return (
         <div className={"flex flex-col gap-3"}>
-            <h3 className={"text-xl font-normal"}>Quantity</h3>
+            <h3 className={"text-xl font-normal text-center"}>{props.label}</h3>
             <div className="py-2 px-3 inline-block bg-white border border-gray-200 rounded-lg shadow-md">
-                <div className="flex items-center gap-x-1.5">
+                <div className="flex items-center justify-center gap-x-1.5">
                     <button type="button" onClick={decrement}
                             className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
                         <svg className="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -50,5 +50,10 @@ export default function StyledQuantitySelect(props){
 
 StyledQuantitySelect.propTypes = {
     value: PropTypes.number,
-    setValue: PropTypes.func
+    setValue: PropTypes.func,
+    label : PropTypes.string
+}
+
+StyledQuantitySelect.defaultProps = {
+    label : "Quantity"
 }

@@ -1,0 +1,10 @@
+.dropdown-menu {
+    transition: opacity 0.3s, transform 0.3s ease-out;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.dropdown-menu.open {
+    opacity: 1;
+    transform: translateY(0);
+}

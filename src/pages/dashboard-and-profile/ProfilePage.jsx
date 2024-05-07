@@ -169,7 +169,7 @@ export default function ProfilePage(){
                 User != null && !Edit && <div className="flex justify-center  text-slate-100">
 
                     <div
-                        className="w-full p-7 flex-col h-[640px] overflow-y-auto overflow-hidden">
+                        className="w-full p-7 flex flex-col items-center h-[640px] overflow-y-auto overflow-hidden">
                         {profileType === "donor" && User.type === "Doctor" && !User.workingInfo && <CautionCard
                             message={"You need to edit details to add your clinic,speciality and number of pro-bono Cases"}/>
                         }
@@ -177,7 +177,7 @@ export default function ProfilePage(){
                             profileType === "donor" && User.type === "Teacher" && !User.workingInfo && <CautionCard
                                 message={"You need to edit details to add your subjects ,number of pro-Bono classes and tutorials you give"}/>
                         }
-                        <div className="flex flex-row justify-between m-8">
+                        <div className="flex flex-row justify-evenly w-full m-8">
                             <Avatar sx={{width: 100, height: 100}}>
                                 <div className="text-6xl ">{User.firstName.charAt(0) + "" + User.lastName.charAt(0)}</div>
                             </Avatar>

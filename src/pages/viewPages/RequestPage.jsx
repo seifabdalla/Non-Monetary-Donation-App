@@ -4,10 +4,13 @@ import StyledQuantitySelect from "../../components/styled-inputs/StyledQuantityS
 import {useState} from "react";
 import TargetProgressBar from "../../components/TargetProgressBar.jsx";
 import MapStatic from "../../components/Mapstatic.jsx";
+import {maxHeight} from "@mui/system";
+import SelectDeliveryOptions from "../../components/SelectDeliveryOptions.jsx";
 
 export default function RequestPage() {
     const location = useLocation();
     const cardObject = location.state.cardObject;
+    console.log(cardObject.category)
     const [value, setValue] = useState(0);
     const mapLocation = {
         lat: 30.0525711,
@@ -33,10 +36,10 @@ export default function RequestPage() {
     };
 
     return (
-        <div className={"w-full h-screen flex flex-col bg-teal-50"}>
+        <div className={"w-full min-h-screen flex flex-col bg-teal-50"}>
             <MainHeader />
-            <div className={"h-full w-full flex"}>
-                <div className={"w-1/3 h-full flex flex-col items-center justify-center"}>
+            <div className={"h-full w-full flex flex-grow"}>
+                <div className={"w-1/3 min-h-screen flex flex-col items-center justify-center"}>
                     <img src={cardObject.imgUrl} alt={cardObject.title} className={"w-[420px]"}/>
                 </div>
                 <div className={"flex flex-col items-center w-3/4 py-4 h-full"}>
@@ -74,11 +77,28 @@ export default function RequestPage() {
                             cardObject.amountNeeded && cardObject.amountDonated &&
                             <TargetProgressBar target={cardObject.amountNeeded} current={cardObject.amountDonated}/>
                         }
-                        <StyledQuantitySelect value={value} setValue={setValue}/>
+                        {
+                            (cardObject.category !== "Medical Cases" && cardObject.category !== "Teaching Posts") && cardObject.category !== "Blood Donations" &&
+                            <StyledQuantitySelect value={value} setValue={setValue}
+                                                  label={
+                                                      (cardObject.category === "Food" && (cardObject.type === "Fruits" || cardObject.type === "Vegetables"))?
+                                                          "Quantity in KGs" : "Quantity"}/>
+                        }
                         {
                             value > 0 &&
+                            <div>
+                                <SelectDeliveryOptions/>
+                                <button
+                                    className={"bg-Mystic-Teal text-slate-100 py-3 px-10 rounded-xl hover:bg-Deep-Sea-Emerald transition-colors duration-500"}>
+                                    Donate Selected Quantity
+                                </button>
+                            </div>
+
+                        }
+                        {
+                            (cardObject.category === "Medical Cases" || cardObject.category === "Teaching Posts" || cardObject.category === "Blood Donations") &&
                             <button
-                                className={"bg-Tropical-Lagoon text-slate-100 py-3 px-10 rounded-xl hover:bg-Deep-Sea-Emerald transition-colors duration-500"}>
+                                className={"bg-Mystic-Teal mt-3 text-slate-100 py-3 px-10 rounded-xl hover:bg-Deep-Sea-Emerald transition-colors duration-500"}>
                                 Fulfill Request
                             </button>
                         }
