@@ -17,7 +17,6 @@ export default function ViewPage() {
 
 
     useEffect(() => {
-        console.log(viewType)
         if (profileType.toLowerCase() === "donor") {
             if (viewType.toLowerCase() === "view-requests"){
                 console.log("This page is called by a Donor - to View Requests")
@@ -73,10 +72,9 @@ export default function ViewPage() {
     
 
     return (
-        <div className={"h-screen w-screen bg-teal-100 flex flex-col items-center justify-start overflow-hidden"}>
+        <div className={"h-screen w-screen bg-teal-50 flex flex-col items-center justify-start overflow-hidden"}>
             <MainHeader />
-            <div className={"w-full h-full flex flex-col flex-grow"}>
-                <div className={"flex flex-row h-full w-full overflow-y-hidden"}>
+            <div className={"flex flex-row h-full w-full overflow-y-hidden"}>
                     <div className={"h-full w-1/5 px-10 py-5 flex flex-col gap-5 border-r-2 border-slate-950 overflow-y-auto"}>
                         <StyledSearch placeholder={'Search'} value={searchValue} onChange={handleSearch} />
                         { viewType === "view-requests" &&
@@ -100,6 +98,7 @@ export default function ViewPage() {
                                                     requestedBy={request.requestedBy}
                                                    key={index}
                                                     imgUrl={request.imgUrl}
+                                                   cardObject={request}
                                     />
                                 );
                             })
@@ -113,7 +112,6 @@ export default function ViewPage() {
                             })
                         }
                         <div className={"h-10 w-full"}></div>
-                    </div>
                 </div>
             </div>
         </div>
