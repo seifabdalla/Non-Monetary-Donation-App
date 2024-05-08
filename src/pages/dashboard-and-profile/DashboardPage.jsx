@@ -77,28 +77,28 @@ const cardData = {
         {
             title: "Registration Requests",
             icon: mdiApplicationCog,
-            linkTo: "/registration-requests"
+            linkTo: "/admin/registration-requests"
         },
         {
             title: "Donation requests",
             icon: mdiHandCoin,
-            linkTo: "/view-organizations"
+            linkTo: "/admin/donation-requests"
         },
         {
             title: "volunteer requests",
             icon: mdiAccountGroup,
-            linkTo: "/view-requests"
+            linkTo: "/admin/volounteer-requests"
         },
         {
             title: "view organizations",
             icon: mdiDomain,
-            linkTo: "/view-requests"
+            linkTo: "/admin/view-organizations"
 
         },
         {
             title: "view Donors' Accounts",
             icon: mdiAccount,
-            linkTo: "/view-requests"
+            linkTo: "/admin/view-donors"
         }
     ],
 }
