@@ -34,11 +34,12 @@ export default function DashboardPage(){
                 }
                 <div className={"w-full flex flex-row flex-wrap items-center justify-around"}>
                     {
-                        cardData.map(
+                        donorCardData.map(
                             (card, index) => {
                                 return (
                                     <div key={index}>
-                                        <DashbordCard title={card.title} icon={card.icon} accentColor={card.color} goTo={card.linkTo}/>
+                                        {console.log(card.linkTo)}
+                                        <DashbordCard title={card.title} icon={card.icon} accentColor={card.color} goTo={card.linkTo+userID}/>
                                     </div>
                                 );
                             }
@@ -52,20 +53,20 @@ export default function DashboardPage(){
 }
 
 
-const cardData = [
+const donorCardData = [
     {
         title: "View Requests",
         icon: mdiHandCoin,
-        linkTo: "/view-requests"
+        linkTo: "/donor/view-requests/"
     },
     {
         title: "View Organizations",
         icon: mdiDomain,
-        linkTo: "/view-organizations"
+        linkTo: "donor/view-organizations"
     },
     {
         title: "Donation History",
         icon: mdiHistory,
-        linkTo: "/view-requests"
+        linkTo: "donor/view-requests"
     }
 ]

@@ -4,6 +4,7 @@ import BackButton from "./BackButton.jsx";
 import PropTypes from "prop-types";
 import {useState} from "react";
 import ModalPage from "../pages/dashboard-and-profile/ModalPage.jsx";
+import propTypes from "prop-types";
 
 
 export default function MainHeader(props){
@@ -39,7 +40,7 @@ export default function MainHeader(props){
 
 
 MainHeader.propTypes = {
-    isDashboard : PropTypes.bool
+    isDashboard : propTypes.bool
 }
 
 MainHeader.propTypes.defaultProps = {
