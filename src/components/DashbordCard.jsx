@@ -7,7 +7,13 @@ export default function DashbordCard(props){
     const location = useLocation();
     const navigate = useNavigate();
     const goTo = () => {
-        const newPathName = location.pathname + props.goTo;
+        let newPathName = "";
+        if (props.isDonor || props.isOrg){
+            newPathName = location.pathname + props.goTo;
+        } else {
+            newPathName = props.goTo;
+        }
+
         navigate(newPathName);
     }
 
@@ -25,6 +31,13 @@ export default function DashbordCard(props){
 DashbordCard.propTypes = {
     title : PropTypes.string.isRequired,
     icon : PropTypes.string.isRequired,
-    goTo : PropTypes.string
+    goTo : PropTypes.string,
+    isDonor : PropTypes.bool,
+    isOrg: PropTypes.bool
 }
+
+DashbordCard.defaultProps = {
+    isDonor : false,
+    isOrg :false
+};
 

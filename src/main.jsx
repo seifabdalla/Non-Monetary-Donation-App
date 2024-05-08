@@ -6,6 +6,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import IndividualUserReducer from "./redux/IndividualUserSlice";
 import OrganizationUserReducer from "./redux/OrganizationSlice";
+import Post from "./components/Post.jsx";
 
 const store = configureStore({
     reducer: {

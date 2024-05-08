@@ -2,7 +2,7 @@ import MainHeader from "../../components/MainHeader.jsx";
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import DashbordCard from "../../components/DashbordCard.jsx";
-import { mdiHandCoin ,mdiDomain,mdiHistory   } from '@mdi/js';
+import { mdiHandCoin ,mdiDomain,mdiHistory,mdiClockOutline,mdiCheckAll,mdiSquareEditOutline   } from '@mdi/js';
 import CautionCard from "../../components/CautionCard.jsx";
 import {useState,useEffect} from "react";
 
@@ -34,11 +34,11 @@ export default function DashboardPage(){
                 }
                 <div className={"w-full flex flex-row flex-wrap items-center justify-around"}>
                     {
-                        cardData.map(
+                        cardData[profileType].map(
                             (card, index) => {
                                 return (
                                     <div key={index}>
-                                        <DashbordCard title={card.title} icon={card.icon} accentColor={card.color} goTo={card.linkTo}/>
+                                        <DashbordCard title={card.title} icon={card.icon} accentColor={card.color} goTo={card.linkTo} isDonor={card.isDonor} isOrg={card.isOrg}/>
                                     </div>
                                 );
                             }
@@ -52,20 +52,73 @@ export default function DashboardPage(){
 }
 
 
-const cardData = [
-    {
-        title: "View Requests",
-        icon: mdiHandCoin,
-        linkTo: "/view-requests"
-    },
-    {
-        title: "View Organizations",
-        icon: mdiDomain,
-        linkTo: "/view-organizations"
-    },
-    {
-        title: "Donation History",
-        icon: mdiHistory,
-        linkTo: "/view-requests"
-    }
+const cardData = {
+    donor : [
+        {
+            title: "View Requests",
+            icon: mdiHandCoin,
+            linkTo: "/view-requests",
+            isDonor: true
+        },
+        {
+            title: "View Organizations",
+            icon: mdiDomain,
+            linkTo: "/view-organizations",
+            isDonor: true
+        },
+        {
+            title: "Donation History",
+            icon: mdiHistory,
+            linkTo: "/view-requests",
+            isDonor: true
+        }
+    ],
+    // admin : [
+    //     {
+    //         title: "Registration Requests",
+    //         icon: mdiApplicationCog,
+    //         linkTo: "/registration-requests"
+    //     },
+    //     {
+    //         title: "Donation requests",
+    //         icon: mdiHandCoin,
+    //         linkTo: "/view-organizations"
+    //     },
+    //     {
+    //         title: "volunteer requests",
+    //         icon: mdiAccountGroup,
+    //         linkTo: "/view-requests"
+    //     },
+    //     {
+    //         title: "view organizations",
+    //         icon: mdiDomain,
+    //         linkTo: "/view-requests"
+    //
+    //     },
+    //     {
+    //         title: "view Donors' Accounts",
+    //         icon: mdiAccount,
+    //         linkTo: "/view-requests"
+    //     }
+    // ],
+    organization : [
+        {
+            title: "Schedule Drop-off",
+            icon: mdiClockOutline,
+            linkTo: "/schedule-drop-off",
+            isOrg:true
+        },
+        {
+            title: "Add/Update Posts",
+            icon: mdiSquareEditOutline,
+            linkTo: "/pending-posts",
+            isOrg:true
+        },
+        {
+            title: "Fulfilled Posts",
+            icon: mdiCheckAll,
+            linkTo: "/fulfilled-posts",
+            isOrg: true
+        }
 ]
+}
