@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Icon from '@mdi/react';
 import { mdiPencil } from '@mdi/js';
@@ -10,6 +10,11 @@ import MapStatic from "../../components/Mapstatic.jsx";
 import MapDynamic from "../../components/MapDynamics.jsx";
 
 export default function ProfilePage(){
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => navigate("/");
+
     const {profileType , userID} = useParams();
     const [User,setUser] = useState(null);
     const [Edit,setEdit] =useState(false);
@@ -164,7 +169,7 @@ export default function ProfilePage(){
                 User != null && !Edit && <div className="flex justify-center  text-slate-100">
 
                     <div
-                        className="w-full p-7 flex-col h-[640px] overflow-y-auto overflow-hidden">
+                        className="w-full p-7 flex flex-col items-center h-[640px] overflow-y-auto overflow-hidden">
                         {profileType === "donor" && User.type === "Doctor" && !User.workingInfo && <CautionCard
                             message={"You need to edit details to add your clinic,speciality and number of pro-bono Cases"}/>
                         }
@@ -172,7 +177,7 @@ export default function ProfilePage(){
                             profileType === "donor" && User.type === "Teacher" && !User.workingInfo && <CautionCard
                                 message={"You need to edit details to add your subjects ,number of pro-Bono classes and tutorials you give"}/>
                         }
-                        <div className="flex flex-row justify-between m-8">
+                        <div className="flex flex-row justify-evenly w-full m-8">
                             <Avatar sx={{width: 100, height: 100}}>
                                 <div className="text-6xl ">{User.firstName.charAt(0) + "" + User.lastName.charAt(0)}</div>
                             </Avatar>
@@ -237,12 +242,17 @@ export default function ProfilePage(){
 
                         </div>
 
+                        {
+                            (! Edit) &&
+                            <div className={"w-full flex items-center justify-center mt-2"}>
+                                <button className={"text-slate-100 bg-red-500 px-10 py-3 rounded-xl"} onClick={handleLogout}>
+                                    Log Out
+                                </button>
+                            </div>
 
+                        }
                     </div>
-
                 </div>
-
-
 
 
             }

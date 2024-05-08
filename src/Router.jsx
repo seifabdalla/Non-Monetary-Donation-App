@@ -9,6 +9,7 @@ import VolunteerRequests from "./pages/admin_view/VolunteerRequests.jsx";
 import DonationsRequests from "./pages/admin_view/DonationsRequests.jsx";
 import ViewOrganization from "./pages/admin_view/ViewOrganization.jsx";
 import ViewDonors from "./pages/admin_view/ViewDonors.jsx";
+import RequestPage from "./pages/viewPages/RequestPage.jsx";
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -47,12 +48,14 @@ const Router = () => {
         {
             path: "/admin/view-organizations",
             element: <ViewOrganization />
-        }
-        ,
+        },
         {
             path: "/admin/view-donors",
             element: <ViewDonors />
-
+        },
+        {
+            path : "/requestdetails",
+            element : <RequestPage />
         }
     ]);
 
