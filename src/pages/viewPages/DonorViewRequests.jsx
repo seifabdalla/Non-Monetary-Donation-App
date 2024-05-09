@@ -68,7 +68,7 @@ export default function DonorViewRequests() {
                                     <DonationCards title={request.title} shortDescription={request.description}
                                                    category={request.category}
                                                     requestedBy={request.requestedBy}
-                                                   key={index}
+                                                    key={index}
                                                     imgUrl={request.imgUrl}
                                                    cardObject={request}
                                     />

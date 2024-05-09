@@ -6,6 +6,11 @@ import DashboardPage from "./pages/dashboard-and-profile/DashboardPage.jsx";
 import DonorViewRequests from "./pages/viewPages/DonorViewRequests.jsx";
 import RequestPage from "./pages/viewPages/RequestPage.jsx";
 import ViewOrganizations from "./pages/viewPages/ViewOrganizations.jsx";
+import Requests_listView from "./pages/admin_view/Requests_listView.jsx";
+import VolunteerRequests from "./pages/admin_view/VolunteerRequests.jsx";
+import DonationsRequests from "./pages/admin_view/DonationsRequests.jsx";
+import ViewOrganization from "./pages/admin_view/ViewOrganization.jsx";
+import ViewDonors from "./pages/admin_view/ViewDonors.jsx";
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -36,6 +41,26 @@ const Router = () => {
         {
             path : "/donor/view-organizations/:userID",
             element : <ViewOrganizations />
+        },
+        {
+            path : "/admin/registration-requests",
+            element : <Requests_listView />
+        },
+        {
+            path : "/admin/volounteer-requests",
+            element: <VolunteerRequests />
+        },
+        {
+            path : "/admin/donation-requests",
+            element : <DonationsRequests />
+        },
+        {
+            path: "/admin/view-organizations",
+            element: <ViewOrganization />
+        },
+        {
+            path: "/admin/view-donors",
+            element: <ViewDonors />
         }
     ]);
 
