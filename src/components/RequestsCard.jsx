@@ -34,10 +34,10 @@ export default function RequestsCard(props){
                 className={"bg-teal-700 flex flex-row justify-around items-start shadow-sm px-2 py-2 w-2/3 rounded-md"}>
                 {isExpanded &&
                     <div className={"flex flex-row gap-4 px-1 w-full justify-between text-slate-100"}>
-                        <img src={props.request.imgUrl} alt={props.request.request} className="w-1/4 object-cover"/>
+                        <img src={props.request.imgUrl} alt={props.request.request} className="w-1/4 h-[190px] object-cover"/>
                         <div className="flex flex-col w-full">
                         <div className={"flex flex-row gap-20 justify-between w-full"}>
-                            <div className="flex flex-col text-nowrap font-medium text-1xl">
+                            <div className="flex flex-col  font-medium text-1xl">
                                 <div> Title: {props.request.title}</div>
                                 <div> Category: {props.request.category}</div>
                                 <div> Requested By: {props.request.requestedBy}</div>
@@ -69,7 +69,7 @@ export default function RequestsCard(props){
                 {
                     !isExpanded &&
                     <div className={"flex flex-row gap-4 px-1 w-full text-slate-100"}>
-                        <img src={props.request.imgUrl} alt={props.request.request} className="w-[100px]"/>
+                        <img src={props.request.imgUrl} alt={props.request.request} className="w-[100px] "/>
                         <div className="flex flex-col font-medium text-1xl">
                             <div> Title: {props.request.title}</div>
                             <div> Category: {props.request.category}</div>
