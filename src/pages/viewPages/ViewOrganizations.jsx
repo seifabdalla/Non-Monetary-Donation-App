@@ -4,11 +4,19 @@ import StyledSelectInput from "../../components/styled-inputs/StyledSelectInput.
 import {useEffect, useState} from "react";
 import Organizations from "../../model/organizations.js";
 import OrganizationCard from "../../components/OrganizationCard.jsx";
+import {useNavigate, useParams} from "react-router-dom";
 
 export default function ViewOrganizations(){
     const [searchValue, setSearchValue] = useState("");
     const [filters, setFilters] = useState({});
     const [Orgs, setOrganizations] = useState(Organizations);
+    const navigate = useNavigate();
+    const {userID} = useParams();
+
+    const handleSeeMore = (organizationDetails) => {
+        console.log(organizationDetails);
+        navigate("/viewOrgDetails/"+userID, {state: {organizationDetails}});
+    }
 
     const handleSearch = (event) => {
         setSearchValue(event.target.value);
@@ -60,7 +68,7 @@ export default function ViewOrganizations(){
                         Orgs.map(
                             (organization) => {
                                 return (
-                                    <OrganizationCard organizationDetails={organization} key={organization.name}/>
+                                    <OrganizationCard organizationDetails={organization} key={organization.name} seeMorefunction={handleSeeMore}/>
                                 );
                             }
                         )

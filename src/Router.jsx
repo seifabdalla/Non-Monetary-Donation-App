@@ -11,6 +11,7 @@ import VolunteerRequests from "./pages/admin_view/VolunteerRequests.jsx";
 import DonationsRequests from "./pages/admin_view/DonationsRequests.jsx";
 import ViewOrganization from "./pages/admin_view/ViewOrganization.jsx";
 import ViewDonors from "./pages/admin_view/ViewDonors.jsx";
+import ViewOrgDetails from "./pages/viewPages/ViewOrgDetails.jsx";
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -39,8 +40,12 @@ const Router = () => {
             element : <RequestPage />
         },
         {
-            path : "/donor/view-organizations/:userID",
+            path : "/view-organizations/:userID",
             element : <ViewOrganizations />
+        },
+        {
+            path : "/viewOrgDetails/:userID",
+            element : <ViewOrgDetails />
         },
         {
             path : "/admin/registration-requests",

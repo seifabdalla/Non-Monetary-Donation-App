@@ -9,14 +9,17 @@ export default function OrganizationCard(props){
                 <h2 className="font-extrabold text-2xl">{props.organizationDetails.name}</h2>
             </div>
             <button
-                className="bg-Deep-Sea-Emerald font-extrabold p-2 px-6 rounded-xl hover:bg-teal-900 transition-colors">See
-                more
+                className="bg-Deep-Sea-Emerald font-extrabold p-2 px-6 rounded-xl hover:bg-teal-900 transition-colors"
+                onClick={() => props.seeMorefunction(props.organizationDetails)}
+            >
+                See more
             </button>
         </div>
     );
 }
 
 OrganizationCard.propTypes = {
-    organizationDetails: PropTypes.object.isRequired
+    organizationDetails: PropTypes.object.isRequired,
+    seeMorefunction: PropTypes.func.isRequired
 }
 

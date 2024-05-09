@@ -66,7 +66,7 @@ const cardData = {
         {
             title: "View Organizations",
             icon: mdiDomain,
-            linkTo: "/donor/view-organizations/",
+            linkTo: "/view-organizations/",
         },
         {
             title: "Donation History",
