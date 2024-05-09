@@ -12,8 +12,8 @@ const IndividualUsers = [
         address: "123 Main St",
         area: "Downtown",
         governorate: "Cairo",
-        type: "Doctor",
-        location : {
+        type: "Teacher",
+        location: {
             lat: 40.7128,
             lng: -74.0060,
         }
@@ -29,9 +29,64 @@ const IndividualUsers = [
         address: "456 Elm St",
         area: "Uptown",
         governorate: "Alexandria",
-        type: "Regular Donor"
+        type: "Doctor",
+        location: {
+            lat: 39.9526,
+            lng: -75.1652,
+        }
     },
-]
+    {
+        userId: 3,
+        firstName: "Michael",
+        lastName: "Smith",
+        gender: "Male",
+        email: "michael.smith@example.com",
+        contactNumber: "2345678901",
+        password: "password3",
+        address: "789 Oak St",
+        area: "Suburbia",
+        governorate: "Giza",
+        type: "Teacher",
+        location: {
+            lat: 34.0522,
+            lng: -118.2437,
+        }
+    },
+    {
+        userId: 4,
+        firstName: "Emily",
+        lastName: "Johnson",
+        gender: "Female",
+        email: "emily.johnson@example.com",
+        contactNumber: "3456789012",
+        password: "password4",
+        address: "101 Pine St",
+        area: "Rural",
+        governorate: "Luxor",
+        type: "Doctor",
+        location: {
+            lat: 25.6872,
+            lng: 32.6396,
+        }
+    },
+    {
+        userId: 5,
+        firstName: "David",
+        lastName: "Williams",
+        gender: "Male",
+        email: "david.williams@example.com",
+        contactNumber: "4567890123",
+        password: "password5",
+        address: "202 Maple St",
+        area: "Urban",
+        governorate: "Aswan",
+        type: "Teacher",
+        location: {
+            lat: 24.0889,
+            lng: 32.8998,
+        }
+    }
+];
 
 const initialState = {
     IndividualUsers: IndividualUsers,

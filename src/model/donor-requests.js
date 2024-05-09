@@ -1,6 +1,6 @@
 const DonorsRequests = {
     requests: [
-        {
+        {  request_id: 1,
             title: "Donating Clothes",
             description: "Donating Clothes for some orphans",
             category: "Clothes",
@@ -13,7 +13,7 @@ const DonorsRequests = {
             amountNeeded:"7",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8w5msQEC87ush_NdoVZyoOJDehZWL6zQ13jLg5tfxWQ&s"
         },
-        {
+        { request_id: 2,
             title: "Donating Toys",
             description: "Donating toys for orphans",
             category: "Orphanage",
@@ -22,7 +22,7 @@ const DonorsRequests = {
             amountNeeded:"8",
             imgUrl:"https://t4.ftcdn.net/jpg/03/24/42/21/360_F_324422176_Lgn7NTeFyNaUKIDu0Ppls1u8zb8wsKS4.jpg"
         },
-        {
+        { request_id: 3,
             title: "School supplies",
             description: "Donating backpacks and books for students",
             category: "Education",
@@ -31,7 +31,7 @@ const DonorsRequests = {
             amountNeeded:"10",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKJk3-VTqGXYfC9eURSb-9AolPYo1REOMW9KspIncLhw&s"
         },
-        {
+        { request_id: 4,
             title: "Orphanage Donation",
             description: "Donating blankets and furniture",
             category: "Orphanage",
@@ -40,7 +40,7 @@ const DonorsRequests = {
             amountNeeded:"4",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhEPEmzv9J9VTC6MnhDC7GdlosS0Id-MzT-86Pkel_-A&s"
         },
-        {
+        { request_id: 5,
             title: "Orphanage Hyegiene ",
             description: "Donating soap, toothpaste, and sanitary products ",
             category: "Orphanage",
@@ -49,7 +49,7 @@ const DonorsRequests = {
             amountNeeded:"11",
             imgUrl:"https://www.trusselltrust.org/wp-content/uploads/sites/2/2016/03/donated-toiletries-web.jpg"
         },
-        {
+        { request_id: 6,
             title: "Books Donation",
             description: "Donating books for schools libraries",
             category: "Education",
@@ -58,7 +58,7 @@ const DonorsRequests = {
             amountNeeded:"20",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbkRh1tLwkiFIclmxb6u5Ri_RUQXbk4jLpvW11MjUN9w&s"
         },
-        {
+        { request_id: 7,
             title: "Donate Sports gear",
             description: "donating sports equipment for student activities at school",
             category: "Education",
@@ -67,7 +67,7 @@ const DonorsRequests = {
             amountNeeded:"36",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcG1lOUVK7gmxhIqe2TQcWGKQI1P5cMb2jX_NJGaPmBQ&s"
         },
-        {
+        { request_id: 8,
             title: "Medical Supplies",
             description: "donating medical supplies for hospitals",
             category: "Hospital",
@@ -76,7 +76,7 @@ const DonorsRequests = {
             amountNeeded:"23",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPDxo4y1LFf89yRICWeRAD0JyBtPdUd406ifKbkryT-w&s"
         },
-        {
+        { request_id: 9,
             title: "Donating Clothes",
             description: "donating winter clothes for refugees",
             category: "Clothes",
@@ -89,7 +89,7 @@ const DonorsRequests = {
             amountNeeded:"6",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9cGEYki8wS0TfLEehcfo4msYns39MylBCB_7-KSP6YQ&s"
         },
-        {
+        { request_id: 10,
             title: "Clothes Donation",
             description: "donating summer clothes for orphans",
             category: "Clothes",
@@ -102,7 +102,7 @@ const DonorsRequests = {
             amountNeeded:"8",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJcIetf6DvEol_GI3BHndtRVVEDsJ6Jb4fgNXHFj9TsO2lNvlulzq3zkM34JKhe0IRnDY&usqp=CAU"
         },
-        {
+        { request_id: 11,
             title: "Clothes",
             description: "donating adult clothes",
             category: "Clothes",
@@ -115,7 +115,7 @@ const DonorsRequests = {
             amountNeeded:"9",
             imgUrl:"https://cdn.gobankingrates.com/wp-content/uploads/2018/07/woman-with-clothes-to-give-away-iStock-832447866.jpg"
         },
-        {
+        { request_id: 12,
             title: "Donation of clothes",
             description: "donating kids clothes for orphanage",
             category: "Clothes",
@@ -128,7 +128,7 @@ const DonorsRequests = {
             amountNeeded:"8",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwAtBkRMdeyFcTwSLsbz_Ay_fKYmNOhNokYmcnVINpkA&s"
         },
-        {
+        { request_id: 13,
             title: "Clothes",
             description: "donating adult clothes",
             category: "Clothes",
@@ -142,7 +142,7 @@ const DonorsRequests = {
             imgUrl: "https://cdn.gobankingrates.com/wp-content/uploads/2018/07/woman-with-clothes-to-give-away-iStock-832447866.jpg"
 
         },
-        {
+        { request_id: 14,
             title: "Clothes",
             description: "donating adult clothes",
             category: "Clothes",
@@ -155,7 +155,7 @@ const DonorsRequests = {
             amountNeeded:"9",
             imgUrl:"https://cdn.gobankingrates.com/wp-content/uploads/2018/07/woman-with-clothes-to-give-away-iStock-832447866.jpg"
         },
-        {
+        { request_id: 15,
             title: "Clothes",
             description: "donating adult clothes",
             category: "Clothes",
@@ -168,7 +168,7 @@ const DonorsRequests = {
             amountNeeded:"8",
             imgUrl:"https://cdn.gobankingrates.com/wp-content/uploads/2018/07/woman-with-clothes-to-give-away-iStock-832447866.jpg"
         },
-        {
+        { request_id: 16,
             title: "Clothes",
             description: "donating adult clothes",
             category: "Clothes",
@@ -181,7 +181,7 @@ const DonorsRequests = {
             amountNeeded:"5",
             imgUrl:"https://cdn.gobankingrates.com/wp-content/uploads/2018/07/woman-with-clothes-to-give-away-iStock-832447866.jpg"
         },
-        {
+        { request_id: 17,
             title: "Donating Clothes",
             description: "Donating Clothes for children in need",
             category: "Clothes",
@@ -194,7 +194,7 @@ const DonorsRequests = {
             amountNeeded:"9",
             imgUrl:"https://as1.ftcdn.net/v2/jpg/04/99/22/92/1000_F_499229278_1cUHkMzkqWSElJAZpF6d8RF0C2DRcrBm.jpg"
         },
-        {
+        { request_id: 18,
             title: "Donating Toys",
             description: "Donating toys for children's playroom",
             category: "Toys",
@@ -206,7 +206,7 @@ const DonorsRequests = {
             amountNeeded:"25",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi1QryL5ABMfUE-dI201Frz5fVsyVN0d7SQQAx_-VF5A&s"
         },
-        {
+        { request_id: 19,
             title: "Donating Tuna",
             description: "Donating canned Tuna for the Orphanage high school kids",
             category: "Food",
@@ -216,7 +216,7 @@ const DonorsRequests = {
             amountNeeded:"40",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTabuJpcEPHiqpgGH2s855TrYIa7UAXsWiSTw&usqp=CAU"
         },
-        {
+        { request_id: 20,
             title: "Donating Medical Supplies",
             description: "Donating medical equipment for the hospital",
             category: "Medical Supplies",
@@ -226,7 +226,7 @@ const DonorsRequests = {
             amountNeeded:"26",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSViS2gxAoSL7JqpkMszlSEe6VR4xp_bcnSylX_Q-S1gg&s"
         },
-        {
+        {   request_id: 21,
             title: "Blood Donation",
             description: "Blood donation for emergency cases",
             category: "Blood Donations",
@@ -241,7 +241,7 @@ const DonorsRequests = {
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc3OubKe7syYicCXFqFTu2hz5tOHo9UeqbzT3_HtceMg&s"
 
         },
-        {
+        { request_id: 22,
             title: "Arabic Books for High School Students",
             description: "Providing novel for a local school",
             category: "School Supplies",
@@ -255,7 +255,7 @@ const DonorsRequests = {
             amountNeeded:"26",
             imgUrl:"https://img.youm7.com/large/202208290326462646.jpg"
         },
-        {
+        { request_id: 23,
             title: "Donating Clothes",
             description: "Donating winter clothes for refugees",
             category: "Clothes",
@@ -268,7 +268,7 @@ const DonorsRequests = {
             amountNeeded:"32",
             imgUrl:"https://northboundgear.co/cdn/shop/articles/Screen_Shot_2022-03-22_at_14.08.05.png?v=1647954506"
         },
-        {
+        { request_id: 24,
             title: "Donating Toys",
             description: "Donating educational toys for children's development",
             category: "Toys",
@@ -280,7 +280,7 @@ const DonorsRequests = {
             amountNeeded:"6",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRETB9yhUvpqTTpKwrWUslcAjMHY9aCWup1kTtBKzhflg&s"
         },
-        {
+        {   request_id: 25,
             title: "Donating Fresh Meals",
             description: "Donating fresh meals for the elderly care center",
             category: "Food",
@@ -290,7 +290,7 @@ const DonorsRequests = {
             amountNeeded:"22",
             imgUrl:"https://domf5oio6qrcr.cloudfront.net/medialibrary/11396/cb91e012-a635-4b41-a59a-8b23c836423d.jpg"
         },
-        {
+        {       request_id: 26,
             title: "Donating Medical Supplies",
             description: "Donating medicines for the clinic",
             category: "Medical Supplies",
@@ -300,7 +300,7 @@ const DonorsRequests = {
             amountNeeded:"36",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQjdnZJ4m58FVY_9ZBzLbWkNXzGSA_qqKpotJy1NQunw&s"
         },
-        {
+        { request_id: 27,
             title: "Blood Donation",
             description: "Blood donation drive for cancer patients",
             category: "Blood Donations",
@@ -314,7 +314,7 @@ const DonorsRequests = {
 
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVrOp9zzqJRSuLG6J0F_LCifADQJNdKr2TLBDv4kw-8w&s"
         },
-        {
+        { request_id: 28,
             title: "Educational Toys Donation",
             description: "Donating educational toys for preschoolers",
             category: "Toys",
@@ -326,7 +326,7 @@ const DonorsRequests = {
             amountNeeded:"27",
             imgUrl:"https://m.media-amazon.com/images/I/718de-t7RrL._AC_SL1500_.jpg"
         },
-        {
+        { request_id: 29,
             title: "Donating Mangoes",
             description: "Donating fresh Mangoes for orphanage",
             category: "Food",
@@ -336,7 +336,7 @@ const DonorsRequests = {
             amountNeeded:"26",
             imgUrl:"https://static.toiimg.com/thumb/msid-109503138,width-1280,height-720,resizemode-4/109503138.jpg"
         },
-        {
+        { request_id: 30,
             title: "Donating Medical Devices",
             description: "Donating medical devices for the rehabilitation center",
             category: "Medical Supplies",
@@ -346,7 +346,7 @@ const DonorsRequests = {
             amountNeeded:"36",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7sFX0fObROoshw5d5V-bf59A8-ERB52p7huBpcFiVGA&s"
         },
-        {
+        { request_id: 31,
             title: "Blood Donation",
             description: "Emergency blood donation for accident victims",
             category: "Blood Donations",
@@ -361,7 +361,7 @@ const DonorsRequests = {
 
             imgUrl:"https://www.heart.org/-/media/Images/News/2024/March-2024/0307BloodDonation_SC.jpg?sc_lang=en&hash=765C86DF80AF334F27D1E3AF85DB0B7E"
         },
-        {
+        { request_id: 32,
             title: "School Supplies Donation",
             description: "Donating stationery for underprivileged students",
             category: "School Supplies",
@@ -371,7 +371,7 @@ const DonorsRequests = {
             amountNeeded:"35",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfpioSJrQgVi6HebespL1PrqW4QDlqGeFDGoDgYfi4ng&s"
         },
-        {
+        { request_id: 33,
             title: "Donating Clothes",
             description: "Donating summer clothes for displaced families",
             category: "Clothes",
@@ -384,7 +384,7 @@ const DonorsRequests = {
             amountNeeded:"19",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWh9VkGtEDpy8q9H0CmFg6w_yRtJXer89voak2tC5ZgQ&s"
         },
-        {
+        { request_id: 34,
             title: "Outdoor Toys Donation",
             description: "Donating outdoor toys for children's playground",
             category: "Toys",
@@ -396,7 +396,7 @@ const DonorsRequests = {
             amountNeeded:"26",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmyCHFbifHD9bP2HWogLTebJ1UqUr7suoUAat2gOJhHg&s"
         },
-        {
+        { request_id: 35,
             title: "Donating Baked Goods",
             description: "Donating baked goods for fundraising event",
             category: "Food",
@@ -406,7 +406,7 @@ const DonorsRequests = {
             amountNeeded:"26",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn1LqL3EP-kw72joJrixR1Cm2O9RMVQXh4r09BoizD7A&s"
         },
-        {
+        { request_id: 36,
             title: "Donating Medicines",
             description: "Donating essential medicines for the clinic",
             category: "Medical Supplies",
@@ -416,7 +416,7 @@ const DonorsRequests = {
             amountNeeded:"32",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5WfKl8KdSEG-qngqu2IumZZgtEAhUOyBvZf9Cj11C-A&s"
         },
-        {
+        { request_id: 37,
             title: "Race Car",
             description: "donating a hot wheels 9 car pack",
             category: "Toys",
@@ -428,7 +428,7 @@ const DonorsRequests = {
             amountNeeded:"22",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbz9hqO4V9LRIIS9dEfhbqx7ipQRJEZyUYMqcCZFpHCw&s"
         },
-        {
+        { request_id: 38,
             title: "Tennis Rackets",
             description: "donating a big sized tennis racket ",
             category: "Toys",
@@ -440,7 +440,7 @@ const DonorsRequests = {
             amountNeeded:"3",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr0QmkHVtAhR0xPPzodSGGrb5c6A_iZxX4f4sKMDZ3lw&s"
         },
-        {
+        { request_id: 39,
             title: "Barbie",
             description: "donating a barbie doll collection",
             category: "Toys",
@@ -452,7 +452,7 @@ const DonorsRequests = {
             amountNeeded:"2",
             imgUrl:"https://wwd.com/wp-content/uploads/2023/06/MEGA989664_002.jpg"
         },
-        {
+        {       request_id: 40,
             title: "Ninjago",
             description:"donating a Kai toy based on Ninjago",
             category: "Toys",
@@ -464,7 +464,7 @@ const DonorsRequests = {
             amountNeeded:"5",
             imgUrl:"https://www.lego.com/cdn/cs/set/assets/blt32b999ae4ccc4db6/5007960_alt2.jpg"
         },
-        {
+        { request_id: 41,
             title: "Light Sabers",
             description: "donating 2 light sabers blue and red from star wars",
             category: "Toys",
@@ -476,7 +476,7 @@ const DonorsRequests = {
             amountNeeded:"7",
             imgUrl:"https://m.media-amazon.com/images/I/81ZvZvxTrmL.jpg"
         },
-        {
+        { request_id: 42,
             title: "Teaching Assistance",
             description: "Providing teaching support for local schools",
             category: "Teaching Posts",
@@ -486,7 +486,7 @@ const DonorsRequests = {
             address:"22 Km. Cairo – Ismailia Road Branch – Cairo – Egypt",
             imgUrl:"https://www.shutterstock.com/image-photo/teacher-asking-her-students-question-260nw-309239105.jpg"
         },
-        {
+        { request_id: 43,
             title: "Donating Clothes",
             description: "Donating winter clothes for refugees",
             category: "Clothes",
@@ -499,7 +499,7 @@ const DonorsRequests = {
             amountNeeded:"29",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEwIQO8cFfCxshqCfxLdhVeWhJ7kywM-mm2dCncLFKCQ&s"
         },
-        {
+        { request_id: 44,
             title: "Medical Assistance",
             description: "Providing medical aid for critical cases",
             category: "Medical Cases",
@@ -512,7 +512,7 @@ const DonorsRequests = {
             address:"Shoubra, Cairo, Egypt",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBbht82Brz24duvSNhHiV8aOoW28emiC26tynfQF77vQ&s"
         },
-        {
+        { request_id: 45,
             title: "Donating Toys",
             description: "Donating educational toys for children's development",
             category: "Toys",
@@ -524,7 +524,7 @@ const DonorsRequests = {
             amountNeeded:"40",
             imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVqUKmSWP1VDK-6o96rPsJsrDFblpH6QYCd7f_umUV2Q&s"
         },
-        {
+        { request_id: 46,
             title: "Educational Support",
             description: "Offering educational resources for disadvantaged students",
             category: "Teaching Posts",
