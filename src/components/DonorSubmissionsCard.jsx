@@ -20,7 +20,7 @@ export default function DonorSubmissionsCard(props){
                 </h2>
                 <button onClick={handleExpand}>
                     <Icon path={mdiMenuUpOutline} size={1} rotate={isExpanded ? 0 : 180}
-                          className={"transition-transform duration-300"}/>
+                          className={"transition-transform duration-300 text-white"}/>
                 </button>
             </div>
             <div className={"font-mono text-xl text-slate-100"}>
