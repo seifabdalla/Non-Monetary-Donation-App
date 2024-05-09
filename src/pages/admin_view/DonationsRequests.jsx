@@ -1,9 +1,5 @@
 import MainHeader from "../../components/MainHeader.jsx";
-import {DonorsRequests} from "../../model/view-page.js";
-import {RegRequests} from "../../model/Admin/Submissions.js";
-import OrganizationSubmissionsCard from "../../components/OrganizationSubmissionsCard.jsx";
-import DonorSubmissionsCard from "../../components/DonorSubmissionsCard.jsx";
-import Requests_listView from "./Requests_listView.jsx";
+import {DonorsRequests} from "../../model/donor-requests.js";
 import RequestsCard from "../../components/RequestsCard.jsx";
 
 
