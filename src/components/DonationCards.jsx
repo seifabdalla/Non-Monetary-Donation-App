@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
-import {useNavigate} from "react-router-dom";
+import {useNavigate,useParams} from "react-router-dom";
 
 export default function DonationCards(props){
 
+    const {userID} = useParams();
     const navigate = useNavigate();
     const handleSeeMore = () => {
-        navigate("/requestdetails", {state: {cardObject: props.cardObject}});
+        navigate(`/donor/request-details/${userID}`, {state: {cardObject: props.cardObject}});
     }
 
     return (

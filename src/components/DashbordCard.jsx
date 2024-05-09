@@ -1,20 +1,11 @@
 import PropTypes from "prop-types";
 import Icon from "@mdi/react";
-import {useLocation,useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 export default function DashbordCard(props){
-
-    const location = useLocation();
     const navigate = useNavigate();
     const goTo = () => {
-        let newPathName = "";
-        if (props.isDonor){
-            newPathName = location.pathname + props.goTo;
-        } else {
-            newPathName = props.goTo;
-        }
-
-        navigate(newPathName);
+        navigate(props.goTo);
     }
 
     return (
@@ -31,11 +22,6 @@ export default function DashbordCard(props){
 DashbordCard.propTypes = {
     title : PropTypes.string.isRequired,
     icon : PropTypes.string.isRequired,
-    goTo : PropTypes.string,
-    isDonor : PropTypes.bool
+    goTo : PropTypes.string
 }
-
-DashbordCard.defaultProps = {
-    isDonor : false
-};
 

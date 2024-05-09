@@ -36,9 +36,13 @@ export default function DashboardPage(){
                     {
                         cardData[profileType].map(
                             (card, index) => {
+                                let link = card.linkTo;
+                                if (profileType === 'donor'){
+                                    link+=userID;
+                                }
                                 return (
                                     <div key={index}>
-                                        <DashbordCard title={card.title} icon={card.icon} accentColor={card.color} goTo={card.linkTo} isDonor={card.isDonor}/>
+                                        <DashbordCard title={card.title} icon={card.icon} accentColor={card.color} goTo={link}/>
                                     </div>
                                 );
                             }
@@ -57,20 +61,17 @@ const cardData = {
         {
             title: "View Requests",
             icon: mdiHandCoin,
-            linkTo: "/view-requests",
-            isDonor: true
+            linkTo: "/donor/view-requests/",
         },
         {
             title: "View Organizations",
             icon: mdiDomain,
-            linkTo: "/view-organizations",
-            isDonor: true
+            linkTo: "/donor/view-organizations/",
         },
         {
             title: "Donation History",
             icon: mdiHistory,
-            linkTo: "/view-requests",
-            isDonor: true
+            linkTo: "donor/view-requests",
         }
     ],
     admin : [

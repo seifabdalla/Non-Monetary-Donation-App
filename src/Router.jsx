@@ -3,13 +3,14 @@ import { WelcomePage } from "./pages/welcome/WelcomePage.jsx";
 import { RegisterPage } from "./pages/authentication/RegisterPage.jsx";
 import { LoginPage } from "./pages/authentication/LoginPage.jsx";
 import DashboardPage from "./pages/dashboard-and-profile/DashboardPage.jsx";
-import ViewPage from "./pages/viewPages/ViewPage.jsx";
+import DonorViewRequests from "./pages/viewPages/DonorViewRequests.jsx";
+import RequestPage from "./pages/viewPages/RequestPage.jsx";
+import ViewOrganizations from "./pages/viewPages/ViewOrganizations.jsx";
 import Requests_listView from "./pages/admin_view/Requests_listView.jsx";
 import VolunteerRequests from "./pages/admin_view/VolunteerRequests.jsx";
 import DonationsRequests from "./pages/admin_view/DonationsRequests.jsx";
 import ViewOrganization from "./pages/admin_view/ViewOrganization.jsx";
 import ViewDonors from "./pages/admin_view/ViewDonors.jsx";
-import RequestPage from "./pages/viewPages/RequestPage.jsx";
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -30,8 +31,16 @@ const Router = () => {
             element : <DashboardPage />
         },
         {
-            path : "/dashboard/:profileType/:userID/:viewType",
-            element : <ViewPage />
+            path : "/donor/view-requests/:userID",
+            element : <DonorViewRequests />
+        },
+        {
+            path : "/donor/request-details/:userID",
+            element : <RequestPage />
+        },
+        {
+            path : "/donor/view-organizations/:userID",
+            element : <ViewOrganizations />
         },
         {
             path : "/admin/registration-requests",
@@ -52,10 +61,6 @@ const Router = () => {
         {
             path: "/admin/view-donors",
             element: <ViewDonors />
-        },
-        {
-            path : "/requestdetails",
-            element : <RequestPage />
         }
     ]);
 
