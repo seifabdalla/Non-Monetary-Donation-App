@@ -38,7 +38,6 @@ export default function DashboardPage(){
                             (card, index) => {
                                 return (
                                     <div key={index}>
-                                        {console.log(card.linkTo)}
                                         <DashbordCard title={card.title} icon={card.icon} accentColor={card.color} goTo={card.linkTo+userID}/>
                                     </div>
                                 );
@@ -62,7 +61,7 @@ const donorCardData = [
     {
         title: "View Organizations",
         icon: mdiDomain,
-        linkTo: "donor/view-organizations"
+        linkTo: "/donor/view-organizations/"
     },
     {
         title: "Donation History",

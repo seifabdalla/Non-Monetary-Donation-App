@@ -1,14 +1,12 @@
 import MainHeader from "../../components/MainHeader.jsx";
 import StyledSearch from "../../components/styled-inputs/StyledSearch.jsx";
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
 import DonationCards from "../../components/DonationCards.jsx";
 
-import {DonorsRequests,Organizations} from "../../model/view-page.js";
+import {DonorsRequests} from "../../model/donor-requests.js";
 import StyledSelectInput from "../../components/styled-inputs/StyledSelectInput.jsx";
 
 export default function DonorViewRequests() {
-    const {viewType} = useParams();
 
     const [searchValue, setSearchValue] = useState("");
     const [requests, setRequests] = useState(DonorsRequests.requests);

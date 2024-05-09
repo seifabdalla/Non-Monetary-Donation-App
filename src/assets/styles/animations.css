@@ -1,6 +1,6 @@
 .puff-in-tr {
-    -webkit-animation: puff-in-tr 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-    animation: puff-in-tr 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+    -webkit-animation: puff-in-tr 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+    animation: puff-in-tr 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
 }
 
 @-webkit-keyframes puff-in-tr {

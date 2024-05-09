@@ -5,6 +5,7 @@ import { LoginPage } from "./pages/authentication/LoginPage.jsx";
 import DashboardPage from "./pages/dashboard-and-profile/DashboardPage.jsx";
 import DonorViewRequests from "./pages/viewPages/DonorViewRequests.jsx";
 import RequestPage from "./pages/viewPages/RequestPage.jsx";
+import ViewOrganizations from "./pages/viewPages/ViewOrganizations.jsx";
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const Router = () => {
         {
             path : "/donor/request-details/:userID",
             element : <RequestPage />
+        },
+        {
+            path : "/donor/view-organizations/:userID",
+            element : <ViewOrganizations />
         }
     ]);
 
