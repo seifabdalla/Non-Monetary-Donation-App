@@ -37,7 +37,7 @@ export default function RequestsCard(props){
                         <img src={props.request.imgUrl} alt={props.request.request}
                              className="w-1/4 h-[190px] object-cover"/>
                         <div className="flex flex-col w-full">
-                            <div className={"flex flex-row gap-20 justify-between w-full"}>
+                            <div className={"flex flex-row  justify-between w-full"}>
                                 <div className="flex flex-col  font-medium text-1xl">
                                     <div> Title: {props.request.title}</div>
                                     <div> Category: {props.request.category}</div>
@@ -47,12 +47,12 @@ export default function RequestsCard(props){
 
                                 </div>
 
-                                <div className="flex flex-col w-full">
+                                <div className="flex flex-col justify-end pb-5">
                                     <div> {renderAdditionalInfo()}</div>
 
                                 </div>
                             </div>
-                            <div className="flex flex-row gap-4 justify-center">
+                            <div className="flex flex-row gap-4 justify-end">
                                 <button
                                     className=" bg-green-400 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
                                 >

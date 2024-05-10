@@ -48,7 +48,7 @@ export default function DonorSubmissionsCard(props){
                         <div>Password:{props.request.password}</div>
                         <div>Contact number: {props.request.contact_number}</div>
                         <div>Area: {props.request.area}</div>
-                        <div className="flex flex-row justify-between">
+                        <div className="flex flex-row gap-4">
                             <button
                                 className=" bg-green-400 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
                             >

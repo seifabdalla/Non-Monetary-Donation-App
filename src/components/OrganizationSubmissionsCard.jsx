@@ -45,14 +45,14 @@ export default function OrganizationSubmissionsCard(props){
                         <div>Organization Type: {props.request.organization.type}</div>
                         <div>Organization Area: {props.request.organization.area}</div>
 
-                        <div className="flex flex-row justify-between">
+                        <div className="flex flex-row gap-4">
                             <button
                                 className=" bg-green-400 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
                             >
                                 Accept
                             </button>
                             <button
-                                className="w-1/3 bg-red-500 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                                className=" bg-red-500 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
                             >
                                 Reject
                             </button>
