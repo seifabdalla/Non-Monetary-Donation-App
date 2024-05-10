@@ -31,8 +31,10 @@ export default function Post(props){
         withReactContent(Swal).fire({
         title: "Success",
         text: "New Post was created",
-        icon: "success"
-    });}
+        icon: "success",
+            confirmButtonColor: "#00B9AE"
+
+        });}
     const [selectedValue, setSelectedValue] = useState('');
     const [details,setDetails] = useState("Enter Details here");
 
@@ -93,16 +95,16 @@ export default function Post(props){
                         />
                         <div className={'flex flex-row justify-between pt-2 gap-2'}>
                             <button
-                                onClick={handleClose} className="w-1/6 bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear">
+                                onClick={handleClose} className="w-1/6 bg-Tropical-Lagoon text-white font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear">
                                 Cancel
                             </button>
                             <div className={'flex flex-row justify-end gap-2 '}>
                                 <button
-                                    className="w-1/7 bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear">
+                                    className="w-1/7 bg-Tropical-Lagoon text-white font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear">
                                     <Icon path={mdiAttachment} size={1}/>
                                 </button>
                                 <button
-                                    onClick={handleSubmit} className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear">
+                                    onClick={handleSubmit} className="w-full bg-Tropical-Lagoon text-white font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear">
                                     Submit
                                 </button>
                             </div>
