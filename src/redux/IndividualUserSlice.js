@@ -16,7 +16,10 @@ const IndividualUsers = [
         location: {
             lat: 40.7128,
             lng: -74.0060,
-        }
+        },
+        subjects: "Math, Science, English",
+        privateClasses:5,
+        classes: 3
     },
     {
         userId: 2,
@@ -33,7 +36,12 @@ const IndividualUsers = [
         location: {
             lat: 39.9526,
             lng: -75.1652,
-        }
+        },
+        clinicAddress: "101 Pine St",
+        clinicArea: "Rural",
+        clinicGovernorate: "Luxor",
+        specialization: "Cardiologist",
+        numOfCases: 3
     },
     {
         userId: 3,
@@ -50,7 +58,10 @@ const IndividualUsers = [
         location: {
             lat: 34.0522,
             lng: -118.2437,
-        }
+        },
+        subjects: "History, Geography, Civics",
+        privateClasses:2,
+        classes: 2
     },
     {
         userId: 4,
@@ -67,7 +78,12 @@ const IndividualUsers = [
         location: {
             lat: 25.6872,
             lng: 32.6396,
-        }
+        },
+        clinicAddress: "202 Maple St",
+        clinicArea: "Urban",
+        clinicGovernorate: "Aswan",
+        specialization: "Pediatrician",
+        numOfCases: 5
     },
     {
         userId: 5,
