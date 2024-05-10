@@ -1,9 +1,7 @@
 import PropTypes from "prop-types";
 import {useState} from "react";
 import Icon from '@mdi/react';
-import { mdiMenuUpOutline } from '@mdi/js';
-import {StyledFileInput} from "./styled-inputs/StyledFileInput.jsx";
-
+import {mdiDownload, mdiMenuUpOutline} from '@mdi/js';
 
 
 export default function OrganizationSubmissionsCard(props){
@@ -13,30 +11,33 @@ export default function OrganizationSubmissionsCard(props){
     }
 
     return (
-        <div className={"bg-teal-700 flex flex-col justify-around items-start shadow-sm px-2 py-2 w-2/3 rounded-md"}>
-            <div className={"flex flex-row justify-between px-1 w-full text-slate-100"}>
+        <div
+            className={` bg-white flex flex-col justify-around items-start shadow-sm px-4 py-2 w-full rounded-md border-2 border-grey`}>
+            <div className={"flex flex-row justify-between px-1 w-full text-black"}>
                 <h2 className={"font-medium text-3xl"}>
                     {props.request.first_name} {props.request.last_name}
                 </h2>
                 <button onClick={handleExpand}>
-                    <Icon path={mdiMenuUpOutline} size={1} rotate={isExpanded ? 0 : 180}
-                          className={"transition-transform duration-300 text-white"}/>
+                    <Icon path={mdiMenuUpOutline} size={1}  rotate={isExpanded ? 0 : 180}
+                          className={"transition-transform duration-300 text-black"}/>
                 </button>
             </div>
-            <div className={"font-mono text-xl text-slate-100"}>
+            <div className={"font-mono text-xl text-black"}>
                 Type : Organization
             </div>
 
             {
                 isExpanded &&
-                <div className="font-mono text-xl text-slate-100 flex flex-row justify-between w-full" >
+                <div className="font-mono text-xl text-black flex flex-row justify-between w-full">
                     <div className="flex-col ">
                         <div>Email: {props.request.email}</div>
                         <div>Gender: {props.request.gender}</div>
                         <div>OrganizationName: {props.request.organization.name}</div>
                         <div>Organization Address: {props.request.organization.address}</div>
                         <div>Organization Governorate: {props.request.organization.governorate}</div>
-                        <div><StyledFileInput/></div>
+
+                        <button     className=" flex flex-row w-full bg-Mystic-Teal text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                        > Download Organization legal Files<Icon  path={mdiDownload} size={1} className={"transition-transform duration-300 text-black"}/></button>
                     </div>
                     <div className="flex-col ">
                         <div>Password:{props.request.password}</div>
