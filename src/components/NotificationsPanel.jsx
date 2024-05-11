@@ -5,25 +5,28 @@ import {useState} from "react";
 import Icon from "@mdi/react";
 import { mdiCloseCircleOutline} from "@mdi/js";
 import NotificationsElement from "./NotificationsElement.jsx";
+import {useParams} from "react-router-dom";
+import "../assets/styles/shake-animation.css"
 
 export default function NotificationsPanel() {
+    const {profileType} = useParams();
     const [isOpen, setOpen] = useState(false);
     return (
         <Popover placement={"top"} onOpenChange={setOpen} isOpen={isOpen}>
             <PopoverTrigger>
-                <Badge badgeContent={3} color="error" className={"cursor-pointer"}>
+                <Badge badgeContent={3} color="error" className={"cursor-pointer shake-on-hover"}>
                     <NotificationsIcon color={"inherit"} fontSize={'large'}/>
                 </Badge>
             </PopoverTrigger>
             <PopoverContent>
-                {content(setOpen)}
+                {content(setOpen,profileType)}
             </PopoverContent>
         </Popover>
     );
 }
 
 
-function content(setOpen) {
+function content(setOpen,profileType) {
     return (
         <div className="px-1 py-2">
             <div className={"flex flex-row items-center justify-center gap-5 mb-3"}>
@@ -33,10 +36,22 @@ function content(setOpen) {
                 </button>
             </div>
             <div className={"flex flex-col gap-2"}>
-                <NotificationsElement text={"Request 'Donating Toys to Resala' is fulfilled and the Delivery pickup is set to next Monday 2:30 pm"}/>
-                <NotificationsElement text={"Request 'Donating Clothes to Masr Al Kheir' is fulfilled and the Delivery pickup is set to Tomorrow 6:00 pm"}/>
-                <NotificationsElement text={"Request 'Teaching Post' is fulfilled, We are waiting for you on the 14th of March"}/>
+                {   profileType != null && notificationsDummyData[profileType].length !== 0 &&
+                    notificationsDummyData[profileType].map((notification, index) => {
+                        return (
+                            <NotificationsElement key={index} text={notification}/>
+                        );
+                    })
+                }
             </div>
         </div>
     );
+}
+
+const notificationsDummyData = {
+    donor: [
+        "Request 'Donating Toys to Resala' is fulfilled and the Delivery pickup is set to next Monday 2:30 pm",
+        "Request 'Donating Clothes to Masr Al Kheir' is fulfilled and the Delivery pickup is set to Tomorrow 6:00 pm",
+        "Request 'Teaching Post' is fulfilled, We are waiting for you on the 14th of March"
+    ],
 }
