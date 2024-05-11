@@ -32,6 +32,15 @@ export default function ProfilePage(){
     const [address, setAddress] = useState("");
     const [area, setArea] = useState("");
     const [governorate, setGovernorate] = useState("");
+    const [clinicArea, setClinicArea] = useState("");
+    const [clinicAddress, setClinicAddress] = useState("");
+    const [clinicGovernorate, setClinicGovernorate] = useState("");
+    const [numOfProBono, setNumOfProBono] = useState("");
+    const [speciality, setSpeciality] = useState("");
+    const [subjects, setSubjects] = useState("");
+    const [numOfProBonoClasses, setNumOfProBonoClasses] = useState("");
+    const [numOfStudents, setNumOfStudents] = useState("");
+
     // const [individualType, setIndividualType] = useState("");
 
     useEffect(() => {
@@ -48,8 +57,21 @@ export default function ProfilePage(){
                 setOrganizationName(User.organizationName);
                 setOrganizationType(User.organizationType);
             }
-            else{
+            else {
                 setAddress(User.address);
+                if(profileType==="donor" && User.type==="Doctor"){
+                    setClinicArea(User.clinicArea);
+                    setClinicAddress(User.clinicAddress);
+                    setClinicGovernorate(User.clinicGovernorate);
+                    setNumOfProBono(User.numOfCases);
+                    setSpeciality(User.speciality);
+
+                }
+                else if(profileType==="donor" && User.type==="Teacher"){
+                    setSubjects(User.subjects);
+                    setNumOfProBonoClasses(User.privateClasses);
+                    setNumOfStudents(User.classes);
+                }
             }
 
 
@@ -118,26 +140,28 @@ export default function ProfilePage(){
                         {profileType === "donor" && User.type === "Doctor" && <> <StyledInput className="text-2xl "
                                                                                                    type="text"
                                                                                                    text="Clinic Area"
-                                                                                                   id="ClinicArea"
-                                                                                                   value=""/>
-                            <StyledInput className="text-2xl " type="text" text="Clinic Address" id="ClinicAddress"
-                                         value=""/> <StyledInput className="text-2xl " type="text"
-                                                                 text="Clinic Governorate" id="ClinicGovernorate"
-                                                                 value=""/> <StyledInput className="text-2xl "
+                                                                                                   id="ClinicArea" onChange={setClinicArea}
+                                                                                                   value={clinicArea}/>
+                            <StyledInput className="text-2xl " type="text" text="Clinic Address" id="ClinicAddress" onChange={setClinicAddress}
+                                         value={clinicAddress}/> <StyledInput className="text-2xl " type="text"
+                                                                 text="Clinic Governorate" id="ClinicGovernorate" onChange={setClinicGovernorate}
+                                                                 value={clinicGovernorate}/> <StyledInput className="text-2xl "
                                                                                          type="text"
                                                                                          text="Number of pro-bono cases"
                                                                                          id="NumOfProBono"
-                                                                                         value=""/>
+                                                                                         onChange={setNumOfProBono}
+                                                                                         value={numOfProBono}/>
                                                                                         <StyledInput className="text-2xl "
                                                                                                  type="text"
                                                                                                  text="Speciality"
                                                                                                  id="Speciality"
-                                                                                                 value=""/></>}
+                                                                                                    onChange={setSpeciality}
+                                                                                                 value={speciality}/></>}
                         {profileType === "donor" && User.type === "Teacher" && <> <StyledInput
-                            className="text-2xl " type="text" text="Subjects" id="Subjects" value=""/> <StyledInput
-                            className="text-2xl " type="text" text="Number of Private Classes" id="NumOfProBonoClasses"
-                            value=""/> <StyledInput className="text-2xl " type="text" text="Number Of Students"
-                                                    id="NumOfStudents" value=""/></>}
+                            className="text-2xl " type="text" text="Subjects" id="Subjects" value={subjects} onChange={setSubjects}/> <StyledInput
+                            className="text-2xl " type="text" text="Number of Private Classes" id="NumOfProBonoClasses" onChange={setNumOfProBonoClasses}
+                            value={numOfProBonoClasses}/> <StyledInput className="text-2xl " type="text" text="Number Of Students"
+                                                    id="NumOfStudents" value={numOfStudents} onChange={setNumOfStudents}/></>}
                         {
                             profileType === "donor" && User.type === "Doctor" && !User.workingInfo && <div className={'pt-4'}>
                                 Clinic Location

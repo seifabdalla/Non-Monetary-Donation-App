@@ -67,14 +67,14 @@ export default function VolunteerRequestCard(props) {
                                         <div> Number of classes: {DonorsRequests.requests[requestId].noOfStudents}</div>
                                     </>
                                 }
-                                <div className="flex flex-row gap-4 ">
+                                <div className="flex flex-row justify-center items-center mt-4 gap-4 ">
                                     <button
-                                        className=" bg-green-400 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                                        className=" bg-green-500 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-green-600 hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
                                     >
                                         Accept
                                     </button>
                                     <button
-                                        className=" bg-red-500 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                                        className=" bg-red-500 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-red-700 hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
                                     >
                                         Reject
                                     </button>

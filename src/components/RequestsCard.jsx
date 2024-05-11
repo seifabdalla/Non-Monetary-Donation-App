@@ -43,8 +43,7 @@ export default function RequestsCard(props){
                                     <div> Category: {props.request.category}</div>
                                     <div> Requested By: {props.request.requestedBy}</div>
                                     <div> Description:{props.request.description}</div>
-                                    <div> Amount Needed: {props.request.amountNeeded}</div>
-
+                                    <div> Amount Needed: {props.request.amountNeeded}</div> 
                                 </div>
 
                                 <div className="flex flex-col justify-end pb-5">
@@ -52,14 +51,14 @@ export default function RequestsCard(props){
 
                                 </div>
                             </div>
-                            <div className="flex flex-row gap-4 justify-end">
+                            <div className="flex flex-row gap-4 items center justify-center mt-4">
                                 <button
-                                    className=" bg-green-400 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                                    className=" bg-green-400 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-green-600 hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
                                 >
                                     Accept
                                 </button>
                                 <button
-                                    className=" bg-red-500 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                                    className=" bg-red-500 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-red-700 hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
                                 >
                                     Reject
                                 </button>
