@@ -1,7 +1,9 @@
 import Icon from '@mdi/react';
-import { mdiAccount,mdiBell ,mdiBellBadge  } from '@mdi/js';
+import { mdiAccount } from '@mdi/js';
 import BackButton from "./BackButton.jsx";
 import PropTypes from "prop-types";
+import Badge from '@mui/material/Badge';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import {useState} from "react";
 import ModalPage from "../pages/dashboard-and-profile/ModalPage.jsx";
 import propTypes from "prop-types";
@@ -31,7 +33,9 @@ export default function MainHeader(props){
                     <span>E</span>
                     غ<span className={"-ml-1"}>ATHA</span></h1>
             </div>
-                <Icon path={mdiBell } size={2} color={"#000000"} />
+            <Badge badgeContent={3} color="error">
+                <NotificationsIcon color={"inherit"} fontSize={'large'}/>
+            </Badge>
         </div>
             <ModalPage isOpen={isOpenProfile} setOpen={setOpenProfile} />
         </>
