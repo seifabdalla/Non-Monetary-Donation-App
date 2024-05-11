@@ -449,7 +449,7 @@ const DonorsRequests = {
             gender:"Female",
             type:"Dolls",
             amountDonated:"5",
-            amountNeeded:"2",
+            amountNeeded:"7",
             imgUrl:"https://wwd.com/wp-content/uploads/2023/06/MEGA989664_002.jpg"
         },
         {

@@ -7,11 +7,12 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import {useState} from "react";
 import ModalPage from "../pages/dashboard-and-profile/ModalPage.jsx";
 import propTypes from "prop-types";
+import NotificationsPanel from "./NotificationsPanel.jsx";
 
 
 export default function MainHeader(props){
     const [isOpenProfile, setOpenProfile] = useState(false);
-
+    const [isOPenNotifications, setOpenNotifications] = useState(false);
     const openProfile = () => {
         setOpenProfile(true);
     }
@@ -33,9 +34,7 @@ export default function MainHeader(props){
                     <span>E</span>
                     غ<span className={"-ml-1"}>ATHA</span></h1>
             </div>
-            <Badge badgeContent={3} color="error">
-                <NotificationsIcon color={"inherit"} fontSize={'large'}/>
-            </Badge>
+            <NotificationsPanel />
         </div>
             <ModalPage isOpen={isOpenProfile} setOpen={setOpenProfile} />
         </>
