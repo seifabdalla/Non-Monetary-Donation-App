@@ -63,7 +63,7 @@ export default function VolunteerRequestCard(props) {
                                 }
                                 {
                                     DonorsRequests.requests[requestId].category === "Teaching Posts" && <>
-                                        <div> Subjects Needed: {DonorsRequests.requests[requestId].subjects}</div>
+                                        <div> Subjects Needed: {DonorsRequests.requests[requestId].subject}</div>
                                         <div> Number of classes: {DonorsRequests.requests[requestId].noOfStudents}</div>
                                     </>
                                 }

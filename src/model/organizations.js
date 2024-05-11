@@ -12,6 +12,19 @@ const Organizations = [
             phone: "01000000000",
             email: "57357@help.com"
         },
+        firstName: "Alice",
+        lastName: "Smith",
+        gender: "Female",
+        email: "alice.smith@example.com",
+        password: "password1",
+        contactNumber: "1234567890",
+        address: "123 Main St",
+        representativeArea: "Downtown",
+        representativeGovernorate: "Cairo",
+        location:{
+            lat:30.0535314,
+            lng:31.4672205
+        }
     },
     {organizationId: 2,
         name: "Resala",
@@ -24,6 +37,20 @@ const Organizations = [
             phone: "01000000000",
             email: "Resala@help.com"
         },
+        firstName: "Bob",
+        lastName: "Johnson",
+        gender: "Male",
+        email: "bob.johnson@example.com",
+        password: "password2",
+        contactNumber: "0987654321",
+        organizationType: "For-profit",
+        address: "456 Elm St",
+        representativeArea: "Uptown",
+        representativeGovernorate: "Alexandria",
+        location: {
+        lat:30.0637828,
+        lng:31.4689606
+        }
     },
     {   organizationId: 3,
         name: "Masr Al Kheir",
@@ -36,6 +63,21 @@ const Organizations = [
             phone: "01000000000",
             email: "Masr-Al-Kheir@help.com"
         },
+        firstName: "Luka",
+        lastName: "Modric",
+        gender: "Male",
+        email: "Luka.Modric@example.com",
+        password: "password2",
+        contactNumber: "0987654321",
+        organizationType: "For-profit",
+        address: "456 Elm St",
+        representativeArea: "Uptown",
+        representativeGovernorate: "Luxor",
+        location: {
+        lat:29.9844739,
+        lng:31.4440297
+        }
+
     }
 
 ];

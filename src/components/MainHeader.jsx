@@ -36,7 +36,7 @@ export default function MainHeader(props){
             </div>
             <NotificationsPanel />
         </div>
-            <ModalPage isOpen={isOpenProfile} setOpen={setOpenProfile} />
+            {<ModalPage isOpen={isOpenProfile} setOpen={setOpenProfile} />}
         </>
     );
 }

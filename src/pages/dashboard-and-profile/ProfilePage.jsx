@@ -26,6 +26,7 @@ export default function ProfilePage(){
     // const [gender, setGender] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    // const [Newpassword, setNewPassword] = useState("");
     const [contactNumber, setContactNumber] = useState("");
     const [organizationName, setOrganizationName] = useState("");
     const [organizationType, setOrganizationType] = useState("");
@@ -44,7 +45,7 @@ export default function ProfilePage(){
     // const [individualType, setIndividualType] = useState("");
 
     useEffect(() => {
-        if(User){
+        if(User && User!=="admin"){
             setFirstName(User.firstName);
             setLastName(User.lastName);
             setEmail(User.email);
@@ -80,18 +81,56 @@ export default function ProfilePage(){
 
     }, [User]);
     useEffect(() => {
-
         if (profileType === "donor"){
             setUser(individualUsers[userID-1]);
 
-        } else {
+        } else if (profileType === "organization"){
             setUser(organizationUsers[userID-1]);
         }
+        else {
+            setUser("admin");
+            // setPassword("");
+        }
     }, [userID,profileType]);
+
     return (
         <>
+
             {User === null && <div>Loading ...</div>}
-            {User != null && Edit &&
+            {User != null && profileType === "admin" &&
+                <div className="flex flex-col items-center justify-center h-full text-slate-100">
+                    <Avatar sx={{width: 100, height: 100}}>
+                        <div className="text-1xl ">Admin</div>
+                    </Avatar>
+                    <div className="w-1/2 flex flex-col gap-4">
+                        <StyledInput className="text-2xl " type="password" text="Current Password" id="curr"/>
+                        <StyledInput className="text-2xl " type="password" text="New Password" id="new"/>
+
+
+                        <div className={'flex flex-row pt-7 pb-4 gap-5'}>
+                            <button
+                                className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                                onClick={() => setEdit(false)}>
+                                Cancel
+                            </button>
+                            <button
+                                className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                                onClick={() => setEdit(false)}>
+                                Save
+                            </button>
+
+                        </div>
+                        <div className={"w-full flex items-center justify-center mt-2"}>
+                            <button className={"text-slate-100 bg-red-500 px-10 py-3 rounded-xl"}
+                                    onClick={handleLogout}>
+                                Log Out
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            }
+            {User != null && Edit && User !== "admin" && profileType !== "admin" &&
                 <div className="flex justify-center h-[640px] overflow-y-auto overflow-hidden text-slate-100">
 
                     <div
@@ -109,7 +148,7 @@ export default function ProfilePage(){
 
                         <StyledInput className="text-2xl " type="text" text="Email" id="Email" value={email}
                                      onChange={setEmail}/>
-                        <StyledInput className="text-2xl " type="text" text="Password" id="Password" value={password}
+                        <StyledInput className="text-2xl " type="password"  text="Password" id="password" value={password}
                                      onChange={setPassword}/>
 
 
@@ -171,7 +210,7 @@ export default function ProfilePage(){
                         {
                             profileType === "organization" && !User.workingInfo && <div className={'pt-4'}>
                                 Organization Location
-                                <MapDynamic></MapDynamic>
+                                <MapDynamic ></MapDynamic>
                             </div>
                         }
                         <div className={'flex flex-row pt-7 pb-4 gap-5'}>
@@ -190,7 +229,7 @@ export default function ProfilePage(){
 
                 </div>}
             {
-                User != null && !Edit && <div className="flex justify-center  text-slate-100">
+                User != null && !Edit && profileType!=="admin" && <div className="flex justify-center  text-slate-100">
 
                     <div
                         className="w-full p-7 flex flex-col items-center h-[640px] overflow-y-auto overflow-hidden">
@@ -215,7 +254,6 @@ export default function ProfilePage(){
                             <div className="text-2xl">LastName: {User.lastName}</div>
 
 
-
                             <div className="text-2xl">Email: {User.email}</div>
                             <div className="text-2xl">Password: {User.password}</div>
 
@@ -223,35 +261,38 @@ export default function ProfilePage(){
                             <div className="text-2xl ">Number: {User.contactNumber}</div>
 
 
-
-                            {profileType!=="organization"&& <div className="flex flex-col  gap-8 h-auto ">
+                            {profileType !== "organization" && <div className="flex flex-col  gap-8 h-auto ">
                                 <div className="text-2xl">Area: {User.area}</div>
                                 <div className="text-2xl">Address: {User.address}</div>
                                 <div className="text-2xl ">Governorate: {User.governorate}</div>
                             </div>}
-                            {profileType==="donor" && User.type==="Doctor" && (User.clinicAddress!=null|| User.numOfCases!=null || User.clinicArea!=null || User.clinicGovernorate!=null) &&<div className="flex flex-col  gap-8 h-auto ">
-                                <div className="text-2xl">Clinic Address: {User.clinicAddress}</div>
-                                <div className="text-2xl">Clinic Area: {User.clinicArea}</div>
-                                <div className="text-2xl ">Clinic Governorate: {User.clinicGovernorate}</div>
-                                <div className="text-2xl">Speciality: {User.speciality}</div>
-                                <div className="text-2xl ">Number of Pro-Bono Cases: {User.numOfCases}</div>
-                            </div>}
-                            {profileType==="donor" &&
-                                User.type==="Teacher" && (User.subjects!=null || User.privateClasses!=null || User.classes!=null) && <div className="flex flex-col  gap-8 h-auto ">
+                            {profileType === "donor" && User.type === "Doctor" && (User.clinicAddress != null || User.numOfCases != null || User.clinicArea != null || User.clinicGovernorate != null) &&
+                                <div className="flex flex-col  gap-8 h-auto ">
+                                    <div className="text-2xl">Clinic Address: {User.clinicAddress}</div>
+                                    <div className="text-2xl">Clinic Area: {User.clinicArea}</div>
+                                    <div className="text-2xl ">Clinic Governorate: {User.clinicGovernorate}</div>
+                                    <div className="text-2xl">Speciality: {User.speciality}</div>
+                                    <div className="text-2xl ">Number of Pro-Bono Cases: {User.numOfCases}</div>
+                                </div>}
+                            {profileType === "donor" &&
+                                User.type === "Teacher" && (User.subjects != null || User.privateClasses != null || User.classes != null) &&
+                                <div className="flex flex-col  gap-8 h-auto ">
                                     <div className="text-2xl">Subjects: {User.subjects}</div>
                                     <div className="text-2xl">Private Classes: {User.privateClasses}</div>
                                     <div className="text-2xl ">Classes: {User.classes}</div>
-                                </div> }
-                            {profileType==="organization" &&(User.organizationName!=null || User.organizationType!=null || User.organizationArea!=null ||User.organizationAddress!=null  || User.OrganizationGovernorate!=null) && <div className="flex flex-col  gap-8 h-auto ">
-                                <div className="text-2xl">Organization Name: {User.organizationName}</div>
-                                <div className="text-2xl">Organization Type: {User.organizationType}</div>
-                                <div className="text-2xl ">Organization Address: {User.address}</div>
-                                <div className="text-2xl">Organization Area: {User.area}</div>
-                                <div className="text-2xl ">Organization Governorate: {User.governorate}</div>
+                                </div>}
+                            {profileType === "organization" && (User.organizationName != null || User.organizationType != null || User.organizationArea != null || User.organizationAddress != null || User.OrganizationGovernorate != null) &&
+                                <div className="flex flex-col  gap-8 h-auto ">
+                                    <div className="text-2xl">Organization Name: {User.organizationName}</div>
+                                    <div className="text-2xl">Organization Type: {User.organizationType}</div>
+                                    <div className="text-2xl ">Organization Address: {User.address}</div>
+                                    <div className="text-2xl">Organization Area: {User.area}</div>
+                                    <div className="text-2xl ">Organization Governorate: {User.governorate}</div>
 
-                            </div>}
+                                </div>}
                             {
-                                profileType === "donor" && User.type === "Doctor" && User.workingInfo && <div className={'pt-4'}>
+                                profileType === "donor" && User.type === "Doctor" && User.workingInfo &&
+                                <div className={'pt-4'}>
                                     Clinic Location
                                     <MapStatic location={User.location}></MapStatic>
                                 </div>
@@ -267,9 +308,10 @@ export default function ProfilePage(){
                         </div>
 
                         {
-                            (! Edit) &&
+                            (!Edit) &&
                             <div className={"w-full flex items-center justify-center mt-2"}>
-                                <button className={"text-slate-100 bg-red-500 px-10 py-3 rounded-xl"} onClick={handleLogout}>
+                                <button className={"text-slate-100 bg-red-500 px-10 py-3 rounded-xl"}
+                                        onClick={handleLogout}>
                                     Log Out
                                 </button>
                             </div>
