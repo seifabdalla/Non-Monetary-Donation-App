@@ -19,7 +19,8 @@ const IndividualUsers = [
         },
         subjects: "Math, Science, English",
         privateClasses:5,
-        classes: 3
+        classes: 3,
+        workingInfo: true
     },
     {
         userId: 2,
@@ -41,7 +42,8 @@ const IndividualUsers = [
         clinicArea: "Rural",
         clinicGovernorate: "Luxor",
         specialization: "Cardiologist",
-        numOfCases: 3
+        numOfCases: 3,
+        workingInfo: true
     },
     {
         userId: 3,
@@ -61,7 +63,8 @@ const IndividualUsers = [
         },
         subjects: "History, Geography, Civics",
         privateClasses:2,
-        classes: 2
+        classes: 2,
+        workingInfo: true
     },
     {
         userId: 4,
@@ -83,7 +86,8 @@ const IndividualUsers = [
         clinicArea: "Urban",
         clinicGovernorate: "Aswan",
         specialization: "Pediatrician",
-        numOfCases: 5
+        numOfCases: 5,
+        workingInfo: true
     },
     {
         userId: 5,
@@ -100,7 +104,8 @@ const IndividualUsers = [
         location: {
             lat: 24.0889,
             lng: 32.8998,
-        }
+        },
+        workingInfo: false
     }
 ];
 
