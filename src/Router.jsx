@@ -48,23 +48,23 @@ const Router = () => {
             element : <ViewOrgDetails />
         },
         {
-            path : "/admin/registration-requests",
+            path : "/admin/registration-requests/:profileType",
             element : <Requests_listView />
         },
         {
-            path : "/admin/volounteer-requests",
+            path : "/admin/volounteer-requests/:profileType",
             element: <VolunteerRequests />
         },
         {
-            path : "/admin/donation-requests",
+            path : "/admin/donation-requests/:profileType",
             element : <DonationsRequests />
         },
         {
-            path: "/admin/view-organizations",
+            path: "/admin/view-organizations/:profileType",
             element: <ViewOrganization />
         },
         {
-            path: "/admin/view-donors",
+            path: "/admin/view-donors/:profileType",
             element: <ViewDonors />
         }
     ]);

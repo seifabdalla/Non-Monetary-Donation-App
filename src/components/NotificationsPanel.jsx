@@ -36,7 +36,7 @@ function content(setOpen,profileType) {
                 </button>
             </div>
             <div className={"flex flex-col gap-2"}>
-                {   profileType != null && notificationsDummyData[profileType].length !== 0 &&
+                {   profileType != null && notificationsDummyData[profileType] && notificationsDummyData[profileType].length !== 0 &&
                     notificationsDummyData[profileType].map((notification, index) => {
                         return (
                             <NotificationsElement key={index} text={notification}/>
@@ -53,5 +53,10 @@ const notificationsDummyData = {
         "Request 'Donating Toys to Resala' is fulfilled and the Delivery pickup is set to next Monday 2:30 pm",
         "Request 'Donating Clothes to Masr Al Kheir' is fulfilled and the Delivery pickup is set to Tomorrow 6:00 pm",
         "Request 'Teaching Post' is fulfilled, We are waiting for you on the 14th of March"
+    ],
+    admin : [
+        "New Donor Registered as a Doctor, Waiting your Validation",
+        "2 Organizations registered and waiting your Validation",
+        "it's been 40 days since you last changed your password, Don't forget to change it!"
     ],
 }

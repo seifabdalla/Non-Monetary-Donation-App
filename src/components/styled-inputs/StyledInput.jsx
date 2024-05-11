@@ -17,7 +17,7 @@ export function StyledInput(props){
         setWasTouched(true);
     };
 
-    const inputClassName = `form__field text-slate-100 ${wasTouched ? 'required' : ''}`
+    const inputClassName = `form__field ${props.color}  ${wasTouched ? 'required' : ''}`
     const labelClassName = `form__label ${wasTouched ? 'required' : ''}`
 
     return (
@@ -35,10 +35,12 @@ StyledInput.propTypes = {
     id: PropTypes.string,
     value: PropTypes.string,
     onChange: PropTypes.func,
+    color: PropTypes.string,
 };
 
 StyledInput.defaultProps = {
     type: '',
     id: '',
     text: '',
+    color: 'text-slate-100',
 };
