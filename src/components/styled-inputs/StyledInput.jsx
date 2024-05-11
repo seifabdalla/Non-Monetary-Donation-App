@@ -41,6 +41,4 @@ StyledInput.defaultProps = {
     type: '',
     id: '',
     text: '',
-    value: '',
-    onChange: () => {}
 };

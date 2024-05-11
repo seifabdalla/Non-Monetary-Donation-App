@@ -37,7 +37,7 @@ export default function MainHeader(props){
                 <NotificationsIcon color={"inherit"} fontSize={'large'}/>
             </Badge>
         </div>
-            <ModalPage isOpen={isOpenProfile} setOpen={setOpenProfile} />
+            {<ModalPage isOpen={isOpenProfile} setOpen={setOpenProfile} />}
         </>
     );
 }
