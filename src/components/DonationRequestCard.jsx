@@ -6,9 +6,12 @@ import {isFulfilled, isPending} from "@reduxjs/toolkit";
 import DonorProfile from "./DonorProfile.jsx";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import Post from ".//Post.jsx";
 
 export default function DonationRequestCard(props) {
     const [isExpanded, setExpanded] = useState(false);
+    const [update, setUpdate] = useState(false);
+    const [title, setTitle] = useState(props.post.title);
     const handleExpand = () => {
         setExpanded((prevState) => !prevState);
     }
@@ -28,7 +31,7 @@ export default function DonationRequestCard(props) {
             if (result.isConfirmed) {
                 withReactContent(Swal).fire({
                     title: "Success",
-                    text: "New Post was created",
+                    text: "Post was deleted",
                     icon: "success",
                     confirmButtonColor: "#00b9ae"
 
@@ -37,13 +40,12 @@ export default function DonationRequestCard(props) {
         })
     }
     const handleUpdate = () => {
-        withReactContent(Swal).fire({
-            title: "Success",
-            text: "Post updated successfully",
-            icon: "success",
-            confirmButtonColor: "#00B9AE"
+        setUpdate(true);
+    }
 
-        });}
+    const changeTitle = (event) => {
+            setTitle(event.target.value);}
+
 
 
 
@@ -59,9 +61,11 @@ export default function DonationRequestCard(props) {
                     </h2>
                 </div>
                 <div className="flex-grow flex items-center justify-center">
-                    <h2 className="font-medium max-w-lg truncate text-center">
-                        {props.post.title}
-                    </h2>
+
+                        <h2 className="font-medium max-w-lg truncate text-center">
+                            {props.post.title}
+                        </h2>
+
                 </div>
                 <div className="flex justify-end items-center">
                     <button onClick={handleExpand} className="max-w-5">
@@ -92,14 +96,53 @@ export default function DonationRequestCard(props) {
             </div>
 
             {isExpanded && (
-                <div className="font-medium text-xl text-black flex flex-row justify-between w-full py-10">
+                <div className="font-medium text-xl text-black flex flex-col justify-between w-full py-10">
                     <div>
+                        {props.post.category === "Toys" &&
+                            <div className={'flex flex-row justify-evenly '}>
+                                <div>Age= {props.post.age} </div>
+                            <div> Gender= {props.post.gender} </div>
+                                <div> Type= {props.post.type} </div></div>
+                    }
+
+                        {props.post.category === "School Supplies" &&
+                            <div className={'flex flex-row justify-start '}>
+                                <div>Type= {props.post.type} </div>
+                            </div>
+                        }
+                        {props.post.category === "Clothes" &&
+                            <div className={'flex flex-row justify-evenly '}>
+                                <div>Age= {props.post.age} </div>
+                                <div> Gender= {props.post.gender} </div>
+                                <div> Size= {props.post.size} </div>
+                                <div> Season= {props.post.season} </div>
+                            </div>
+                        }
+                        {props.post.category === "Blood Donations" &&
+                            <div className={'flex flex-row justify-start '}>
+                                <div>Blood Type= {props.post.type} </div>
+                            </div>
+                        }
+                        {props.post.category === "Medical Cases" &&
+                            <div className={'flex flex-row justify-start '}>
+                                <div>Case Type= {props.post.case} </div>
+                            </div>
+                        }
+                        {props.post.category === "Teaching Posts" &&
+                            <div className={'flex flex-row justify-start '}>
+                                <div>Subject= {props.post.subject} </div>
+                            </div>
+                        }
+                    </div>
+                <div className="flex flex-row justify-between w-full py-10">
                         {props.post.details}
                     </div>
                 </div>
+
             )}
         </div>
             { !props.isPending && <DonorProfile isOpen={isOpenProf} setOpen={setOpenProf} donor={props.donor}/>}
+            < Post isOpen={update} setOpen={setUpdate} category={props.post.category} isPost={false}/>
         </>
     );
 }

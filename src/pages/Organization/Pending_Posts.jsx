@@ -66,7 +66,7 @@ export default function Pending_Posts() {
             </div>
         </div>
 
-            <Post isOpen={isOpenPost} setOpen={setOpenPost} />
+            <Post isOpen={isOpenPost} setOpen={setOpenPost} isPost={true} />
     </>
 
 
