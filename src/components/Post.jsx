@@ -189,6 +189,7 @@ export default function Post(props){
                             onFocus={handleFocus}
                             onBlur={handleBlur}
                             className={'w-full h-full bg-white rounded-md border-2 border-gray-200 p-2'}
+                            style={{resize:"none"}}
                         />
                         <div className={'flex flex-row justify-between pt-2 gap-15'}>
                             <button
