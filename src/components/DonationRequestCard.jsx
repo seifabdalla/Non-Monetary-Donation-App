@@ -133,6 +133,11 @@ export default function DonationRequestCard(props) {
                                 <div>Subject: {props.post.subject} </div>
                             </div>
                         }
+                        {props.post.category === "Food" &&
+                            <div className={'flex flex-row justify-start '}>
+                                <div>Subject: {props.post.subject} </div>
+                            </div>
+                        }
                     </div>
                 <div className="flex flex-row justify-between w-full py-10">
                         {props.post.details}
@@ -142,7 +147,7 @@ export default function DonationRequestCard(props) {
             )}
         </div>
             { !props.isPending && <DonorProfile isOpen={isOpenProf} setOpen={setOpenProf} donor={props.donor}/>}
-            < Post isOpen={update} setOpen={setUpdate} category={props.post.category} isPost={false}/>
+            < Post isOpen={update} setOpen={setUpdate} category={props.post.category} title={props.post.title} isPost={false}/>
         </>
     );
 }
