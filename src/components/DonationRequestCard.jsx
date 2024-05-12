@@ -100,37 +100,37 @@ export default function DonationRequestCard(props) {
                     <div>
                         {props.post.category === "Toys" &&
                             <div className={'flex flex-row justify-evenly '}>
-                                <div>Age= {props.post.age} </div>
-                            <div> Gender= {props.post.gender} </div>
-                                <div> Type= {props.post.type} </div></div>
+                                <div>Age: {props.post.age} </div>
+                            <div> Gender: {props.post.gender} </div>
+                                <div> Type: {props.post.type} </div></div>
                     }
 
                         {props.post.category === "School Supplies" &&
                             <div className={'flex flex-row justify-start '}>
-                                <div>Type= {props.post.type} </div>
+                                <div>Type: {props.post.type} </div>
                             </div>
                         }
                         {props.post.category === "Clothes" &&
                             <div className={'flex flex-row justify-evenly '}>
-                                <div>Age= {props.post.age} </div>
-                                <div> Gender= {props.post.gender} </div>
-                                <div> Size= {props.post.size} </div>
-                                <div> Season= {props.post.season} </div>
+                                <div>Age: {props.post.age} </div>
+                                <div> Gender: {props.post.gender} </div>
+                                <div> Size: {props.post.size} </div>
+                                <div> Season: {props.post.season} </div>
                             </div>
                         }
                         {props.post.category === "Blood Donations" &&
                             <div className={'flex flex-row justify-start '}>
-                                <div>Blood Type= {props.post.type} </div>
+                                <div>Blood Type: {props.post.type} </div>
                             </div>
                         }
                         {props.post.category === "Medical Cases" &&
                             <div className={'flex flex-row justify-start '}>
-                                <div>Case Type= {props.post.case} </div>
+                                <div>Case Type: {props.post.case} </div>
                             </div>
                         }
                         {props.post.category === "Teaching Posts" &&
                             <div className={'flex flex-row justify-start '}>
-                                <div>Subject= {props.post.subject} </div>
+                                <div>Subject: {props.post.subject} </div>
                             </div>
                         }
                     </div>
