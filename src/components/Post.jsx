@@ -91,6 +91,9 @@ export default function Post(props){
             case 'option7':
                 setFields(['Type']);
                 break;
+            case 'option8':
+                setFields(['Type']);
+                break;
             // Add cases for other categories
             default:
                 setFields([]);
@@ -140,7 +143,10 @@ export default function Post(props){
                 <Box sx={style}>
                     <div className={'flex flex-col text-black p-8 gap-4'} style={{width: '40rem', height: '30rem'}}>
 
-                        <div className={'font-bold'}>Category</div>
+                        <div className={'font-bold flex flex-row gap-52'}>
+                            <div>Category</div>
+                            {!props.isPost && <div>Title</div>}
+                        </div>
                         { props.isPost && <div>
                             <select value={selectedValue} onChange={handleChange}
                                     className={'rounded-md border-2 w-1/3 h-9 hover:border-black px-2'}>
@@ -152,17 +158,29 @@ export default function Post(props){
                                 <option value="option5">Teaching Posts</option>
                                 <option value="option6">Medical Cases</option>
                                 <option value="option7">School Supplies</option>
+                                <option value="option8">Food</option>
                             </select>
-                        </div>
+                        </div>}
 
-                        }
+
+
+
+
+
                         { !props.isPost &&
+                            <div className={'h-full flex flex-row justify-between gap-4'}>
                             <textarea
                                 disabled={true}
                                 value={props.category}
-                                className={'w-1/3 h-2/5 flex flex-grow bg-white rounded-md border-2 border-gray-200 p-2 overflow-hidden'}
+                                className={'w-1/5 h-4/6 flex flex-grow bg-white rounded-md border-2 border-gray-200 p-2 overflow-hidden'}
                                 style={{resize: "none"}}
+                            ></textarea>
+                                <textarea
+                                    className={'w-1/4 h-4/6 flex flex-grow bg-white rounded-md border-2 border-gray-200 p-2 overflow-hidden'}
+                                    style={{resize: "none"}}
                                 ></textarea>
+
+                            </div>
 
 
                         }
@@ -172,7 +190,7 @@ export default function Post(props){
                                     <div className={'font-bold pb-2'}>{field}</div>
                                     <textarea
 
-                                            onFocus={handleFocus}
+                                        onFocus={handleFocus}
                                             onBlur={handleBlur}
                                             className={'w-full h-11 bg-white rounded-md border-2 border-gray-200 px-2 pt-2'}
                                             style={{resize:"none"}}
@@ -226,7 +244,8 @@ Post.propTypes = {
     isOpen: PropTypes.bool.isRequired,
     setOpen:PropTypes.func,
     isPost :PropTypes.bool.isRequired,
-    category: PropTypes.string
+    category: PropTypes.string,
+    title:PropTypes.string
     // selectedValue: PropTypes.string,
     // setSelectedValue: PropTypes.func
 }
