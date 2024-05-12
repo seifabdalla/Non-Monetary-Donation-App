@@ -54,4 +54,10 @@ const notificationsDummyData = {
         "Request 'Donating Clothes to Masr Al Kheir' is fulfilled and the Delivery pickup is set to Tomorrow 6:00 pm",
         "Request 'Teaching Post' is fulfilled, We are waiting for you on the 14th of March"
     ],
+    organization: [
+        "Donating Winter Clothes for Refugees' request has been selected by Sophia Johnson for fulfillment",
+        "Liam Smith has chosen to fulfill your 'Donating Toys for Orphans' request",
+        "Mohamed Abdallah has selected your 'Volunteer Doctors for Medical Cases' request for fulfillment"
+    ]
+
 }

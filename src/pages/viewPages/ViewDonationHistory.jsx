@@ -1,4 +1,5 @@
 import MainHeader from "../../components/MainHeader.jsx";
+import {Tabs, Tab} from "@nextui-org/react";
 
 export default function ViewDonationHistory(){
     return (
@@ -10,3 +11,19 @@ export default function ViewDonationHistory(){
         </div>
     )
 }
+
+
+const tabs = [
+    {
+        id : 'ongoing',
+        title: 'Ongoing Requests',
+    },
+    {
+        id : 'fulfilled',
+        title: 'Fulfilled Requests',
+    },
+    {
+        id : 'all',
+        title: 'All Requests',
+    }
+];
