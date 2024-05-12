@@ -12,7 +12,7 @@ const IndividualUsers = [
         address: "123 Main St",
         area: "Downtown",
         governorate: "Cairo",
-        type: "Doctor",
+        type: "Teacher",
         location: {
             lat: 40.7128,
             lng: -74.0060,
@@ -20,7 +20,7 @@ const IndividualUsers = [
         subjects: "Math, Science, English",
         privateClasses:5,
         classes: 3,
-        workingInfo: false
+        workingInfo: true
     },
     {
         userId: 2,
@@ -43,7 +43,7 @@ const IndividualUsers = [
         clinicGovernorate: "Luxor",
         specialization: "Cardiologist",
         numOfCases: 3,
-        workingInfo: false
+        workingInfo: true
     },
     {
         userId: 3,

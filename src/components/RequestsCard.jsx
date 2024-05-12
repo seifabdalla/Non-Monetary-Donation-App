@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 import {useState} from "react";
 import Icon from "@mdi/react";
 import {mdiMenuUpOutline} from "@mdi/js";
-
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 
 export default function RequestsCard(props){
@@ -10,6 +11,24 @@ export default function RequestsCard(props){
     const handleExpand = () => {
         setExpanded((prevState) => !prevState);
     }
+    const handleAccept = () => {
+        handleExpand();
+        withReactContent(Swal).fire({
+            title: "Success",
+            text: "Donation Request accepted successfully",
+            icon: "success",
+            confirmButtonColor: "#00B9AE"
+
+        });}
+    const handleDelete = () => {
+        handleExpand();
+        withReactContent(Swal).fire({
+            title: "Success",
+            text: "Donation Request Rejected Successfully ",
+            icon: "success",
+            confirmButtonColor: "#00B9AE"
+
+        });}
     const renderAdditionalInfo = () => {
         const excludedKeys = ['title', 'imgUrl','category', 'requestedBy','description','amountDonated','request_id',
             'amountNeeded'];
@@ -17,9 +36,10 @@ export default function RequestsCard(props){
             if (!excludedKeys.includes(key)) {
                 return (
                     <div key={key} className={"flex flex-row font-medium text-1xl"}>
-                        <h3>{key.charAt(0).toUpperCase() + key.slice(1)}: </h3>
+                        <h3> <span  className="font-bold">{key.charAt(0).toUpperCase() + key.slice(1)} </span>:
+                        </h3>
                         <p>
-                            {props.request[key]}
+                        {props.request[key]}
                         </p>
                     </div>
                 );
@@ -39,11 +59,11 @@ export default function RequestsCard(props){
                         <div className="flex flex-col w-full">
                             <div className={"flex flex-row  justify-between w-full"}>
                                 <div className="flex flex-col  font-medium text-1xl">
-                                    <div> Title: {props.request.title}</div>
-                                    <div> Category: {props.request.category}</div>
-                                    <div> Requested By: {props.request.requestedBy}</div>
-                                    <div> Description:{props.request.description}</div>
-                                    <div> Amount Needed: {props.request.amountNeeded}</div> 
+                                    <div> <span  className="font-bold">Title: </span> {props.request.title}</div>
+                                    <div> <span  className="font-bold">Category: </span>{props.request.category}</div>
+                                    <div> <span  className="font-bold"> Requested By: </span>{props.request.requestedBy}</div>
+                                    <div> <span  className="font-bold">Description: </span>{props.request.description}</div>
+                                    <div> <span  className="font-bold">Amount Needed: </span>{props.request.amountNeeded}</div>
                                 </div>
 
                                 <div className="flex flex-col justify-end pb-5">
@@ -54,11 +74,13 @@ export default function RequestsCard(props){
                             <div className="flex flex-row gap-4 items center justify-center mt-4">
                                 <button
                                     className=" bg-green-400 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-green-600 hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                                onClick={handleAccept}
                                 >
                                     Accept
                                 </button>
                                 <button
                                     className=" bg-red-500 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-red-700 hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                                onClick={handleDelete}
                                 >
                                     Reject
                                 </button>

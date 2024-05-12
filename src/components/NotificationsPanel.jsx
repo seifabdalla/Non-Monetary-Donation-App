@@ -58,6 +58,10 @@ const notificationsDummyData = {
         "Donating Winter Clothes for Refugees' request has been selected by Sophia Johnson for fulfillment",
         "Liam Smith has chosen to fulfill your 'Donating Toys for Orphans' request",
         "Mohamed Abdallah has selected your 'Volunteer Doctors for Medical Cases' request for fulfillment"
-    ]
-
+    ],
+    admin : [
+        "New Donor Registered as a Doctor, Waiting your Validation",
+        "2 Organizations registered and waiting your Validation",
+        "it's been 40 days since you last changed your password, Don't forget to change it!"
+    ],
 }
