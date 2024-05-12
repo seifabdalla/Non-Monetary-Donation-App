@@ -48,11 +48,19 @@ export function LoginPage(){
                     <h1 className="w-full text-5xl text-slate-200 font-logo">EغATHA</h1>
                     <div>
                         <StyledInput type="text" text="Email" id="email" value={email} onChange={setEmail}/>
-                        <StyledInput type="password" text="Password" id="password" value={password} onChange={setPassword} />
-                    </div>  
-                    <button type="submit" className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear">Login</button>
+                        <StyledInput type="password" text="Password" id="password" value={password}
+                                     onChange={setPassword}/>
+                    </div>
+                    <button type="submit"
+                            className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear">Login
+                    </button>
                 </form>
-                <p className="text-slate-200">Don&apos;t have an account? <Link to="/register" className="text-Tropical-Lagoon hover:underline">Register</Link></p>
+                <p className="text-slate-200">Don&apos;t have an account? <Link to="/register"
+                                                                                className="text-Tropical-Lagoon hover:underline">Register</Link>
+                </p>
+                <p className="text-slate-200">Return to <Link to="/"
+                                                                                className="text-Tropical-Lagoon hover:underline">Homepage</Link>
+                </p>
             </div>
         </div>
     );
