@@ -77,9 +77,9 @@ export default function OrganizationSubmissionsCard(props){
                     </div>
                     <div className="flex flex-col mt-4 justify-center items-center">
                         <button
-                            className=" flex flex-row w-1/3 mb-4 bg-Mystic-Teal text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                            className=" flex flex-row w-2/5 mb-4 bg-Mystic-Teal text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
                        onClick={handleDownload}
-                        > Download Organization legal Files<Icon path={mdiDownload} size={1}
+                        > Download Organization legal documents <Icon path={mdiDownload} size={1}
                                                           className={"transition-transform duration-300 text-black"}/>
                         </button>
                         <div className="flex flex-row gap-4">

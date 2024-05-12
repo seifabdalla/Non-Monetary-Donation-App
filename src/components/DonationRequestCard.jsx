@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 import { mdiMenuUpOutline,mdiAccountCircleOutline,mdiTrashCanOutline } from '@mdi/js';
 import Icon from '@mdi/react';
-import React, { useState } from 'react';
-import {isFulfilled, isPending} from "@reduxjs/toolkit";
+import { useState } from 'react';
 import DonorProfile from "./DonorProfile.jsx";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -11,7 +10,7 @@ import Post from ".//Post.jsx";
 export default function DonationRequestCard(props) {
     const [isExpanded, setExpanded] = useState(false);
     const [update, setUpdate] = useState(false);
-    const [title, setTitle] = useState(props.post.title);
+
     const handleExpand = () => {
         setExpanded((prevState) => !prevState);
     }
@@ -43,8 +42,7 @@ export default function DonationRequestCard(props) {
         setUpdate(true);
     }
 
-    const changeTitle = (event) => {
-            setTitle(event.target.value);}
+
 
 
 

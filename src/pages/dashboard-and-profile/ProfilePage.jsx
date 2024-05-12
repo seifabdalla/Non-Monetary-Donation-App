@@ -78,7 +78,7 @@ export default function ProfilePage(){
                     setClinicAddress(User.clinicAddress);
                     setClinicGovernorate(User.clinicGovernorate);
                     setNumOfProBono(User.numOfCases);
-                    setSpeciality(User.speciality);
+                    setSpeciality(User.specialization);
 
                 }
                 else if(profileType==="donor" && User.type==="Teacher"){
@@ -209,7 +209,7 @@ export default function ProfilePage(){
                             <StyledInput className="text-2xl " type="text" text="Clinic Address" id="ClinicAddress" onChange={setClinicAddress}
                                          value={clinicAddress} color={"text-slate-950"}/> <StyledInput className="text-2xl " type="text"
                                                                  text="Clinic Governorate" id="ClinicGovernorate" onChange={setClinicGovernorate}
-                                                                 value={clinicGovernorate}/> <StyledInput className="text-2xl "
+                                                                 value={clinicGovernorate} color={"text-slate-950"}/> <StyledInput className="text-2xl "
                                                                                          type="text"
                                                                                          text="Number of pro-bono cases"
                                                                                          id="NumOfProBono"
@@ -227,13 +227,13 @@ export default function ProfilePage(){
                             value={numOfProBonoClasses}/> <StyledInput className="text-2xl " type="text" text="Number Of Students"
                                                     id="NumOfStudents" value={numOfStudents} onChange={setNumOfStudents} color={"text-slate-950"}/></>}
                         {
-                            profileType === "donor" && User.type === "Doctor" && !User.workingInfo && <div className={'pt-4'}>
+                            profileType === "donor" && User.type === "Doctor" && <div className={'pt-4'}>
                                 <div className="text-2xl font-bold">Clinic Location</div>
                                     <MapDynamic></MapDynamic>
                             </div>
                         }
                         {
-                            profileType === "organization" && !User.workingInfo && <div className={'pt-4'}>
+                            profileType === "organization" && <div className={'pt-4'}>
                                 <div className="text-2xl">Organization Location</div>
                                 <MapDynamic ></MapDynamic>
                             </div>
@@ -297,7 +297,7 @@ export default function ProfilePage(){
                                     <div className="text-2xl">Clinic Address: {User.clinicAddress}</div>
                                     <div className="text-2xl">Clinic Area: {User.clinicArea}</div>
                                     <div className="text-2xl ">Clinic Governorate: {User.clinicGovernorate}</div>
-                                    <div className="text-2xl">Speciality: {User.speciality}</div>
+                                    <div className="text-2xl">Speciality: {User.specialization}</div>
                                     <div className="text-2xl ">Number of Pro-Bono Cases: {User.numOfCases}</div>
                                 </div>}
                             {profileType === "donor" &&
@@ -319,7 +319,7 @@ export default function ProfilePage(){
                             {
                                 profileType === "donor" && User.type === "Doctor" && User.workingInfo &&
                                 <div className={'pt-4'}>
-                                    Clinic Location
+                                    <div className={'text-2xl'}>Clinic Location</div>
                                     <MapStatic location={User.location}></MapStatic>
                                 </div>
                             }

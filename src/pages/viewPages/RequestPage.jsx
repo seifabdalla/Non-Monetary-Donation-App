@@ -8,7 +8,6 @@ import SelectDeliveryOptions from "../../components/SelectDeliveryOptions.jsx";
 import Swal from 'sweetalert2'
 import {IndividualUsers} from "../../model/donor/donors.js";
 import CautionCard from "../../components/CautionCard.jsx";
-import {Skeleton} from "@mui/lab";
 
 export default function RequestPage() {
     const location = useLocation();
@@ -54,17 +53,12 @@ export default function RequestPage() {
             return null;
         });
     };
-    console.log(cardObject.category);
 
-    return (
-        <div className={"w-full min-h-screen flex flex-col items-center gap-2 bg-teal-50"}>
-            <MainHeader />
-            {
-                ! currUser && <Skeleton variant="rectangular" width={210} height={118} />
-            }
-            {
-                currUser &&
-                <>
+
+    return (<>{!currUser&& <div>Loading...</div>}
+            {currUser&&
+                <div className={"w-full min-h-screen flex flex-col items-center gap-2 bg-teal-50"}>
+                    <MainHeader />
                     {
                         cardObject.category === 'Teaching Posts' && currUser
                         && ((currUser.type !== "Teacher") || (currUser.type === "Teacher" && !currUser.isVerified)) &&
@@ -72,7 +66,7 @@ export default function RequestPage() {
                     }
                     {
                         cardObject.category === 'Medical Cases' && currUser
-                        && currUser.type !== "Doctor" && !currUser.isVerified &&
+                        && ((currUser.type !== "Doctor") ||(currUser.type === "Doctor" && !currUser.isVerified)) &&
                         <CautionCard message={"You Should be a Verified Doctor to fulfill this request!"} />
                     }
 
@@ -151,9 +145,6 @@ export default function RequestPage() {
                         </div>
 
                     </div>
-                </>
-            }
-
-        </div>
+                </div>}</>
     )
 }

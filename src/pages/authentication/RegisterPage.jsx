@@ -1,7 +1,3 @@
-import AfricanSchool from "../../assets/images/school-Africa.jpg";
-import {useState} from "react";
-import IndividualRegistration from "./IndividualRegistration.jsx";
-import {RegisterAsOrganization} from "./RegisterAsOrganization.jsx";
 import StyledSelectInput from "../../components/styled-inputs/StyledSelectInput.jsx";
 import {Link} from "react-router-dom";
 import {Tab, Tabs} from "@nextui-org/react";
@@ -69,4 +65,3 @@ const tabs = [
         title: 'Organization',
     }
 ]
-
