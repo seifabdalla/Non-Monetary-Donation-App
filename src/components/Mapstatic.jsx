@@ -1,5 +1,7 @@
 import React, { useRef, useState, useCallback } from 'react';
 import {GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
+import PropTypes from "prop-types";
+import OrganizationInfo from "./OrganizationInfo.jsx";
 
 const libraries = ['places'];
 const smallMapContainerStyle = { width: '400px', height: '300px' };
@@ -50,3 +52,6 @@ function MapStatic({location}) {
 }
 
 export default MapStatic;
+MapStatic.propTypes = {
+    location: PropTypes.object,
+}

@@ -9,6 +9,7 @@ import OrganizationUserReducer from "./redux/OrganizationSlice";
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import Post from "./components/Post.jsx";
+import {NextUIProvider} from '@nextui-org/react'
 
 const store = configureStore({
     reducer: {
@@ -23,9 +24,11 @@ const store = configureStore({
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <Provider store={store}>
+            <NextUIProvider>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <Router/>
             </LocalizationProvider>
+            </NextUIProvider>
         </Provider>
     </React.StrictMode>,
 );
