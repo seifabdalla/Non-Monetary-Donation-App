@@ -12,6 +12,9 @@ import DonationsRequests from "./pages/admin_view/DonationsRequests.jsx";
 import ViewOrganization from "./pages/admin_view/ViewOrganization.jsx";
 import ViewDonors from "./pages/admin_view/ViewDonors.jsx";
 import ViewOrgDetails from "./pages/viewPages/ViewOrgDetails.jsx";
+import Pending_Posts from "./pages/Organization/Pending_Posts.jsx";
+import Fulfilled_Post from "./pages/Organization/Fulfilled_Post.jsx";
+import Drop_off from "./pages/Organization/Drop_off.jsx";
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -66,6 +69,18 @@ const Router = () => {
         {
             path: "/admin/view-donors",
             element: <ViewDonors />
+        },
+        {
+            path: "/org/pending-posts/:profileType/:userID",
+            element: <Pending_Posts />
+        },
+        {
+            path: "/org/fulfilled-posts/:profileType/:userID",
+            element: <Fulfilled_Post />
+        },
+        {
+            path: "/org/schedule-drop-off/:profileType/:userID",
+            element: <Drop_off />
         }
     ]);
 

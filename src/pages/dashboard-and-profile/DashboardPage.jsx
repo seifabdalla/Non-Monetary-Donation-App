@@ -2,7 +2,7 @@ import MainHeader from "../../components/MainHeader.jsx";
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import DashbordCard from "../../components/DashbordCard.jsx";
-import { mdiHandCoin ,mdiDomain,mdiHistory,mdiAccountGroup,mdiAccount,mdiApplicationCog  } from '@mdi/js';
+import { mdiHandCoin ,mdiDomain,mdiHistory,mdiAccountGroup,mdiAccount,mdiApplicationCog,mdiClockOutline,mdiCheckAll,mdiSquareEditOutline  } from '@mdi/js';
 import CautionCard from "../../components/CautionCard.jsx";
 import {useState,useEffect} from "react";
 
@@ -37,7 +37,7 @@ export default function DashboardPage(){
                         cardData[profileType].map(
                             (card, index) => {
                                 let link = card.linkTo;
-                                if (profileType === 'donor'){
+                                if (profileType === 'donor' || profileType === 'organization'){
                                     link+=userID;
                                 }
                                 return (
@@ -71,7 +71,7 @@ const cardData = {
         {
             title: "Donation History",
             icon: mdiHistory,
-            linkTo: "donor/view-requests",
+            linkTo: "/donor/view-requests",
         }
     ],
     admin : [
@@ -100,6 +100,23 @@ const cardData = {
             title: "view Donors' Accounts",
             icon: mdiAccount,
             linkTo: "/admin/view-donors"
+        }
+    ],
+    organization : [
+        {
+            title: "Schedule Drop-off",
+            icon: mdiClockOutline,
+            linkTo: "/org/schedule-drop-off/organization/",
+        },
+        {
+            title: "Add/Update Posts",
+            icon: mdiSquareEditOutline,
+            linkTo: "/org/pending-posts/organization/",
+        },
+        {
+            title: "Fulfilled Posts",
+            icon: mdiCheckAll,
+            linkTo: "/org/fulfilled-posts/organization/",
         }
     ],
 }

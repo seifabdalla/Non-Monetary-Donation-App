@@ -36,7 +36,7 @@ function content(setOpen,profileType) {
                 </button>
             </div>
             <div className={"flex flex-col gap-2"}>
-                {   profileType != null && notificationsDummyData[profileType].length !== 0 &&
+                {   profileType != null && notificationsDummyData[profileType] && notificationsDummyData[profileType].length !== 0 &&
                     notificationsDummyData[profileType].map((notification, index) => {
                         return (
                             <NotificationsElement key={index} text={notification}/>
