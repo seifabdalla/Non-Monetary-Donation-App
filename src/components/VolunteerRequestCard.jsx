@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import Avatar from '@mui/material/Avatar';
 import {useSelector} from "react-redux";
 import Organizations from "../model/organizations.js";
-import {DonorsRequests} from "../model/donor-requests.js";
+import {DonorsRequests} from "../model/donor/donor-requests.js";
 import {useState} from "react";
 import Icon from "@mdi/react";
 import {mdiMenuUpOutline} from "@mdi/js";

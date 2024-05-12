@@ -61,17 +61,17 @@ const cardData = {
         {
             title: "View Requests",
             icon: mdiHandCoin,
-            linkTo: "/donor/view-requests/",
+            linkTo: "/donor/view-requests/donor/",
         },
         {
             title: "View Organizations",
             icon: mdiDomain,
-            linkTo: "/view-organizations/",
+            linkTo: "/view-organizations/donor/",
         },
         {
             title: "Donation History",
             icon: mdiHistory,
-            linkTo: "/donor/view-requests",
+            linkTo: "/donor/view-donation-history/donor/",
         }
     ],
     admin : [

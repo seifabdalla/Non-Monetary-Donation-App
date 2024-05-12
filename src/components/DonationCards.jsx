@@ -6,7 +6,7 @@ export default function DonationCards(props){
     const {userID} = useParams();
     const navigate = useNavigate();
     const handleSeeMore = () => {
-        navigate(`/donor/request-details/${userID}`, {state: {cardObject: props.cardObject}});
+        navigate(`/donor/request-details/donor/${userID}`, {state: {cardObject: props.cardObject}});
     }
 
     return (
