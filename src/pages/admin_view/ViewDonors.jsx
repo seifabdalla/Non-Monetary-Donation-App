@@ -4,6 +4,7 @@ import DonorInfo from "../../components/DonorInfo.jsx";
 
 export  default  function ViewDonors(){
     const individualUsers = useSelector(state => state.IndividualUser.IndividualUsers);
+
     return (
         <><div className={"bg-teal-50 w-screen min-h-screen"}>
             <MainHeader/>
@@ -11,8 +12,8 @@ export  default  function ViewDonors(){
                 <div className={' w-full h-14 text-2xl  font-bold rounded-md text-center'}>Donors</div>
                 <div
                     className={' flex flex-row w-3/4 h-10 bg-teal-200 px-4 py-2 gap-80 items-start font-bold rounded-md text-center'}>
-                    <h1>Donor Name</h1>
-                    <h1>Details</h1>
+                    {/*<h1>Donor Name</h1>*/}
+                    {/*<h1>Details</h1>*/}
                 </div>
                 {individualUsers.map((user, index) => {
                     return (

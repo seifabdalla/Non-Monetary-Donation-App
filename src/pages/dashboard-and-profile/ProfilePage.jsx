@@ -8,6 +8,8 @@ import {StyledInput} from "../../components/styled-inputs/StyledInput.jsx";
 import CautionCard from "../../components/CautionCard.jsx";
 import MapStatic from "../../components/Mapstatic.jsx";
 import MapDynamic from "../../components/MapDynamics.jsx";
+import CustomSnackBar from "../../components/CustomSnackBar.jsx";
+
 
 export default function ProfilePage(){
 
@@ -18,6 +20,7 @@ export default function ProfilePage(){
     const {profileType , userID} = useParams();
     const [User,setUser] = useState(null);
     const [Edit,setEdit] =useState(false);
+    const [closedSnackBar,setIsClosedSnackBar] = useState(true);
     const individualUsers = useSelector(state => state.IndividualUser.IndividualUsers);
     const organizationUsers = useSelector(state => state.OrganizationUser.OrganizationUsers);
 
@@ -42,9 +45,17 @@ export default function ProfilePage(){
     const [numOfProBonoClasses, setNumOfProBonoClasses] = useState("");
     const [numOfStudents, setNumOfStudents] = useState("");
 
-    const [isAdminChangePassword, setAdminChangePassword] = useState(true);
+    const [isAdminChangePassword, setAdminChangePassword] = useState(false);
     function changepassowrd() {
         setAdminChangePassword(true);
+    }
+    const handleSave = () => {
+        setAdminChangePassword(false);
+        setIsClosedSnackBar(false);
+    }
+    const handleSaveUser = () => {
+        setEdit(false);
+        setIsClosedSnackBar(false);
     }
     useEffect(() => {
         if(User && User!=="admin"){
@@ -123,14 +134,16 @@ export default function ProfilePage(){
                                     </button>
                                     <button
                                         className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
-                                        onClick={() => setAdminChangePassword(false)}>
+                                        onClick={() => {
+                                            handleSave();
+                                        }}>
                                         Save
                                     </button>
                                 </div>
                             </>
 
                         }
-
+                        {(!closedSnackBar) && <CustomSnackBar message={"Password Changed Successfully"} setIsFinished={setIsClosedSnackBar} /> }
                         <div className={"w-full flex items-center justify-center mt-2"}>
                             <button className={"text-slate-100 bg-red-500 px-10 py-3 rounded-xl"}
                                     onClick={handleLogout}>
@@ -233,7 +246,8 @@ export default function ProfilePage(){
                             </button>
                             <button
                                 className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
-                                onClick={() => setEdit(false)}>
+                                onClick={() => {
+                                    handleSaveUser()}}>
                                 Save
                             </button>
                         </div>
@@ -322,6 +336,8 @@ export default function ProfilePage(){
                         {
                             (!Edit) &&
                             <div className={"w-full flex items-center justify-center mt-2"}>
+                                {(!closedSnackBar) && <CustomSnackBar message={"Personal Info Changed Successfully"} setIsFinished={setIsClosedSnackBar} /> }
+
                                 <button className={"text-slate-100 bg-red-500 px-10 py-3 rounded-xl"}
                                         onClick={handleLogout}>
                                     Log Out

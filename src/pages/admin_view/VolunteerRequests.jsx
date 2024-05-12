@@ -14,8 +14,8 @@ export default  function VolunteerRequests(){
                         <div className={' w-full h-14 text-2xl  font-bold rounded-md text-center'}>Volunteer Requests</div>
                         <div
                             className={' flex flex-row w-3/4 h-10 bg-teal-200 px-4 py-2 gap-80 items-start font-bold rounded-md text-center'}>
-                            <h1>Volunteer Name</h1>
-                            <h1>Details</h1>
+                            {/*<h1>Volunteer Name</h1>*/}
+                            {/*<h1>Details</h1>*/}
                         </div>
                 {VolunteeringRequests.map((request, index) => {
                 return (
