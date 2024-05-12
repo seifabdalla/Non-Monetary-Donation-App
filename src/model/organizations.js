@@ -12,14 +12,14 @@ const Organizations = [
             phone: "01000000000",
             email: "57357@help.com"
         },
-        firstName: "Alice",
-        lastName: "Smith",
+        firstName: "Mariam",
+        lastName: "Mohamed",
         gender: "Female",
-        email: "alice.smith@example.com",
+        email: "Mariam.Mohamed@example.com",
         password: "password1",
         contactNumber: "1234567890",
-        address: "123 Main St",
-        representativeArea: "Downtown",
+        address: "43 Taher Mohamed Taher",
+        representativeArea: "Fifth settlement",
         representativeGovernorate: "Cairo",
         location:{
             lat:30.0535314,
@@ -44,9 +44,9 @@ const Organizations = [
         password: "password2",
         contactNumber: "0987654321",
         organizationType: "For-profit",
-        address: "456 Elm St",
-        representativeArea: "Uptown",
-        representativeGovernorate: "Alexandria",
+        address: "45 Aziz Mareka",
+        representativeArea: "west el balad",
+        representativeGovernorate: "Cairo",
         location: {
         lat:30.0637828,
         lng:31.4689606
@@ -70,9 +70,9 @@ const Organizations = [
         password: "password2",
         contactNumber: "0987654321",
         organizationType: "For-profit",
-        address: "456 Elm St",
-        representativeArea: "Uptown",
-        representativeGovernorate: "Luxor",
+        address: "25 Almaza",
+        representativeArea: "Heliopolis",
+        representativeGovernorate: "Cairo",
         location: {
         lat:29.9844739,
         lng:31.4440297
@@ -95,12 +95,41 @@ const Organizations = [
         password: "password5",
         contactNumber: "0987654321",
         organizationType: "For-profit",
-        address: "456 Elm St",
-        representativeArea: "Uptown",
-        representativeGovernorate: "Luxor",
+        address: "21 Hegaz ",
+        representativeArea: "Heliopolis",
+        representativeGovernorate: "Cairo",
         location: {
             lat:30.0212262,
             lng:31.0033030
+        }
+
+
+    },
+    {
+        organizationId: 5,
+        name: "Al Orman",
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVAh3nIq8K6i2rLBlWJIIQk6vFSgd2JQYs6dXPrptwIQ&s",
+        description: "Al Orman charity organization ",
+        category: "Charity",
+        area: "6 of October",
+        Governorate: "Giza",
+        contactInfo : {
+            phone: "01000000000",
+            email: "AlOrman@help.com"
+        },
+        firstName: "Toni ",
+        lastName: "Kareem",
+        gender: "Male",
+        email: "Toni.Kareem@example.com",
+        password: "password5",
+        contactNumber: "0987654321",
+        organizationType: "For-profit",
+        address: "Beram El Tunsi",
+        representativeArea: "Uptown",
+        representativeGovernorate: "Cairo",
+        location: {
+            lat:30.0212262,
+            lng:31.5133030
         }
 
 

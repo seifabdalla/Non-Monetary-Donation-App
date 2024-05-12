@@ -1,10 +1,8 @@
 import Modal from '@mui/material/Modal';
 import PropTypes from "prop-types";
-import ProfilePage from "../pages/dashboard-and-profile/ProfilePage.jsx";
 import {Box} from "@mui/system";
 import {useEffect, useState} from "react";
-import Icon from '@mdi/react';
-import { mdiAttachment } from '@mdi/js';
+
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import StyledAttachment from "./styled-inputs/StyledAttachment.jsx";
@@ -71,28 +69,28 @@ export default function Post(props){
         setSelectedValue(event.target.value);
         switch (event.target.value) {
             case 'option1': // Toys
-                setFields(['Age', 'Gender','Type']);
+                setFields(['Age', 'Gender','Type','Amount']);
                 break;
             case 'option4':
-                setFields(['Blood Type']);
+                setFields(['Blood Type','Amount']);
                 break;
             case 'option2':
-                setFields(['Age', 'Gender', 'Size','Season']);
+                setFields(['Age', 'Gender', 'Size','Season','Amount']);
                 break;
             case 'option3':
-                setFields(['Type']);
+                setFields(['Type','Amount']);
                 break;
             case 'option5':
-                setFields(['Subject']);
+                setFields(['Subject','Amount']);
                 break;
             case 'option6':
-                setFields(['Case']);
+                setFields(['Case','Amount']);
                 break;
             case 'option7':
-                setFields(['Type']);
+                setFields(['Type','Amount']);
                 break;
             case 'option8':
-                setFields(['Type']);
+                setFields(['Type','Amount']);
                 break;
             // Add cases for other categories
             default:
@@ -104,25 +102,25 @@ export default function Post(props){
         if(!props.isPost){
         switch (props.category) {
             case 'Toys': // Toys
-                setFields(['Age', 'Gender','Type']);
+                setFields(['Age', 'Gender','Type','Amount']);
                 break;
             case 'Blood Donations':
-                setFields(['Blood Type']);
+                setFields(['Blood Type','Amount']);
                 break;
             case 'Clothes':
-                setFields(['Age', 'Gender', 'Size','Season']);
+                setFields(['Age', 'Gender', 'Size','Season','Amount']);
                 break;
             case 'Medical Supplies':
-                setFields(['Type']);
+                setFields(['Type','Amount']);
                 break;
             case 'Teaching Posts':
-                setFields(['Subject']);
+                setFields(['Subject','Amount']);
                 break;
             case 'Medical Cases':
-                setFields(['Case']);
+                setFields(['Case','Amount']);
                 break;
             case 'School Supplies':
-                setFields(['Type']);
+                setFields(['Type','Amount']);
                 break;
             // Add cases for other categories
             default:

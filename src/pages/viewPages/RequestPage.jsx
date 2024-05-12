@@ -53,9 +53,10 @@ export default function RequestPage() {
             return null;
         });
     };
-    console.log(cardObject.category);
 
-    return (
+
+    return (<>{!currUser&& <div>Loading...</div>}
+    {currUser&&
         <div className={"w-full min-h-screen flex flex-col items-center gap-2 bg-teal-50"}>
             <MainHeader />
             {
@@ -65,7 +66,7 @@ export default function RequestPage() {
             }
             {
                 cardObject.category === 'Medical Cases' && currUser
-                && currUser.type !== "Doctor" && !currUser.isVerified &&
+                && ((currUser.type !== "Doctor") ||(currUser.type === "Doctor" && !currUser.isVerified)) &&
                 <CautionCard message={"You Should be a Verified Doctor to fulfill this request!"} />
             }
 
@@ -144,6 +145,6 @@ export default function RequestPage() {
                 </div>
 
             </div>
-        </div>
+        </div>}</>
     )
 }
