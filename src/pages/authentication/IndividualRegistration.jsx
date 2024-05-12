@@ -60,7 +60,6 @@ export default function IndividualRegistration (){
     return (
         <div className="w-full h-full flex flex-col justify-center items-center overflow-x-hidden pt-6 pb-2">
             <form className="w-full flex flex-col items-center justify-center gap-4 py-6 px-4" onSubmit={handleSubmit}>
-                <h1 className="w-full text-5xl text-slate-200 font-logo text-center ">EغATHA</h1>
                 <div className={"flex flex-col items-center justify-center px-4"}>
                     <div className={"flex flex-row gap-6"}>
                         <StyledInput type="text" text="First Name" id="FirstName" value={FirstName}
@@ -97,9 +96,6 @@ export default function IndividualRegistration (){
                     Register
                 </button>
             </form>
-            <p className="text-slate-200">Already have an Account? <Link to="/login"
-                                                                            className="text-Tropical-Lagoon hover:underline">Login</Link>
-            </p>
             {
                 RegistrationDone && <CustomSnackBar message={"Registration Successful"} setIsFinished={setSnackBarFinished}  />
             }
