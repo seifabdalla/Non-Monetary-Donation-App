@@ -3,11 +3,13 @@ import {useSelector} from "react-redux";
 import {useNavigate, useParams} from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Icon from '@mdi/react';
-import { mdiPencil } from '@mdi/js';
+import {mdiDownload, mdiPencil} from '@mdi/js';
 import {StyledInput} from "../../components/styled-inputs/StyledInput.jsx";
 import CautionCard from "../../components/CautionCard.jsx";
 import MapStatic from "../../components/Mapstatic.jsx";
 import MapDynamic from "../../components/MapDynamics.jsx";
+import CustomSnackBar from "../../components/CustomSnackBar.jsx";
+
 
 export default function ProfilePage(){
 
@@ -18,6 +20,7 @@ export default function ProfilePage(){
     const {profileType , userID} = useParams();
     const [User,setUser] = useState(null);
     const [Edit,setEdit] =useState(false);
+    const [closedSnackBar,setIsClosedSnackBar] = useState(true);
     const individualUsers = useSelector(state => state.IndividualUser.IndividualUsers);
     const organizationUsers = useSelector(state => state.OrganizationUser.OrganizationUsers);
 
@@ -42,8 +45,18 @@ export default function ProfilePage(){
     const [numOfProBonoClasses, setNumOfProBonoClasses] = useState("");
     const [numOfStudents, setNumOfStudents] = useState("");
 
-    // const [individualType, setIndividualType] = useState("");
-
+    const [isAdminChangePassword, setAdminChangePassword] = useState(false);
+    function changepassowrd() {
+        setAdminChangePassword(true);
+    }
+    const handleSave = () => {
+        setAdminChangePassword(false);
+        setIsClosedSnackBar(false);
+    }
+    const handleSaveUser = () => {
+        setEdit(false);
+        setIsClosedSnackBar(false);
+    }
     useEffect(() => {
         if(User && User!=="admin"){
             setFirstName(User.firstName);
@@ -98,28 +111,39 @@ export default function ProfilePage(){
 
             {User === null && <div>Loading ...</div>}
             {User != null && profileType === "admin" &&
-                <div className="flex flex-col items-center justify-center h-full text-slate-100">
+                <div className="flex flex-col items-center justify-center h-full text-slate-950">
                     <Avatar sx={{width: 100, height: 100}}>
                         <div className="text-1xl ">Admin</div>
                     </Avatar>
+                    {!isAdminChangePassword&&<button
+                        className=" flex flex-row mt-4 mb-4 bg-Mystic-Teal text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                    onClick={changepassowrd}> Change Password
+                    </button>}
                     <div className="w-1/2 flex flex-col gap-4">
-                        <StyledInput className="text-2xl " type="password" text="Current Password" id="curr"/>
-                        <StyledInput className="text-2xl " type="password" text="New Password" id="new"/>
 
+                        {
+                            isAdminChangePassword &&
+                            <>
+                                <StyledInput className="text-2xl " type="password" text="Current Password" id="curr" color={"text-slate-950"}/>
+                                <StyledInput className="text-2xl " type="password" text="New Password" id="new" color={"text-slate-950"}/>
+                                <div className={'flex flex-row pt-7 pb-4 gap-5'}>
+                                    <button
+                                        className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                                        onClick={() => setAdminChangePassword(false)}>
+                                        Cancel
+                                    </button>
+                                    <button
+                                        className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                                        onClick={() => {
+                                            handleSave();
+                                        }}>
+                                        Save
+                                    </button>
+                                </div>
+                            </>
 
-                        <div className={'flex flex-row pt-7 pb-4 gap-5'}>
-                            <button
-                                className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
-                                onClick={() => setEdit(false)}>
-                                Cancel
-                            </button>
-                            <button
-                                className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
-                                onClick={() => setEdit(false)}>
-                                Save
-                            </button>
-
-                        </div>
+                        }
+                        {(!closedSnackBar) && <CustomSnackBar message={"Password Changed Successfully"} setIsFinished={setIsClosedSnackBar} /> }
                         <div className={"w-full flex items-center justify-center mt-2"}>
                             <button className={"text-slate-100 bg-red-500 px-10 py-3 rounded-xl"}
                                     onClick={handleLogout}>
@@ -130,8 +154,9 @@ export default function ProfilePage(){
 
                 </div>
             }
-            {User != null && Edit && User !== "admin" && profileType !== "admin" &&
-                <div className="flex justify-center h-[640px] overflow-y-auto overflow-hidden text-slate-100">
+            {
+                User != null && Edit && User !== "admin" && profileType !== "admin" &&
+                <div className="flex justify-center h-[640px] overflow-y-auto overflow-hidden text-black">
 
                     <div
                         className=" w-full p-7 flex-col justify-between  ">
@@ -141,75 +166,75 @@ export default function ProfilePage(){
                         </Avatar>
 
                         <StyledInput className="text-2xl " type="text" text="First Name" id="firstName"
-                                     value={firstName}
+                                     value={firstName} color={"text-slate-950"}
                                      onChange={setFirstName}/>
                         <StyledInput className="text-2xl " type="text" text="Last Name" id="LastName" value={lastName}
-                                     onChange={setLastName}/>
+                                     onChange={setLastName} color={"text-slate-950"}/>
 
                         <StyledInput className="text-2xl " type="text" text="Email" id="Email" value={email}
-                                     onChange={setEmail}/>
+                                     onChange={setEmail} color={"text-slate-950"}/>
                         <StyledInput className="text-2xl " type="password"  text="Password" id="password" value={password}
-                                     onChange={setPassword}/>
+                                     onChange={setPassword} color={"text-slate-950"}/>
 
 
                         <StyledInput className="text-2xl " type="text" text="Contact Number" id="Contact Number"
                                      value={contactNumber}
-                                     onChange={setContactNumber}/>
+                                     onChange={setContactNumber} color={"text-slate-950"}/>
                         {profileType === "organization" &&
                             <StyledInput className="text-2xl " type="text" text="Organization Name"
                                          id="OrganizationName" value={organizationName}
-                                         onChange={setOrganizationName}/>}
+                                         onChange={setOrganizationName} color={"text-slate-950"}/>}
                         {profileType === "organization" &&
                             <StyledInput className="text-2xl " type="text" text="Organization Type"
                                          id="OrganizationType" value={organizationType}
-                                         onChange={setOrganizationType}/>}
+                                         onChange={setOrganizationType} color={"text-slate-950"}/>}
                         <StyledInput className="text-2xl " type="text" text="Governorate" id="Governorate"
                                      value={governorate}
-                                     onChange={setGovernorate}/>
+                                     onChange={setGovernorate} color={"text-slate-950"}/>
 
 
                         <StyledInput className="text-2xl " type="text" text="Area" id="Area" value={area}
-                                     onChange={setArea}/>
+                                     onChange={setArea} color={"text-slate-950"}/>
                         {profileType === "donor" &&
                             <StyledInput className="text-2xl " type="text" text="Address" id="Address" value={address}
-                                         onChange={setAddress}/>}
+                                         onChange={setAddress} color={"text-slate-950"}/>}
                         {profileType === "organization" &&
                             <StyledInput className="text-2xl " type="text" text="Organization Address" id="Address"
-                                         value={address} onChange={setAddress}/>}
+                                         value={address} onChange={setAddress} color={"text-slate-950"}/>}
                         {profileType === "donor" && User.type === "Doctor" && <> <StyledInput className="text-2xl "
                                                                                                    type="text"
                                                                                                    text="Clinic Area"
                                                                                                    id="ClinicArea" onChange={setClinicArea}
-                                                                                                   value={clinicArea}/>
+                                                                                                   value={clinicArea} color={"text-slate-950"}/>
                             <StyledInput className="text-2xl " type="text" text="Clinic Address" id="ClinicAddress" onChange={setClinicAddress}
-                                         value={clinicAddress}/> <StyledInput className="text-2xl " type="text"
+                                         value={clinicAddress} color={"text-slate-950"}/> <StyledInput className="text-2xl " type="text"
                                                                  text="Clinic Governorate" id="ClinicGovernorate" onChange={setClinicGovernorate}
                                                                  value={clinicGovernorate}/> <StyledInput className="text-2xl "
                                                                                          type="text"
                                                                                          text="Number of pro-bono cases"
                                                                                          id="NumOfProBono"
                                                                                          onChange={setNumOfProBono}
-                                                                                         value={numOfProBono}/>
+                                                                                         value={numOfProBono} color={"text-slate-950"}/>
                                                                                         <StyledInput className="text-2xl "
                                                                                                  type="text"
                                                                                                  text="Speciality"
                                                                                                  id="Speciality"
                                                                                                     onChange={setSpeciality}
-                                                                                                 value={speciality}/></>}
-                        {profileType === "donor" && User.type === "Teacher" && <> <StyledInput
-                            className="text-2xl " type="text" text="Subjects" id="Subjects" value={subjects} onChange={setSubjects}/> <StyledInput
+                                                                                                 value={speciality} color={"text-slate-950"}/></>}
+                        {profileType === "donor" && User.type === "Teacher" && <> <StyledInput color={"text-slate-950"}
+                            className="text-2xl " type="text" text="Subjects" id="Subjects" value={subjects} onChange={setSubjects}/> <StyledInput color={"text-slate-950"}
                             className="text-2xl " type="text" text="Number of Private Classes" id="NumOfProBonoClasses" onChange={setNumOfProBonoClasses}
                             value={numOfProBonoClasses}/> <StyledInput className="text-2xl " type="text" text="Number Of Students"
-                                                    id="NumOfStudents" value={numOfStudents} onChange={setNumOfStudents}/></>}
+                                                    id="NumOfStudents" value={numOfStudents} onChange={setNumOfStudents} color={"text-slate-950"}/></>}
                         {
                             profileType === "donor" && User.type === "Doctor" && !User.workingInfo && <div className={'pt-4'}>
-                                Clinic Location
-                                <MapDynamic></MapDynamic>
+                                <div className="text-2xl font-bold">Clinic Location</div>
+                                    <MapDynamic></MapDynamic>
                             </div>
                         }
                         {
                             profileType === "organization" && !User.workingInfo && <div className={'pt-4'}>
-                                Organization Location
+                                <div className="text-2xl">Organization Location</div>
                                 <MapDynamic ></MapDynamic>
                             </div>
                         }
@@ -221,7 +246,8 @@ export default function ProfilePage(){
                             </button>
                             <button
                                 className="w-full bg-Tropical-Lagoon text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
-                                onClick={() => setEdit(false)}>
+                                onClick={() => {
+                                    handleSaveUser()}}>
                                 Save
                             </button>
                         </div>
@@ -245,10 +271,10 @@ export default function ProfilePage(){
                                 <div className="text-6xl ">{User.firstName.charAt(0) + "" + User.lastName.charAt(0)}</div>
                             </Avatar>
                             <button onClick={() => setEdit(true)}>
-                                <Icon path={mdiPencil} size={2} color={"#FFFFFF"}/>
+                                <Icon path={mdiPencil} size={2} color={"#000000"}/>
                             </button>
                         </div>
-                        <div className=" flex flex-col  gap-8 p-2  h-auto ">
+                        <div className=" flex flex-col  gap-8 p-2  h-auto text-slate-950">
 
                             <div className="text-2xl">FirstName: {User.firstName}</div>
                             <div className="text-2xl">LastName: {User.lastName}</div>
@@ -310,6 +336,8 @@ export default function ProfilePage(){
                         {
                             (!Edit) &&
                             <div className={"w-full flex items-center justify-center mt-2"}>
+                                {(!closedSnackBar) && <CustomSnackBar message={"Personal Info Changed Successfully"} setIsFinished={setIsClosedSnackBar} /> }
+
                                 <button className={"text-slate-100 bg-red-500 px-10 py-3 rounded-xl"}
                                         onClick={handleLogout}>
                                     Log Out

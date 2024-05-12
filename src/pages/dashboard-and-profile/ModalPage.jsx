@@ -10,7 +10,7 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 'auto',
     height: 'auto',
-    backgroundColor: '#042f2e',
+    backgroundColor: '#f0fdfa',
     border: '2px solid #03312e',
     color: 'white',
     borderRadius: '8px',

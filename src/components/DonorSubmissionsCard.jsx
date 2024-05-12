@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 import {useState} from "react";
 import Icon from '@mdi/react';
 import {mdiDownload, mdiMenuUpOutline} from '@mdi/js';
-
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 
 export default function DonorSubmissionsCard(props){
@@ -10,6 +11,33 @@ export default function DonorSubmissionsCard(props){
     const handleExpand = () => {
         setExpanded((prevState) => !prevState);
     }
+    const handleAccept = () => {
+        handleExpand();
+        withReactContent(Swal).fire({
+            title: "Success",
+            text: "Donor accepted successfully",
+            icon: "success",
+            confirmButtonColor: "#00B9AE"
+
+        });}
+    const handleDownload = () => {
+        withReactContent(Swal).fire({
+            title: "Success",
+            text: "Donor Files downloaded successfully",
+            icon: "success",
+            confirmButtonColor: "#00B9AE"
+
+        });}
+    const handleDelete = () => {
+        handleExpand();
+        withReactContent(Swal).fire({
+            title: "Success",
+            text: "Donor Rejected Successfully ",
+            icon: "success",
+            confirmButtonColor: "#00B9AE"
+
+        });}
+
 
     return (
         <div
@@ -24,26 +52,26 @@ export default function DonorSubmissionsCard(props){
                 </button>
             </div>
             <div className={"font-mono text-xl text-black"}>
-                Type : Donor
+                <span  className="font-bold">Type : </span>Donor
             </div>
             <div className={"font-mono text-xl text-black"}>
-                Individual Type : {props.request.indtype}
+                <span  className="font-bold">Individual Type : </span>{props.request.indtype}
             </div>
             {
                 isExpanded &&
                 <div className="font-mono text-xl text-black flex flex-col justify-between w-full">
                     <div className="font-mono text-xl text-black flex flex-row justify-between w-full">
                         <div className="flex-col ">
-                            <div>Email: {props.request.email}</div>
-                            <div>Gender: {props.request.gender}</div>
-                            <div>Address: {props.request.address}</div>
-                            <div>Governorate: {props.request.governorate}</div>
+                            <div> <span  className="font-bold">Email: </span>{props.request.email}</div>
+                            <div> <span  className="font-bold">Gender: </span>{props.request.gender}</div>
+                            <div> <span  className="font-bold">Address: </span>{props.request.address}</div>
+                            <div><span  className="font-bold">Governorate: </span>{props.request.governorate}</div>
 
                         </div>
                         <div className="flex-col ">
-                            <div>Password:{props.request.password}</div>
-                            <div>Contact number: {props.request.contact_number}</div>
-                            <div>Area: {props.request.area}</div>
+                            <div><span  className="font-bold">Password: </span>{props.request.password}</div>
+                            <div><span  className="font-bold">Contact number: </span>{props.request.contact_number}</div>
+                            <div><span  className="font-bold">Area: </span>{props.request.area}</div>
 
                         </div>
 
@@ -52,17 +80,20 @@ export default function DonorSubmissionsCard(props){
                     <div className="flex flex-col justify-center items-center">
                         <button
                             className=" flex flex-row w-1/3 mb-4 bg-Mystic-Teal text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-Vibrant-Turquoise hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                        onClick={handleDownload}
                         > Download Donor legal Files<Icon path={mdiDownload} size={1}
                                                           className={"transition-transform duration-300 text-black"}/>
                         </button>
                         <div className="flex flex-row gap-4">
                             <button
                                 className=" bg-green-400 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-green-600 hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                            onClick={handleAccept}
                             >
                                 Accept
                             </button>
                             <button
                                 className=" bg-red-500 text-Midnight-Pine font-bold rounded-md px-4 py-2 hover:shadow-lg  hover:bg-red-700 hover:text-Midnight-Pine transition-colors duration-300 ease-linear"
+                            onClick={handleDelete}
                             >
                                 Reject
                             </button>

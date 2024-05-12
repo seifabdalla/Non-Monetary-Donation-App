@@ -52,4 +52,5 @@ CustomSnackBar.propTypes = {
 CustomSnackBar.defaultProps = {
     message: "",
     severity: "success",
+    setIsFinished : () => {}
 }

@@ -12,8 +12,8 @@ export default function Requests_listView() {
             <div className={' w-full h-14 text-2xl  font-bold rounded-md text-center'}>Registration Requests</div>
             <div
                 className={' flex flex-row w-3/4 h-10 bg-teal-200 px-4 py-2 gap-80 items-start font-bold rounded-md text-center'}>
-                <h1>Registration request</h1>
-                <h1>Details</h1>
+                {/*<h1>Registration request</h1>*/}
+                {/*<h1>Details</h1>*/}
             </div>
             {
                 RegRequests.map((request, index) => {

@@ -54,4 +54,9 @@ const notificationsDummyData = {
         "Request 'Donating Clothes to Masr Al Kheir' is fulfilled and the Delivery pickup is set to Tomorrow 6:00 pm",
         "Request 'Teaching Post' is fulfilled, We are waiting for you on the 14th of March"
     ],
+    admin : [
+        "New Donor Registered as a Doctor, Waiting your Validation",
+        "2 Organizations registered and waiting your Validation",
+        "it's been 40 days since you last changed your password, Don't forget to change it!"
+    ],
 }
