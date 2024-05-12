@@ -42,8 +42,11 @@ export function RegisterPage(){
                                 <p className="text-slate-200">
                                     Already have an Account?
                                     <Link to="/login" className="ml-1 text-Tropical-Lagoon hover:underline">
-                                         Login
+                                        Login
                                     </Link>
+                                </p>
+                                <p className="text-slate-200">Return to <Link to="/"
+                                                                              className="text-Tropical-Lagoon hover:underline">Homepage</Link>
                                 </p>
                             </div>
 

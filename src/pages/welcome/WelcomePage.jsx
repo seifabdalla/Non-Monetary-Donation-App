@@ -4,6 +4,7 @@ import { StatisticsCircle } from "../../components/StatisticsCircle.jsx";
 import {info} from "../../model/about-us.js";
 import { Link } from "react-router-dom";
 import "../../assets/styles/animations.css"
+import TrustedBySlider from "../../components/TrustedBySlider.jsx";
 
 export function WelcomePage() {
     return (
@@ -24,21 +25,25 @@ export function WelcomePage() {
                     <img src={orphanImage} alt="Refugee Orphan" className="w-[36rem] h-auto shadow-lg rounded-md" />
                 </div>
             </div>
-            <div id="about-us" className="w-full h-full py-6 bg-Midnight-Pine text-slate-100 mt-20 px-5 flex flex-col gap-4">
-                <div className="flex flex-row items-start justify-evenly">
-                    {
-                        info.map((item) => {
-                            return (
-                                <StatisticsCircle title={item.title} description={item.description} value={item.value} key={item.title} />
-                            );
-                        })
-                    }
-                </div>
-                <div className="text-center text-wrap">
-                    Join us and <Link to="/register" className="text-Tropical-Lagoon hover:cursor-pointer hover:underline hover:underline-offset-2">make a difference</Link> in the lives of orphans and refugees!
-                    Already have an account? <Link to="/login" className="text-Tropical-Lagoon hover:cursor-pointer hover:underline hover:underline-offset-2">Login</Link>
+            <div className={"flex flex-col w-full gap-0 mt-20"}>
+                <TrustedBySlider />
+                <div id="about-us" className="w-full h-full py-6 bg-Midnight-Pine text-slate-100 px-5 flex flex-col gap-4">
+                    <div className="flex flex-row items-start justify-evenly">
+                        {
+                            info.map((item) => {
+                                return (
+                                    <StatisticsCircle title={item.title} description={item.description} value={item.value} key={item.title} />
+                                );
+                            })
+                        }
+                    </div>
+                    <div className="text-center text-wrap">
+                        Join us and <Link to="/register" className="text-Tropical-Lagoon hover:cursor-pointer hover:underline hover:underline-offset-2">make a difference</Link> in the lives of orphans and refugees!
+                        Already have an account? <Link to="/login" className="text-Tropical-Lagoon hover:cursor-pointer hover:underline hover:underline-offset-2">Login</Link>
+                    </div>
                 </div>
             </div>
+
         </div>
     );
 }
