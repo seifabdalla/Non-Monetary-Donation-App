@@ -67,7 +67,7 @@ export default function OrganizationInfo(props) {
                          className={"transition-transform duration-300 text-black"}/>
                </button>}
            </div>
-           {isExpanded && <div className="flex flex-col ml-96 gap-4 justify-center items-center">
+           {isExpanded && <div className="flex flex-col ml-72 gap-4 justify-center items-center">
                <div className="font-bold">Organization Location</div>
                <MapStatic location={props.organization.location}/>
                <button

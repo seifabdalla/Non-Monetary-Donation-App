@@ -1,23 +1,30 @@
-import {useLocation, useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate,useParams} from 'react-router-dom';
 import MainHeader from "../../components/MainHeader.jsx";
 import StyledQuantitySelect from "../../components/styled-inputs/StyledQuantitySelect.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import TargetProgressBar from "../../components/TargetProgressBar.jsx";
 import MapStatic from "../../components/Mapstatic.jsx";
 import SelectDeliveryOptions from "../../components/SelectDeliveryOptions.jsx";
 import Swal from 'sweetalert2'
+import {IndividualUsers} from "../../model/donor/donors.js";
+import CautionCard from "../../components/CautionCard.jsx";
 
 export default function RequestPage() {
     const location = useLocation();
+    const {userID} = useParams();
     const navigate = useNavigate();
     const cardObject = location.state.cardObject;
-    console.log(cardObject.category)
+    const [currUser,setCurrUser] = useState(null);
     const [value, setValue] = useState(0);
     const mapLocation = {
         lat: 30.0525711,
         lng: 31.4850933
     }
-    // const primeReactContext = useContext(PrimeReactContext);
+
+    useEffect(
+        () => {
+            setCurrUser(IndividualUsers[userID-1]);
+        },[currUser, userID]);
 
     const handleDoneButton = () => {
         console.log("Donation Successful")
@@ -46,10 +53,22 @@ export default function RequestPage() {
             return null;
         });
     };
+    console.log(cardObject.category);
 
     return (
-        <div className={"w-full min-h-screen flex flex-col bg-teal-50"}>
+        <div className={"w-full min-h-screen flex flex-col items-center gap-2 bg-teal-50"}>
             <MainHeader />
+            {
+                cardObject.category === 'Teaching Posts' && currUser
+                && ((currUser.type !== "Teacher") || (currUser.type === "Teacher" && !currUser.isVerified)) &&
+                <CautionCard message={"You Should be a Verified Teacher to fulfill this request!"} />
+            }
+            {
+                cardObject.category === 'Medical Cases' && currUser
+                && currUser.type !== "Doctor" && !currUser.isVerified &&
+                <CautionCard message={"You Should be a Verified Doctor to fulfill this request!"} />
+            }
+
             <div className={"h-full w-full flex flex-grow"}>
                 <div className={"w-1/3 min-h-screen flex flex-col items-center justify-center"}>
                     <img src={cardObject.imgUrl} alt={cardObject.title} className={"w-[420px]"}/>
@@ -109,7 +128,11 @@ export default function RequestPage() {
 
                         }
                         {
-                            (cardObject.category === "Medical Cases" || cardObject.category === "Teaching Posts" || cardObject.category === "Blood Donations") &&
+                            (cardObject.category === "Medical Cases" || cardObject.category === "Teaching Posts" || cardObject.category === "Blood Donations")
+                            && !(cardObject.category === 'Teaching Posts' && currUser
+                                && currUser.type !== "Teacher" || (currUser.type == "Teacher" && !currUser.isVerified))
+                            && !(cardObject.category === 'Medical Cases' && currUser
+                                && currUser.type !== "Doctor" || (currUser.type == "Doctor" && !currUser.isVerified)) &&
                             <button
                                 className={"bg-Mystic-Teal mt-3 text-slate-100 py-3 px-10 rounded-xl hover:bg-Deep-Sea-Emerald transition-colors duration-500"}
                                 onClick={handleDoneButton}>

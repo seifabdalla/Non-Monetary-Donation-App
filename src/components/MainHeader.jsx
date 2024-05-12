@@ -46,6 +46,6 @@ MainHeader.propTypes = {
     isDashboard : propTypes.bool
 }
 
-MainHeader.propTypes.defaultProps = {
+MainHeader.defaultProps = {
     isDashboard : false
 }
