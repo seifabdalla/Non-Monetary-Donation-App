@@ -15,7 +15,7 @@ export default function ViewOrganizations(){
 
     const handleSeeMore = (organizationDetails) => {
         console.log(organizationDetails);
-        navigate("/viewOrgDetails/"+userID, {state: {organizationDetails}});
+        navigate("/viewOrgDetails/donor/"+userID, {state: {organizationDetails}});
     }
 
     const handleSearch = (event) => {

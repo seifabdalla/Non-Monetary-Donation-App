@@ -132,7 +132,6 @@ export default function ProfilePage(){
             }
             {User != null && Edit && User !== "admin" && profileType !== "admin" &&
                 <div className="flex justify-center h-[640px] overflow-y-auto overflow-hidden text-slate-100">
-
                     <div
                         className=" w-full p-7 flex-col justify-between  ">
 
@@ -230,7 +229,6 @@ export default function ProfilePage(){
                 </div>}
             {
                 User != null && !Edit && profileType!=="admin" && <div className="flex justify-center  text-slate-100">
-
                     <div
                         className="w-full p-7 flex flex-col items-center h-[640px] overflow-y-auto overflow-hidden">
                         {profileType === "donor" && User.type === "Doctor" && !User.workingInfo && <CautionCard
