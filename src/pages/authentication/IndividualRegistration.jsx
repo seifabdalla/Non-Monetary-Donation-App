@@ -86,7 +86,14 @@ export default function IndividualRegistration (){
 
                 {(individualType === "Doctor" || individualType === "Teacher") ?
                     <div className="w-full mt-1 flex flex-col items-center justify-center">
-                        <h4>Enter Legal Documents</h4>
+                        {
+                            individualType === "Doctor" &&
+                                <h4>Enter Medical School Certificate and Resume</h4>
+                        }
+                        {
+                            individualType === "Teacher" &&
+                            <h4>Enter Resume and Previous Teaching Experiences</h4>
+                        }
                         <StyledFileInput/>
                     </div>
                     : null}
