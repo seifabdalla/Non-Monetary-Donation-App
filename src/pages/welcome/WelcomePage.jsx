@@ -4,6 +4,7 @@ import { StatisticsCircle } from "../../components/StatisticsCircle.jsx";
 import {info} from "../../model/about-us.js";
 import { Link } from "react-router-dom";
 import "../../assets/styles/animations.css"
+import TrustedBySlider from "../../components/TrustedBySlider.jsx";
 
 export function WelcomePage() {
     return (
@@ -24,6 +25,7 @@ export function WelcomePage() {
                     <img src={orphanImage} alt="Refugee Orphan" className="w-[36rem] h-auto shadow-lg rounded-md" />
                 </div>
             </div>
+            <TrustedBySlider />
             <div id="about-us" className="w-full h-full py-6 bg-Midnight-Pine text-slate-100 mt-20 px-5 flex flex-col gap-4">
                 <div className="flex flex-row items-start justify-evenly">
                     {
