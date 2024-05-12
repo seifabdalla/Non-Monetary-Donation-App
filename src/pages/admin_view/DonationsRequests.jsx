@@ -1,5 +1,5 @@
 import MainHeader from "../../components/MainHeader.jsx";
-import {DonorsRequests} from "../../model/donor-requests.js";
+import {DonorsRequests} from "../../model/donor/donor-requests.js";
 import RequestsCard from "../../components/RequestsCard.jsx";
 
 

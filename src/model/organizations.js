@@ -76,7 +76,33 @@ const Organizations = [
         location: {
         lat:29.9844739,
         lng:31.4440297
+        },},{
+        organizationId: 4,
+        name: "Bahya",
+        imageUrl: "https://assets-global.website-files.com/64c7f4cbdcc768b8275308ea/65a66d672b0ccfc5d55289b8_%D8%A8%D9%87%D9%8A%D8%A9.png",
+        description: "Bahya hospital for treatment of breast cancer",
+        category: "Hospiatl",
+        area: "6 of October",
+        Governorate: "Giza",
+        contactInfo : {
+            phone: "01000000000",
+            email: "Bahya@help.com"
+        },
+        firstName: "Antonio ",
+        lastName: "Rudiger",
+        gender: "Male",
+        email: "Antonio.Rudiger@example.com",
+        password: "password5",
+        contactNumber: "0987654321",
+        organizationType: "For-profit",
+        address: "456 Elm St",
+        representativeArea: "Uptown",
+        representativeGovernorate: "Luxor",
+        location: {
+            lat:30.0212262,
+            lng:31.0033030
         }
+
 
     }
 
