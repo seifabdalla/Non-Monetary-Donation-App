@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'logo-font';
+    src: url('assets/fonts/ArefRuqaaInk-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'slogan-font';
+    src: url('./assets/fonts/Graduate-Regular.ttf');
+}

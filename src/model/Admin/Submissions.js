@@ -1,0 +1,98 @@
+export const RegRequests  = [
+
+    {
+        type: "organization",
+        first_name: "Taher",
+        last_name: "Mohamed",
+        gender: "Male",
+        email: "Taher.Mohamed@example.com",
+        password: "password123",
+        contact_number: "+20 1234567890",
+        organization: {
+            name: "Dar el hayah",
+            type: "Charity",
+            address: "123 Fareed semeka",
+            area: "Heliopolis",
+            governorate: "Cairo"
+
+        },
+    },
+    {
+        type: "organization",
+    first_name: "Mariam",
+    last_name: "Mostafa",
+    gender: "Female",
+    email: "Mariam.Mostafa@example.com",
+    password: "securepass321",
+    contact_number: "+20 1987654321",
+    organization: {
+    name: "HealthCare Foundation",
+        type: "Hospital",
+        address: "25 Ahmed Hassan",
+        area: "Max",
+        governorate: "Alexandria"
+    }
+},
+    {
+        type:"donor",
+        first_name: "Kareem",
+        last_name: "El eraky",
+        gender: "Male",
+        email: "david.brown@example.com",
+        password: "donorpass456",
+        contact_number: "+1122334455",
+        indtype: "Doctor",
+        address: "124 sayed el dazwy",
+        area: "cornesh",
+        governorate: "Portsaid"
+    },
+    { type:"donor",
+        first_name: "Shahitaz",
+        last_name: "El ola ",
+        gender: "Female",
+        email: "Shahi.galal@example.com",
+        password: "donorpass789",
+        contact_number: "+20 1088776655",
+        indtype: "Teacher",
+        address: "125 Ahmed Fakhry lakay",
+        area: "Nasr City",
+        governorate: "Cairo"
+    },
+    { type:"donor",
+        first_name: "Sarah",
+        last_name: "Ahmed",
+        gender: "Female",
+        email: "sarah.Ahmed@example.com",
+        password: "donorpass789",
+        contact_number: "+20 11988776655",
+        indtype: "Teacher",
+        address: "42 Hossam Hassan",
+        area: "Maadi",
+        governorate: "Cairo"
+    },
+    { type:"donor",
+        first_name: "Hossam",
+        last_name: "Paulo",
+        gender: "Male",
+        email: "Hossam.Paulo@example.com",
+        password: "donorpass789",
+        contact_number: "+20 12988776655",
+        indtype: "Teacher",
+        address: "25 raml station",
+        area: "Smouha",
+        governorate: "Alexandia"
+    },
+    { type:"donor",
+        first_name: "Shady",
+        last_name: "Mohamed",
+        gender: "Male",
+        email: "Shady.Mohamed@example.com",
+        password: "donorpass789",
+        contact_number: "+ 20 129988776655",
+        indtype: "Teacher",
+        address: "23 Ahmed fakhry lakay",
+        area: "Nasr City",
+        governorate: "Cairo"
+    },
+
+];
